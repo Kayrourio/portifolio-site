@@ -1,0 +1,116 @@
+/* ─────────────────────────────────────────────
+   Global styles
+   1. Bootstrap variable overrides
+   2. Base reset / normalize
+   3. Utility classes used globally
+   ───────────────────────────────────────────── */
+
+/* ── 1. Bootstrap overrides ──────────────────
+   Override Bootstrap's CSS variables so all
+   Bootstrap components automatically use our
+   design tokens. Must come after bootstrap import.
+   ─────────────────────────────────────────── */
+:root {
+  /* Map Bootstrap color system to our palette */
+  --bs-primary:        var(--color-primary);
+  --bs-primary-rgb:    176, 137, 255;
+  --bs-body-bg:        var(--color-bg);
+  --bs-body-color:     var(--color-text);
+  --bs-body-font-family: var(--font-body);
+  --bs-border-color:   var(--color-border);
+  --bs-border-radius:  var(--radius-md);
+  --bs-border-radius-sm: var(--radius-sm);
+  --bs-border-radius-lg: var(--radius-lg);
+  --bs-link-color:     var(--color-primary);
+  --bs-link-hover-color: var(--color-primary-hover);
+  --bs-focus-ring-color: rgba(176, 137, 255, 0.35);
+  --bs-success-rgb:    34, 197, 94;
+  --bs-warning-rgb:    245, 158, 11;
+  --bs-danger-rgb:     239, 68, 68;
+}
+
+/* ── 2. Base reset ───────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary-light);
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Remove default list styles when used for nav */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Focus ring — accessible and on-brand */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── 3. Reduced motion ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── 4. Global utilities ─────────────────────── */
+.container-site {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

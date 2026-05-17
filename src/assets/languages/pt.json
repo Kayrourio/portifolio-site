@@ -5,12 +5,17 @@
       "first": "Kaike",
       "last": "Boechat"
     },
-    "title": "Desenvolvedor de Software",
+    "roles": [
+      "Desenvolvedor de Software",
+      "Desenvolvedor Full-stack",
+      "Engenheiro de Automação",
+      "Entusiasta de Robótica"
+    ],
     "description": "Código, robôs e um pouco de caos. Desenvolvedor full-stack focado em automação e robótica, transformando problemas difíceis em coisas que funcionam e, às vezes, que se movem.",
-    "cta": "Ver meu trabalho",
-    "miniHeader": {
-      "projects": "projetos",
-      "contact": "contato"
-    }
+    "cta": "Ver meu trabalho"
+  },
+  "nav": {
+    "projects": "projetos",
+    "contact": "contato"
   }
 }

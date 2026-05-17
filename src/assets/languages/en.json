@@ -5,12 +5,17 @@
       "first": "Kaike",
       "last": "Boechat"
     },
-    "title": "Software Developer",
+    "roles": [
+      "Software Developer",
+      "Full-stack Developer",
+      "Automation Engineer",
+      "Robotics Enthusiast"
+    ],
     "description": "Code, robots, and a bit of chaos. Full-stack developer focused on automation and robotics, turning hard problems into things that ship, and sometimes, things that move.",
-    "cta": "See My Work",
-    "miniHeader": {
-      "projects": "projects",
-      "contact": "contact"
-    }
+    "cta": "See My Work"
+  },
+  "nav": {
+    "projects": "projects",
+    "contact": "contact"
   }
 }
