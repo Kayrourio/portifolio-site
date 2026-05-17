@@ -7,26 +7,27 @@
     },
     "roles": [
       "Desenvolvedor de Software",
+      "Estudante Universitário",
       "Desenvolvedor Full-stack",
-      "Engenheiro de Automação",
-      "Entusiasta de Robótica"
+      "Estudante de Engenharia de Robôs",
+      "Nerd e Geek"
     ],
-    "description": "Código, robôs e um pouco de caos. Desenvolvedor full-stack focado em automação e robótica, transformando problemas difíceis em coisas que funcionam e, às vezes, que se movem.",
-    "cta": "Ver meu trabalho"
+    "description": "Código, robôs e um pouco de caos. Desenvolvedor full-stack focado em automação e robótica, transformando problemas difíceis em coisas que funcionam, e às vezes, em coisas que se movem.",
+    "cta": "Ver Meu Trabalho"
   },
   "about": {
-    "label": "01 — Sobre",
-    "subtitle": "Quem sou eu •",
+    "label": "01, Sobre",
+    "subtitle": "Quem sou •",
     "headline": {
       "p1": "Nascido em ",
-      "loc1": "Nova Iorque",
+      "loc1": "Nova York",
       "p2": ", criado no ",
       "loc2": "Brasil",
-      "p3": " — construindo coisas desde a era do Lego."
+      "p3": ", construindo coisas desde a época do Lego."
     },
     "photo_alt": "Kaike Boechat",
-    "bio_1": "Desde criança, sempre apaixonado por tecnologia e criação. Do Lego à robótica, sempre adorei construir coisas. Comecei a programar aos 13, virei profissional aos 15 e nunca parei.",
-    "bio_2": "Hoje sou desenvolvedor full-stack, estudante de robótica na UFV e integrante do NERo, onde desenvolvo software para robôs educacionais. Gosto de problemas difíceis, código limpo e coisas que se movem.",
+    "bio_1": "Desde criança, sempre fui ligado em tecnologia e em construir coisas. Comecei a programar aos 13, transformei isso em profissão aos 15, e não parei mais. De scripts de RPA a microsserviços no GCP, os problemas só ficam maiores.",
+    "bio_2": "Hoje sou desenvolvedor full-stack, estudante de Engenharia de Robôs na UFV e faço parte do NERo, onde desenvolvo software para robôs educacionais. Gosto de problemas difíceis, código limpo e coisas que realmente se movem.",
     "quote": "\"Código e robôs.\"",
     "area_label": "Área",
     "areas": {
@@ -36,42 +37,42 @@
     }
   },
   "history": {
-    "label": "02 — Histórico",
+    "label": "02, Histórico",
     "subtitle": "Linha do Tempo •",
-    "period": "2020 → Agora",
+    "period": "2022 → Hoje",
     "media_placeholder": "Vídeos / Fotos",
     "headline": {
-      "p1": "Seis anos de ",
-      "h1": "história de desenvolvimento",
-      "p2": ", da primeira ",
-      "h2": "linha de código",
-      "p3": " à ",
+      "p1": "Três anos de ",
+      "h1": "experiência profissional",
+      "p2": ", do primeiro ",
+      "h2": "projeto freelance",
+      "p3": " até a ",
       "h3": "universidade"
     },
     "events": {
       "spark": {
-        "title": "O Começo",
-        "description": "Um kit de robótica, o primeiro computador e tutoriais de Python à meia-noite. Onde tudo começa."
+        "title": "O Início",
+        "description": "Primeiro computador, tutoriais de Python e muitas madrugadas. Foi aqui que tudo começou."
       },
       "first": {
         "title": "Primeiros Projetos",
-        "description": "Primeiros trabalhos pagos. Automações, sites pequenos e o início de uma carreira."
+        "description": "Primeiro trabalho freelance pago aos 15 anos. RPA, automações, integrações de API, tudo em Python."
       },
       "pro": {
-        "title": "Profissional",
-        "description": "Primeiro emprego em tempo integral aos 15 anos. Desenvolvendo produtos reais na Etho Soluções."
+        "title": "Profissionalização",
+        "description": "Full-time na Etho Soluções. Plataformas reais para clientes reais, microsserviços no GCP e fluxos com IA."
       },
       "nero": {
         "title": "Universidade & NERo",
-        "description": "Ciência da Computação na UFV. Entrei no NERo — construindo robôs educacionais que competem."
+        "description": "Engenharia de Robôs na UFV. Entrei no NERo, desenvolvendo software para robôs educacionais de competição."
       }
     }
   },
   "projects": {
-    "label": "03 — Projetos",
+    "label": "03, Projetos",
     "subtitle": "Projetos • Trabalho",
     "headline": {
-      "p1": "Coisas que construí — ",
+      "p1": "Coisas que construí, ",
       "h1": "software",
       "p2": ", e alguns ",
       "h2": "robôs",
@@ -88,36 +89,36 @@
     "list": {
       "plataforma": {
         "title": "Plataforma Empresarial",
-        "description": "Plataforma full-stack usada em todos os departamentos. Microsserviços no GCP, dashboards por cargo, IA interna."
+        "description": "Plataforma full-stack usada por todos os departamentos, Financeiro, RH e Administrativo. Microsserviços no GCP, dashboards por perfil e integrações com IA."
       },
       "agent": {
         "title": "Agente Pessoal",
-        "description": "Agente de IA conectado a múltiplas ferramentas usando FastAPI Framework baseado em Ollama."
+        "description": "Agente de IA conectado a múltiplas ferramentas usando FastAPI, construído sobre Ollama."
       }
     }
   },
   "contact": {
-    "label": "04 — Contato",
+    "label": "04, Contato",
     "subtitle": "Vamos conversar •",
     "headline": {
       "p1": "Vamos transformar ",
       "h1": "ideias",
       "p2": " em",
       "h2": "código",
-      "p3": ", ou ",
+      "p3": ", ou em ",
       "h3": "robôs",
       "p4": "."
     },
     "email_label": "Email",
     "github_label": "Github",
     "linkedin_label": "LinkedIn",
-    "email": "kaikeboechat@gmail.com",
-    "github": "@kaikeboechat",
-    "linkedin": "in/kaikeboechat"
+    "email": "kaikeboechat",
+    "github": "Kayrourio",
+    "linkedin": "in/kaike-boechat"
   },
   "footer": {
     "brand": "kaike.boechat / dev",
-    "built": "Desenvolvido por",
+    "built": "Feito por",
     "name": "Kaike Boechat"
   },
   "nav": {

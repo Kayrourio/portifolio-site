@@ -1,59 +1,57 @@
 <template>
   <div class="hero">
     <div class="container-site">
-    <NavBar />
+      <div class="hero-body">
+        <div class="hero-text">
+          <h1 class="hero-name">
+            <span class="name-first">{{ $t('hero.name.first') }}</span>
+            <span class="name-last">{{ $t('hero.name.last') }}</span>
+          </h1>
 
-    <div class="hero-body">
-      <div class="hero-text">
-        <h1 class="hero-name">
-          <span class="name-first">{{ $t('hero.name.first') }}</span>
-          <span class="name-last">{{ $t('hero.name.last') }}</span>
-        </h1>
+          <div class="hero-subtitle">
+            <span class="chevron" aria-hidden="true">›</span>
+            <TypewriterText :strings="roles" />
+          </div>
 
-        <div class="hero-subtitle">
-          <span class="chevron" aria-hidden="true">›</span>
-          <TypewriterText :strings="roles" />
+          <p class="hero-description">{{ $t('hero.description') }}</p>
+
+          <BaseButton glow class="hero-cta">
+            {{ $t('hero.cta') }}
+            <span class="cta-icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
+                <path
+                  d="M12 8v8M8 12l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+          </BaseButton>
         </div>
 
-        <p class="hero-description">{{ $t('hero.description') }}</p>
-
-        <BaseButton glow class="hero-cta">
-          {{ $t('hero.cta') }}
-          <span class="cta-icon" aria-hidden="true">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
-              <path
-                d="M12 8v8M8 12l4 4 4-4"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                fill="none"
-              />
-            </svg>
-          </span>
-        </BaseButton>
+        <div class="hero-visual" aria-hidden="true">
+          <span class="visual-label">Mesh / Animation / Items</span>
+        </div>
       </div>
-
-      <div class="hero-visual" aria-hidden="true">
-        <span class="visual-label">Mesh / Animation / Items</span>
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-mouse">
+          <span class="scroll-wheel" />
+        </div>
+        <div class="scroll-chevrons">
+          <span class="chevron-down" />
+          <span class="chevron-down" />
+        </div>
       </div>
-    </div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <div class="scroll-mouse">
-        <span class="scroll-wheel" />
-      </div>
-      <div class="scroll-chevrons">
-        <span class="chevron-down" />
-        <span class="chevron-down" />
-      </div>
-    </div>
     </div>
   </div>
 </template>
@@ -61,7 +59,6 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import NavBar from '@/components/layouts/NavBar.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import TypewriterText from '@/components/ui/TypewriterText.vue'
 
@@ -89,7 +86,7 @@ const roles = computed(() => tm('hero.roles'))
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-12) 0 var(--space-16);
+  padding: var(--space-12) 0 var(--space-12);
 }
 
 .hero-text {
@@ -223,13 +220,25 @@ const roles = computed(() => tm('hero.roles'))
 }
 
 @keyframes wheel-scroll {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50%       { transform: translateY(5px); opacity: 0.3; }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 0.3;
+  }
 }
 
 @keyframes chevron-fade {
-  0%, 100% { opacity: 0.2; }
-  50%       { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* ── Mobile ── */
@@ -237,7 +246,7 @@ const roles = computed(() => tm('hero.roles'))
   .hero-body {
     flex-direction: column;
     align-items: flex-start;
-    padding: var(--space-8) 0 var(--space-12);
+    padding: var(--space-8) 0 var(--space-8);
     gap: var(--space-8);
   }
 
@@ -254,5 +263,4 @@ const roles = computed(() => tm('hero.roles'))
     justify-content: center;
   }
 }
-
 </style>
