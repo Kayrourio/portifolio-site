@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "url": "kaike.boechat / dev",
+    "name": {
+      "first": "Kaike",
+      "last": "Boechat"
+    },
+    "title": "Desenvolvedor de Software",
+    "description": "Código, robôs e um pouco de caos. Desenvolvedor full-stack focado em automação e robótica, transformando problemas difíceis em coisas que funcionam e, às vezes, que se movem.",
+    "cta": "Ver meu trabalho",
+    "miniHeader": {
+      "projects": "projetos",
+      "contact": "contato"
+    }
+  }
+}
