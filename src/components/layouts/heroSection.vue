@@ -1,5 +1,6 @@
 <template>
   <div class="hero">
+    <div class="container-site">
     <NavBar />
 
     <div class="hero-body">
@@ -44,6 +45,16 @@
         <span class="visual-label">Mesh / Animation / Items</span>
       </div>
     </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-mouse">
+        <span class="scroll-wheel" />
+      </div>
+      <div class="scroll-chevrons">
+        <span class="chevron-down" />
+        <span class="chevron-down" />
+      </div>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -61,20 +72,15 @@ const roles = computed(() => tm('hero.roles'))
 
 <style scoped>
 .hero {
-  min-height: 100vh;
-  background-color: var(--color-bg);
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent calc(100% / 7 - 1px),
-    var(--color-border-subtle) calc(100% / 7 - 1px),
-    var(--color-border-subtle) calc(100% / 7)
-  );
   color: var(--color-text);
   font-family: var(--font-body);
+}
+
+/* Make the container-site fill the full hero height as a flex column */
+.container-site {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--space-10);
+  min-height: 100vh;
 }
 
 /* ── Hero body ── */
@@ -165,12 +171,69 @@ const roles = computed(() => tm('hero.roles'))
   letter-spacing: 0.05em;
 }
 
+/* ── Scroll indicator ── */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-8);
+}
+
+.scroll-mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--color-primary);
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  animation: wheel-scroll 1.6s ease-in-out infinite;
+}
+
+.scroll-chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.chevron-down {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  transform: rotate(45deg);
+}
+
+.chevron-down:nth-child(1) {
+  animation: chevron-fade 1.6s ease-in-out infinite 0s;
+}
+
+.chevron-down:nth-child(2) {
+  animation: chevron-fade 1.6s ease-in-out infinite 0.2s;
+}
+
+@keyframes wheel-scroll {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(5px); opacity: 0.3; }
+}
+
+@keyframes chevron-fade {
+  0%, 100% { opacity: 0.2; }
+  50%       { opacity: 1; }
+}
+
 /* ── Mobile ── */
 @media (max-width: 767px) {
-  .hero {
-    padding: 0 var(--space-5);
-  }
-
   .hero-body {
     flex-direction: column;
     align-items: flex-start;
@@ -192,10 +255,4 @@ const roles = computed(() => tm('hero.roles'))
   }
 }
 
-/* ── Tablet ── */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .hero {
-    padding: 0 var(--space-8);
-  }
-}
 </style>

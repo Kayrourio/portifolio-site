@@ -12,10 +12,12 @@ import 'bootstrap'
 // 3. Global base + Bootstrap overrides (reads our tokens + overrides Bootstrap vars)
 import '@/assets/styles/fonts.css'
 import '@/assets/styles/global.css'
+import { vReveal } from '@/directives/reveal'
 
 const app = createApp(App)
 
 app.use(router)
 app.use(i18n)
+app.directive('reveal', vReveal)
 
 app.mount('#app')

@@ -14,6 +14,112 @@
     "description": "Code, robots, and a bit of chaos. Full-stack developer focused on automation and robotics, turning hard problems into things that ship, and sometimes, things that move.",
     "cta": "See My Work"
   },
+  "about": {
+    "label": "01 — About",
+    "subtitle": "Who I am •",
+    "headline": {
+      "p1": "Born in ",
+      "loc1": "New York",
+      "p2": ", raised in ",
+      "loc2": "Brazil",
+      "p3": " — building things since the Lego years."
+    },
+    "photo_alt": "Kaike Boechat",
+    "bio_1": "Since a kid, always in love with technology and creating. From Lego to robots, I've always loved building things. I've been writing code since I was 13, turned it into a career at 15, and never stopped.",
+    "bio_2": "Today I'm a full-stack developer, a robotics student at UFV, and part of NERo where I build software for educational robots. I like hard problems, clean code, and things that move.",
+    "quote": "\"Code and robots.\"",
+    "area_label": "Area",
+    "areas": {
+      "fullstack": "Full-Stack",
+      "roboticsAI": "Robotics & AI",
+      "tools": "Tools"
+    }
+  },
+  "history": {
+    "label": "02 — History",
+    "subtitle": "Timeline •",
+    "period": "2020 → Now",
+    "media_placeholder": "Videos / Photos",
+    "headline": {
+      "p1": "Six years of ",
+      "h1": "development history",
+      "p2": ", from first ",
+      "h2": "line of code",
+      "p3": " to ",
+      "h3": "university"
+    },
+    "events": {
+      "spark": {
+        "title": "The Spark",
+        "description": "A robotics kit, a first computer, and Python tutorials at midnight. Where it all begins."
+      },
+      "first": {
+        "title": "First Projects",
+        "description": "First paid work. Automations, small websites, and the beginning of a career."
+      },
+      "pro": {
+        "title": "Going Professional",
+        "description": "First full-time role at 15. Building real products for real clients at Etho Soluções."
+      },
+      "nero": {
+        "title": "University & NERo",
+        "description": "Computer Science at UFV. Joined NERo — building educational robots that compete."
+      }
+    }
+  },
+  "projects": {
+    "label": "03 — Projects",
+    "subtitle": "Projects • Work",
+    "headline": {
+      "p1": "Things I've built — ",
+      "h1": "software",
+      "p2": ", and a few ",
+      "h2": "robots",
+      "p3": "."
+    },
+    "tab_all": "All",
+    "tab_projects": "Projects",
+    "tab_work": "Work",
+    "status_completed": "Completed",
+    "status_wip": "In Development",
+    "label_private": "Private",
+    "label_public": "Public",
+    "view": "view",
+    "list": {
+      "plataforma": {
+        "title": "Plataforma Empresarial",
+        "description": "Full-stack platform used across every department. Microservices on GCP, role-based dashboards, internal AI."
+      },
+      "agent": {
+        "title": "Personal Agent",
+        "description": "AI agent connected with multiple tools using FastAPI Framework based on Ollama."
+      }
+    }
+  },
+  "contact": {
+    "label": "04 — Contact",
+    "subtitle": "Let's talk •",
+    "headline": {
+      "p1": "Let's turn ",
+      "h1": "ideas",
+      "p2": " into",
+      "h2": "code",
+      "p3": ", or ",
+      "h3": "robots",
+      "p4": "."
+    },
+    "email_label": "Email",
+    "github_label": "Github",
+    "linkedin_label": "LinkedIn",
+    "email": "kaikeboechat@gmail.com",
+    "github": "@kaikeboechat",
+    "linkedin": "in/kaikeboechat"
+  },
+  "footer": {
+    "brand": "kaike.boechat / dev",
+    "built": "Built By",
+    "name": "Kaike Boechat"
+  },
   "nav": {
     "projects": "projects",
     "contact": "contact"
