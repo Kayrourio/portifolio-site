@@ -9,15 +9,17 @@
         {{ $t('footer.built') }} <strong>{{ $t('footer.name') }}</strong>
       </span>
       <nav class="footer-links" aria-label="footer links">
-        <a href="https://github.com/kaikeboechat" target="_blank" rel="noopener noreferrer">Github</a>
-        <a href="https://linkedin.com/in/kaikeboechat" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:kaikeboechat@gmail.com">Email</a>
+        <a :href="links.github" target="_blank" rel="noopener noreferrer">Github</a>
+        <a :href="links.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a :href="links.email">Email</a>
       </nav>
     </div>
   </footer>
 </template>
 
 <script setup>
+import { links } from '@/config/links.js'
+
 const year = new Date().getFullYear()
 </script>
 

@@ -25,7 +25,6 @@
           <div class="year-item">
             <span class="year-rule" aria-hidden="true" />
             <p class="year-value">{{ event.year }}</p>
-            <p class="year-age">{{ event.age }}</p>
           </div>
 
           <div v-reveal class="timeline-event">
@@ -51,10 +50,10 @@
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 
 const events = [
-  { key: 'spark', year: '2020',      age: 'age 13',    emoji: '🚀', hasMedia: true  },
-  { key: 'first', year: '2021–2022', age: 'age 14–15', emoji: '🔨', hasMedia: false },
-  { key: 'pro',   year: '2022–2023', age: 'age 15–16', emoji: '💼', hasMedia: false },
-  { key: 'nero',  year: '2023–Now',  age: 'age 16–17', emoji: '🤖', hasMedia: false }
+  { key: 'spark', year: '2020',      emoji: '🚀', hasMedia: true  },
+  { key: 'first', year: '2021–2022', emoji: '🔨', hasMedia: false },
+  { key: 'pro',   year: '2022–2023', emoji: '💼', hasMedia: false },
+  { key: 'nero',  year: '2023–Now',  emoji: '🤖', hasMedia: false }
 ]
 </script>
 
@@ -149,13 +148,6 @@ const events = [
   font-size: var(--text-sm);
   font-weight: var(--font-bold);
   color: var(--color-primary);
-  margin: 0;
-}
-
-.year-age {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
   margin: 0;
 }
 

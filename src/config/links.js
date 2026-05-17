@@ -3,3 +3,4 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/kaike-boechat/',
   email:    'mailto:kaikeboechat@gmail.com',
 }
+

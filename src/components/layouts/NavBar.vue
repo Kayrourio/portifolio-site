@@ -8,10 +8,10 @@
     <div class="nav-right">
       <ul class="nav-links" role="list">
         <li>
-          <a href="#projects">{{ t('nav.projects') }}</a>
+          <RouterLink to="/projects">{{ t('nav.projects') }}</RouterLink>
         </li>
         <li>
-          <a href="#contact">{{ t('nav.contact') }}</a>
+          <RouterLink :to="{ path: '/', hash: '#contact' }">{{ t('nav.contact') }}</RouterLink>
         </li>
       </ul>
 
@@ -130,6 +130,7 @@ function setLocale(lang) {
 .nav-links a {
   color: var(--color-primary);
   font-size: var(--text-sm);
+  text-decoration: none;
   transition: opacity var(--transition-base);
 }
 

@@ -15,6 +15,7 @@
 
           <p class="hero-description">{{ $t('hero.description') }}</p>
 
+          <RouterLink to="/projects" class="hero-cta-link">
           <BaseButton glow class="hero-cta">
             {{ $t('hero.cta') }}
             <span class="cta-icon" aria-hidden="true">
@@ -37,6 +38,7 @@
               </svg>
             </span>
           </BaseButton>
+          </RouterLink>
         </div>
 
         <div class="hero-visual" aria-hidden="true">
@@ -113,7 +115,7 @@ const roles = computed(() => tm('hero.roles'))
 
 /* Gradient: light lavender at top → primary purple at bottom, matching Figma */
 .name-last {
-  background: linear-gradient(180deg, #e0ccff 50%, var(--color-primary) 85%);
+  background: linear-gradient(180deg, var(--color-primary-light) 50%, var(--color-primary) 85%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -143,9 +145,14 @@ const roles = computed(() => tm('hero.roles'))
 }
 
 /* ── CTA ── */
-.hero-cta {
+.hero-cta-link {
   align-self: flex-start;
   margin-top: var(--space-3);
+  text-decoration: none;
+}
+
+.hero-cta {
+  width: 100%;
 }
 
 .cta-icon {
@@ -258,8 +265,13 @@ const roles = computed(() => tm('hero.roles'))
     display: none;
   }
 
-  .hero-cta {
+  .hero-cta-link {
     align-self: stretch;
+    display: flex;
+  }
+
+  .hero-cta {
+    flex: 1;
     justify-content: center;
   }
 }

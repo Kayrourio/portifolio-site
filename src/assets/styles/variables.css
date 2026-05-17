@@ -20,6 +20,8 @@
   /* ── Colors: Brand / Primary (purple) ── */
   --color-primary: #b089ff;
   /* Primary Purple */
+  --color-primary-light: #e0ccff;
+  /* lightest tint — used in gradients */
   --color-primary-hover: #c4a4ff;
   /* lighter on hover */
   --color-primary-dark: #8b5cf6;

@@ -124,5 +124,10 @@
   "nav": {
     "projects": "projetos",
     "contact": "contato"
+  },
+  "notfound": {
+    "title": "Página não encontrada",
+    "description": "A página que você está procurando não existe ou foi movida.",
+    "cta": "← Voltar para o início"
   }
 }
