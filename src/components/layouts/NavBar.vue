@@ -7,7 +7,10 @@
 
     <div class="nav-right">
       <ul class="nav-links" role="list">
-        <li>
+        <li v-if="isProjectsPage">
+          <RouterLink to="/">{{ t('nav.home') }}</RouterLink>
+        </li>
+        <li v-else>
           <RouterLink to="/projects">{{ t('nav.projects') }}</RouterLink>
         </li>
         <li>
@@ -81,10 +84,14 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 import { links } from '@/config/links.js'
 
 const { t, locale } = useI18n()
+const route = useRoute()
+const isProjectsPage = computed(() => route.path === '/projects')
 
 function setLocale(lang) {
   locale.value = lang

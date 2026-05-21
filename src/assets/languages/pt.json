@@ -17,7 +17,7 @@
   },
   "about": {
     "label": "01, Sobre",
-    "subtitle": "Quem sou •",
+    "subtitle": "Quem sou eu •",
     "headline": {
       "p1": "Nascido em ",
       "loc1": "Nova York",
@@ -39,32 +39,83 @@
   "history": {
     "label": "02, Histórico",
     "subtitle": "Linha do Tempo •",
-    "period": "2022 → Hoje",
+    "period": "2019 → Hoje",
     "media_placeholder": "Vídeos / Fotos",
     "headline": {
-      "p1": "Três anos de ",
-      "h1": "experiência profissional",
+      "p1": "Da robótica ",
+      "h1": "à programação",
       "p2": ", do primeiro ",
-      "h2": "projeto freelance",
-      "p3": " até a ",
+      "h2": "freelance",
+      "p3": " à ",
       "h3": "universidade"
     },
     "events": {
-      "spark": {
+      "inicio": {
+        "period": "2020",
         "title": "O Início",
-        "description": "Primeiro computador, tutoriais de Python e muitas madrugadas. Foi aqui que tudo começou."
+        "description": "Primeiro computador e kit de robótica. Um \"Hello, World!\" na tela e um LED piscando mostraram que era possível fazer máquinas obedecerem ideias.",
+        "highlights": []
       },
-      "first": {
+      "primeiros": {
+        "period": "2020/2021",
         "title": "Primeiros Projetos",
-        "description": "Primeiro trabalho freelance pago aos 15 anos. RPA, automações, integrações de API, tudo em Python."
+        "description": "Mergulho fundo no aprendizado: robótica, lógica e os fundamentos da web. Cada projeto era um novo problema para resolver.",
+        "highlights": [
+          "Projetos de robótica com Arduino e sensores",
+          "Primeiros scripts em Python e páginas HTML do zero",
+          "Primeiros contatos com desenvolvimento web e automação"
+        ]
       },
-      "pro": {
-        "title": "Profissionalização",
-        "description": "Full-time na Etho Soluções. Plataformas reais para clientes reais, microsserviços no GCP e fluxos com IA."
+      "oportunidade": {
+        "period": "2022 – 2023",
+        "title": "Primeira Oportunidade",
+        "description": "Uma apresentação na escola, um site montado, e alguém de fora viu. Primeiro projeto pago ainda adolescente, seguido de mais de 10 entregas em automação e integração de APIs.",
+        "highlights": [
+          "Mais de 10 projetos entregues como freelancer",
+          "Automações que economizavam horas de trabalho manual por semana",
+          "Web scraping integrado a CRMs de clientes",
+          "Primeira renda profissional aos 15 anos"
+        ]
+      },
+      "estagio": {
+        "period": "Jan 2024 – Jan 2025",
+        "title": "Estágio na Etho Soluções IT",
+        "description": "Entrei como estagiário e saí diferente. Automatizei processos internos, conduzi um projeto de análise de dados em escala nacional e dei os primeiros passos no portal interno da empresa.",
+        "highlights": [
+          "Análise de dados para um grande cliente estratégico nacional",
+          "Primeiros passos com Go e FastAPI em ambiente profissional",
+          "Relatórios financeiros e correção de discrepâncias internas",
+          "Automação de processos que antes eram feitos manualmente"
+        ]
+      },
+      "developer": {
+        "period": "Jan 2025 – Hoje",
+        "title": "Desenvolvedor na Etho Soluções",
+        "description": "Exatamente 1 ano depois de entrar como estagiário, virei desenvolvedor. Assumi o portal interno como projeto principal, uma plataforma full stack usada por todos os departamentos, e passei a apoiar administração e financeiro com soluções técnicas reais.",
+        "highlights": [
+          "Plataforma usada diariamente por todos os departamentos da empresa",
+          "Microsserviços com DDD, Docker e CI/CD",
+          "Deploy no GCP com Cloud Run e VPC privada",
+          "APIs integradas a agentes de IA: de ~10 min para ~1 min por tarefa"
+        ]
+      },
+      "msd": {
+        "period": "Ago 2025 – Jan 2026",
+        "title": "Analista de Dados na MSD Animal Health",
+        "description": "Primeira experiência presencial, em outro estado, dentro de uma multinacional. 6 meses trabalhando num projeto de migração global, com contato diário com pessoas de mais de 7 países.",
+        "highlights": [
+          "Migração de dados em larga escala com validação entre sistemas",
+          "Ferramentas em Python e C# para limpeza e padronização de dados, eliminando inconsistências entre sistemas"
+        ]
       },
       "nero": {
-        "title": "Universidade & NERo",
-        "description": "Engenharia de Robôs na UFV. Entrei no NERo, desenvolvendo software para robôs educacionais de competição."
+        "period": "Fev 2026 – Hoje",
+        "title": "NERo UFV, Engenharia de Robôs",
+        "description": "Aprovado na UFV antes mesmo de terminar o ensino médio. Entrei no laboratório de robótica ainda no primeiro mês e já assumi a responsabilidade por toda a parte de software de um projeto de robótica educacional.",
+        "highlights": [
+          "Responsável pelo código do robô e pelo app que se conecta a ele",
+          "Software embarcado em C++ para controle e comunicação do robô"
+        ]
       }
     }
   },
@@ -122,6 +173,7 @@
     "name": "Kaike Boechat"
   },
   "nav": {
+    "home": "home",
     "projects": "projetos",
     "contact": "contato"
   },

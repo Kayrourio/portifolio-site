@@ -23,6 +23,7 @@ onMounted(async () => {
     const res = await fetch(props.icon)
     const text = await res.text()
     svgContent.value = text
+      .replace('<svg ', '<svg fill="currentColor" ')
       .replace(/fill="(?!none)[^"]*"/g, 'fill="currentColor"')
       .replace(/fill:\s*(?!none)[^;}"]+/g, 'fill:currentColor')
   } catch {

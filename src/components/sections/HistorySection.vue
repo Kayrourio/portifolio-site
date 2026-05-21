@@ -1,18 +1,16 @@
 <template>
   <section class="history-section" aria-labelledby="history-heading">
     <div class="container-site">
-
       <!-- Header row: SectionTitle left, headline right -->
       <div class="history-top">
         <div class="sidebar-top">
-          <SectionTitle
-            :label="$t('history.label')"
-            :subtitle="$t('history.subtitle')"
-          />
+          <SectionTitle :label="$t('history.label')" :subtitle="$t('history.subtitle')" />
           <p class="history-period">{{ $t('history.period') }}</p>
         </div>
         <h2 id="history-heading" v-reveal class="history-headline">
-          {{ $t('history.headline.p1') }}<span class="hl">{{ $t('history.headline.h1') }}</span>{{ $t('history.headline.p2') }}<span class="hl">{{ $t('history.headline.h2') }}</span>{{ $t('history.headline.p3') }}<span class="hl">{{ $t('history.headline.h3') }}</span>
+          {{ $t('history.headline.p1') }}<span class="hl">{{ $t('history.headline.h1') }}</span
+          >{{ $t('history.headline.p2') }}<span class="hl">{{ $t('history.headline.h2') }}</span
+          >{{ $t('history.headline.p3') }}<span class="hl">{{ $t('history.headline.h3') }}</span>
         </h2>
       </div>
 
@@ -24,24 +22,30 @@
         <template v-for="event in events" :key="event.key">
           <div class="year-item">
             <span class="year-rule" aria-hidden="true" />
-            <p class="year-value">{{ event.year }}</p>
+            <p class="year-value">{{ $t(`history.events.${event.key}.period`) }}</p>
           </div>
 
           <div v-reveal class="timeline-event">
             <div class="timeline-dot" aria-hidden="true" />
             <div class="event-body">
               <h3 class="event-title">
-                <span aria-hidden="true">{{ event.emoji }}&nbsp;</span>{{ $t(`history.events.${event.key}.title`) }}
+                <span aria-hidden="true">{{ event.emoji }}&nbsp;</span
+                >{{ $t(`history.events.${event.key}.title`) }}
               </h3>
               <p class="event-desc">{{ $t(`history.events.${event.key}.description`) }}</p>
-              <div v-if="event.hasMedia" class="event-media" aria-hidden="true">
-                <span>{{ $t('history.media_placeholder') }}</span>
+              <ul
+                v-if="$tm(`history.events.${event.key}.highlights`).length"
+                class="event-highlights"
+              >
+                <li v-for="h in $tm(`history.events.${event.key}.highlights`)" :key="h">{{ h }}</li>
+              </ul>
+              <div v-if="event.tags.length" class="event-tags" aria-label="Tech stack">
+                <span v-for="tag in event.tags" :key="tag" class="event-tag">{{ tag }}</span>
               </div>
             </div>
           </div>
         </template>
       </div>
-
     </div>
   </section>
 </template>
@@ -50,10 +54,21 @@
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 
 const events = [
-  { key: 'spark', year: '2020',      emoji: '🚀', hasMedia: true  },
-  { key: 'first', year: '2021–2022', emoji: '🔨', hasMedia: false },
-  { key: 'pro',   year: '2022–2023', emoji: '💼', hasMedia: false },
-  { key: 'nero',  year: '2023–Now',  emoji: '🤖', hasMedia: false }
+  { key: 'inicio', emoji: '💡', tags: ['Arduino', 'C++'] },
+  { key: 'primeiros', emoji: '🧪', tags: ['C++', 'HTML/CSS', 'JavaScript', 'Python'] },
+  {
+    key: 'oportunidade',
+    emoji: '🎯',
+    tags: ['Python', 'Selenium', 'Pandas', 'OpenPyXL', 'PyAutoGUI', 'Flask'],
+  },
+  { key: 'estagio', emoji: '🏢', tags: ['Python', 'Power BI', 'Pandas', 'FastAPI', 'Go', 'JS'] },
+  {
+    key: 'developer',
+    emoji: '🛠️',
+    tags: ['Go', 'GCP', 'Vue.js', 'MySQL', 'Docker', 'AI Agents', 'CI/CD'],
+  },
+  { key: 'msd', emoji: '🧬', tags: ['C#', 'Python', 'Excel/VBA', 'Pandas'] },
+  { key: 'nero', emoji: '🤖', tags: ['C++', 'Flutter'] },
 ]
 </script>
 
@@ -216,6 +231,46 @@ const events = [
   .history-events::before {
     left: calc(160px + var(--space-8) + 4px);
   }
+}
+
+/* ── Highlights list ── */
+.event-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.event-highlights li {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.event-highlights li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+/* ── Tech tags ── */
+.event-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.event-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-3);
 }
 
 /* ── Mobile ── */

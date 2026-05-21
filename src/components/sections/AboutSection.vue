@@ -56,41 +56,45 @@ import profileImg from '@/assets/images/pfp.jpeg'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import SkillBadge from '@/components/ui/SkillBadge.vue'
 
-const DI = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
+const DI  = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
+const SI  = 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons'
 
 const areas = [
   {
     key: 'fullstack',
     skills: [
-      { name: 'Python',     icon: `${DI}/python/python-original.svg`,           color: '#3776AB' },
-      { name: 'Go',         icon: `${DI}/go/go-original-wordmark.svg`,           color: '#00ADD8' },
-      { name: 'JavaScript', icon: `${DI}/javascript/javascript-original.svg`,    color: '#F7DF1E' },
-      { name: 'Vue.js',     icon: `${DI}/vuejs/vuejs-original.svg`,              color: '#42B883' },
-      { name: 'Django',     icon: `${DI}/django/django-plain.svg`,               color: '#44B78B' },
-      { name: 'MySQL',      icon: `${DI}/mysql/mysql-original.svg`,              color: '#4479A1' },
-      { name: 'PostgreSQL', icon: `${DI}/postgresql/postgresql-original.svg`,    color: '#336791' },
-      { name: 'Docker',     icon: `${DI}/docker/docker-original.svg`,            color: '#2496ED' },
-      { name: 'GCP',        icon: `${DI}/googlecloud/googlecloud-original.svg`,  color: '#4285F4' },
+      { name: 'Python',     icon: `${DI}/python/python-original.svg`,          color: '#3776AB' },
+      { name: 'Go',         icon: `${DI}/go/go-original-wordmark.svg`,          color: '#00ADD8' },
+      { name: 'C#',         icon: `${SI}/csharp.svg`,                          color: '#9B4F96' },
+      { name: 'JavaScript', icon: `${SI}/javascript.svg`,                       color: '#F7DF1E' },
+      { name: 'Vue.js',     icon: `${DI}/vuejs/vuejs-original.svg`,             color: '#42B883' },
+      { name: 'FastAPI',    icon: `${DI}/fastapi/fastapi-original.svg`,         color: '#009688' },
+      { name: 'MySQL',      icon: `${DI}/mysql/mysql-original.svg`,             color: '#4479A1' },
+      { name: 'PostgreSQL', icon: `${DI}/postgresql/postgresql-original.svg`,   color: '#336791' },
+      { name: 'Docker',     icon: `${DI}/docker/docker-original.svg`,           color: '#2496ED' },
+      { name: 'GCP',        icon: `${DI}/googlecloud/googlecloud-original.svg`, color: '#4285F4' },
     ],
   },
   {
     key: 'roboticsAI',
     skills: [
-      { name: 'Python',   icon: `${DI}/python/python-original.svg`,        color: '#3776AB' },
-      { name: 'Selenium', icon: `${DI}/selenium/selenium-original.svg`,    color: '#43B02A' },
-      { name: 'Pandas',   icon: `${DI}/pandas/pandas-original.svg`,        color: '#150458' },
-      { name: 'C++',      icon: `${DI}/cplusplus/cplusplus-original.svg`,  color: '#00599C' },
-      { name: 'Arduino',  icon: `${DI}/arduino/arduino-original.svg`,      color: '#00979D' },
+      { name: 'Python',    icon: `${DI}/python/python-original.svg`,       color: '#3776AB' },
+      { name: 'AI Agents', icon: `${SI}/openai.svg`,                       color: '#10a37f' },
+      { name: 'Selenium',  icon: `${DI}/selenium/selenium-original.svg`,   color: '#43B02A' },
+      { name: 'Pandas',    icon: `${DI}/pandas/pandas-original.svg`,       color: '#e70488' },
+      { name: 'C++',       icon: `${DI}/cplusplus/cplusplus-plain.svg`,    color: '#00599C' },
+      { name: 'Arduino',   icon: `${DI}/arduino/arduino-original.svg`,     color: '#00979D' },
     ],
   },
   {
     key: 'tools',
     skills: [
-      { name: 'Git',     icon: `${DI}/git/git-original.svg`,              color: '#F05032' },
-      { name: 'GitHub',  icon: `${DI}/github/github-original.svg`,        color: '#ffffff' },
-      { name: 'Figma',   icon: `${DI}/figma/figma-original.svg`,          color: '#F24E1E' },
-      { name: 'Postman', icon: `${DI}/postman/postman-original.svg`,       color: '#FF6C37' },
-      { name: 'C#',      icon: `${DI}/csharp/csharp-original.svg`,        color: '#239120' },
+      { name: 'Git',      icon: `${DI}/git/git-original.svg`,            color: '#F05032' },
+      { name: 'GitHub',   icon: `${DI}/github/github-original.svg`,      color: '#ffffff' },
+      { name: 'Figma',    icon: `${DI}/figma/figma-original.svg`,        color: '#F24E1E' },
+      { name: 'Postman',  icon: `${SI}/postman.svg`,                      color: '#FF6C37' },
+      { name: 'Excel',    icon: `${SI}/microsoftexcel.svg`,              color: '#217346' },
+      { name: 'Power BI', icon: `${SI}/powerbi.svg`,                     color: '#F2C811' },
     ],
   },
 ]

@@ -16,28 +16,28 @@
           <p class="hero-description">{{ $t('hero.description') }}</p>
 
           <RouterLink to="/projects" class="hero-cta-link">
-          <BaseButton glow class="hero-cta">
-            {{ $t('hero.cta') }}
-            <span class="cta-icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
-                <path
-                  d="M12 8v8M8 12l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </span>
-          </BaseButton>
+            <BaseButton glow class="hero-cta">
+              {{ $t('hero.cta') }}
+              <span class="cta-icon" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
+                  <path
+                    d="M12 8v8M8 12l4 4 4-4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+            </BaseButton>
           </RouterLink>
         </div>
 
@@ -84,7 +84,7 @@ const roles = computed(() => tm('hero.roles'))
 
 /* ── Hero body ── */
 .hero-body {
-  flex: 1;
+  flex: 0.75;
   display: flex;
   align-items: center;
   justify-content: space-between;

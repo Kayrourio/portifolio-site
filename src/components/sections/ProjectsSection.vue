@@ -1,15 +1,13 @@
 <template>
   <section class="projects-section" id="projects" aria-labelledby="projects-heading">
     <div class="container-site">
-
       <!-- Header row -->
       <div class="projects-header">
-        <SectionTitle
-          :label="$t('projects.label')"
-          :subtitle="$t('projects.subtitle')"
-        />
+        <SectionTitle :label="$t('projects.label')" :subtitle="$t('projects.subtitle')" />
         <h2 id="projects-heading" v-reveal class="projects-headline">
-          {{ $t('projects.headline.p1') }}<span class="hl">{{ $t('projects.headline.h1') }}</span>{{ $t('projects.headline.p2') }}<span class="hl">{{ $t('projects.headline.h2') }}</span>{{ $t('projects.headline.p3') }}
+          {{ $t('projects.headline.p1') }}<span class="hl">{{ $t('projects.headline.h1') }}</span
+          >{{ $t('projects.headline.p2') }}<span class="hl">{{ $t('projects.headline.h2') }}</span
+          >{{ $t('projects.headline.p3') }}
         </h2>
       </div>
 
@@ -43,7 +41,6 @@
           :tech="project.tech"
         />
       </div>
-
     </div>
   </section>
 </template>
@@ -65,11 +62,11 @@ const allProjects = [
     github: null,
     type: 'work',
     tech: [
-      { name: 'Vue.js',  icon: `${SI}/vuedotjs`,    color: '#42B883' },
-      { name: 'Node.js', icon: `${SI}/nodedotjs`,   color: '#339933' },
-      { name: 'Go',      icon: `${SI}/go`,          color: '#00ACD7' },
-      { name: 'GCP',     icon: `${SI}/googlecloud`, color: '#4285F4' }
-    ]
+      { name: 'Vue.js', icon: `${SI}/vuedotjs`, color: '#42B883' },
+      { name: 'Node.js', icon: `${SI}/nodedotjs`, color: '#339933' },
+      { name: 'Go', icon: `${SI}/go`, color: '#00ACD7' },
+      { name: 'GCP', icon: `${SI}/googlecloud`, color: '#4285F4' },
+    ],
   },
   {
     key: 'agent',
@@ -77,28 +74,26 @@ const allProjects = [
     year: '2026',
     status: 'wip',
     isPrivate: false,
-    github: 'https://github.com/kaikeboechat',
+    github: 'https://github.com/Kayrourio',
     type: 'projects',
     tech: [
-      { name: 'Python',  icon: `${SI}/python`,  color: '#43A047' },
+      { name: 'Python', icon: `${SI}/python`, color: '#43A047' },
       { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
-      { name: 'Docker',  icon: `${SI}/docker`,  color: '#2496ED' }
-    ]
-  }
+      { name: 'Docker', icon: `${SI}/docker`, color: '#2496ED' },
+    ],
+  },
 ]
 
 const activeTab = ref('all')
 
 const tabs = computed(() => [
-  { key: 'all',      count: allProjects.length },
-  { key: 'projects', count: allProjects.filter(p => p.type === 'projects').length },
-  { key: 'work',     count: allProjects.filter(p => p.type === 'work').length     }
+  { key: 'all', count: allProjects.length },
+  { key: 'projects', count: allProjects.filter((p) => p.type === 'projects').length },
+  { key: 'work', count: allProjects.filter((p) => p.type === 'work').length },
 ])
 
 const filteredProjects = computed(() =>
-  activeTab.value === 'all'
-    ? allProjects
-    : allProjects.filter(p => p.type === activeTab.value)
+  activeTab.value === 'all' ? allProjects : allProjects.filter((p) => p.type === activeTab.value),
 )
 </script>
 
@@ -151,7 +146,9 @@ const filteredProjects = computed(() =>
   font-weight: var(--font-medium);
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: color var(--transition-base), border-color var(--transition-base);
+  transition:
+    color var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .tab-btn:hover {

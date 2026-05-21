@@ -39,32 +39,83 @@
   "history": {
     "label": "02, History",
     "subtitle": "Timeline •",
-    "period": "2022 → Now",
+    "period": "2019 → Now",
     "media_placeholder": "Videos / Photos",
     "headline": {
-      "p1": "Three years of ",
-      "h1": "professional experience",
-      "p2": ", from first ",
+      "p1": "From robotics ",
+      "h1": "to programming",
+      "p2": ", from the first ",
       "h2": "freelance project",
       "p3": " to ",
       "h3": "university"
     },
     "events": {
-      "spark": {
-        "title": "The Spark",
-        "description": "First computer, Python tutorials, and a lot of late nights. Where it all starts."
+      "inicio": {
+        "period": "2020",
+        "title": "The Beginning",
+        "description": "First computer and a robotics kit. A \"Hello, World!\" on screen and a blinking LED showed that machines could obey ideas.",
+        "highlights": []
       },
-      "first": {
+      "primeiros": {
+        "period": "2020/2021",
         "title": "First Projects",
-        "description": "First paid freelance work at 15. RPA, automations, API integrations, all in Python."
+        "description": "Deep dive into learning: robotics, logic, and web fundamentals. Each project was a new problem to solve.",
+        "highlights": [
+          "Robotics projects with Arduino and sensors",
+          "First Python scripts and HTML pages from scratch",
+          "First steps in web development and automation"
+        ]
       },
-      "pro": {
-        "title": "Going Professional",
-        "description": "Full-time at Etho Soluções. Building real platforms for real clients, microservices on GCP, and AI-powered workflows."
+      "oportunidade": {
+        "period": "2022 – 2023",
+        "title": "First Opportunity",
+        "description": "A school presentation, a website put together, and someone from outside noticed. First paid project as a teenager, followed by 10+ deliveries in automation and API integrations.",
+        "highlights": [
+          "10+ projects delivered as a freelancer",
+          "Automations that saved hours of manual work per week",
+          "Web scraping integrated with client CRMs",
+          "First professional income at 15 years old"
+        ]
+      },
+      "estagio": {
+        "period": "Jan 2024 – Jan 2025",
+        "title": "Internship at Etho Soluções IT",
+        "description": "Started as an intern and left different. Automated internal processes, led a national-scale data analysis project, and took my first steps on the company's internal portal.",
+        "highlights": [
+          "Data analysis for a major national strategic client",
+          "First steps with Go and FastAPI in a professional environment",
+          "Financial reports and correction of internal discrepancies",
+          "Automation of processes that were previously done manually"
+        ]
+      },
+      "developer": {
+        "period": "Jan 2025 – Now",
+        "title": "Developer at Etho Soluções",
+        "description": "Exactly 1 year after joining as an intern, became a developer. Took over the internal portal as the main project, a full-stack platform used by every department, and started supporting admin and finance with real technical solutions.",
+        "highlights": [
+          "Platform used daily by every department in the company",
+          "Microservices with DDD, Docker, and CI/CD",
+          "Deploy on GCP with Cloud Run and private VPC",
+          "APIs integrated with AI agents: from ~10 min to ~1 min per task"
+        ]
+      },
+      "msd": {
+        "period": "Aug 2025 – Jan 2026",
+        "title": "Data Analyst at MSD Animal Health",
+        "description": "First in-person experience, in another state, inside a multinational. 6 months on a global migration project, with daily contact with people from 7+ countries.",
+        "highlights": [
+          "Large-scale data migration with cross-system validation",
+          "Python and C# tooling for data cleaning and standardization, eliminating cross-system inconsistencies"
+        ]
       },
       "nero": {
-        "title": "University & NERo",
-        "description": "Robotics Engineering at UFV. Joined NERo, building software for educational robots that compete."
+        "period": "Feb 2026 – Now",
+        "title": "NERo UFV, Robotics Engineering",
+        "description": "Admitted to UFV before finishing high school. Joined the robotics lab in the very first month and took over all software responsibilities for an educational robotics project.",
+        "highlights": [
+          "Responsible for the robot's code and the app that connects to it",
+          "Embedded software in C++ for robot control and communication"
+        ]
       }
     }
   },
@@ -122,6 +173,7 @@
     "name": "Kaike Boechat"
   },
   "nav": {
+    "home": "home",
     "projects": "projects",
     "contact": "contact"
   },
