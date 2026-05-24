@@ -164,6 +164,18 @@
           "Modular tool system designed to expand to new services and integrations"
         ]
       },
+      "tagbot": {
+        "title": "TagBot",
+        "description": "Educational robot that visits schools to inspire robotics in elementary students. The robot communicates with a Flutter app via BLE, offering joystick control, command sequences, geometric path execution (triangle, square…), and gyroscope control by tilting the phone.",
+        "highlights": [
+          "ESP32 firmware built with PlatformIO and modular C++ architecture",
+          "Flutter app with a dedicated BLE communication layer",
+          "Joystick control and programmable command sequences",
+          "Geometric path modes: triangle, square, and other shapes",
+          "Gyroscope control: drive the robot by tilting your phone",
+          "Full refactor: migrated from Arduino IDE to PlatformIO and rewrote the app from scratch"
+        ]
+      },
 
       "lineFollower": {
         "title": "Line Follower",
