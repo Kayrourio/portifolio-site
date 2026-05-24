@@ -23,12 +23,12 @@
       "loc1": "New York",
       "p2": ", raised in ",
       "loc2": "Brazil",
-      "p3": ", building things since the Lego years."
+      "p3": ", building things since I was a kid."
     },
     "photo_alt": "Kaike Boechat",
-    "bio_1": "Since a kid, always into technology and building things. I started writing code at 13, turned it into a real job at 15, and never stopped. From RPA scripts to microservices on GCP, the problems keep getting bigger.",
-    "bio_2": "Today I'm a full-stack developer, a Robotics Engineering student at UFV, and part of NERo, where I build software for educational robots. I like hard problems, clean code, and things that actually move.",
-    "quote": "\"Code and robots.\"",
+    "bio_1": "Since a kid, I've always been interested in technology and building things. I started writing code at 13, turned it into a real job at 15, and never stopped. From RPA scripts to full platforms, the challenges just keep growing.",
+    "bio_2": "Today I'm a full-stack developer, a Robotics Engineering student at UFV, and part of NERo, where I work on robot development. I like creating things, developing, and automating tasks.",
+    "quote": "\"Any sufficiently advanced technology is indistinguishable from magic.\" - Arthur C. Clarke",
     "area_label": "Area",
     "areas": {
       "fullstack": "Full-Stack",
@@ -39,7 +39,7 @@
   "history": {
     "label": "02, History",
     "subtitle": "Timeline •",
-    "period": "2019 → Now",
+    "period": "2020 → Now",
     "media_placeholder": "Videos / Photos",
     "headline": {
       "p1": "From robotics ",
@@ -59,7 +59,7 @@
       "primeiros": {
         "period": "2020/2021",
         "title": "First Projects",
-        "description": "Deep dive into learning: robotics, logic, and web fundamentals. Each project was a new problem to solve.",
+        "description": "Dive into learning: robotics, logic, and web fundamentals. Each project was a new problem to solve.",
         "highlights": [
           "Robotics projects with Arduino and sensors",
           "First Python scripts and HTML pages from scratch",
@@ -80,10 +80,9 @@
       "estagio": {
         "period": "Jan 2024 – Jan 2025",
         "title": "Internship at Etho Soluções IT",
-        "description": "Started as an intern and left different. Automated internal processes, led a national-scale data analysis project, and took my first steps on the company's internal portal.",
+        "description": "Started as an intern and still here today. Automated internal processes, worked on a national-scale data analysis project, and took the first steps on the company's internal portal.",
         "highlights": [
           "Data analysis for a major national strategic client",
-          "First steps with Go and FastAPI in a professional environment",
           "Financial reports and correction of internal discrepancies",
           "Automation of processes that were previously done manually"
         ]
@@ -111,7 +110,7 @@
       "nero": {
         "period": "Feb 2026 – Now",
         "title": "NERo UFV, Robotics Engineering",
-        "description": "Admitted to UFV before finishing high school. Joined the robotics lab in the very first month and took over all software responsibilities for an educational robotics project.",
+        "description": "Joined the robotics lab in the very first month and took over all software responsibilities for an educational robotics project.",
         "highlights": [
           "Responsible for the robot's code and the app that connects to it",
           "Embedded software in C++ for robot control and communication"
@@ -137,14 +136,33 @@
     "label_private": "Private",
     "label_public": "Public",
     "view": "view",
+    "modal_close": "Close",
+    "modal_overview": "Overview",
+    "modal_highlights": "Highlights",
+    "modal_tech": "Stack",
+    "modal_view_github": "View on GitHub",
     "list": {
       "plataforma": {
         "title": "Enterprise Platform",
-        "description": "Full-stack platform used across every department, Finance, HR, and Admin. Microservices on GCP, role-based dashboards, internal AI integrations."
+        "description": "Full-stack internal platform used daily by every department, Finance, HR, and Administration. Built to replace fragmented spreadsheets and manual processes with a unified, role-aware system.",
+        "highlights": [
+          "Role-based dashboards with distinct permission layers for Finance, HR and Admin",
+          "Microservices architecture deployed and scaled on Google Cloud Platform",
+          "Internal AI integrations to automate repetitive back-office workflows",
+          "Full-stack ownership: Vue.js frontend, Go backend, MySQL relational database",
+          "Designed the data model to support multi-tenant and multi-department queries"
+        ]
       },
       "agent": {
         "title": "Personal Agent",
-        "description": "AI agent connected with multiple tools using FastAPI, built on top of Ollama."
+        "description": "A local, autonomous AI agent that uses multiple tools to assist me throughout the day. Connected to WhatsApp, it reminds me of tasks and activities at the right moments — built on an agentic architecture designed to expand to other services.",
+        "highlights": [
+          "WhatsApp integration to send reminders and receive natural-language commands",
+          "Autonomous tool-calling agent powered by local Ollama models, no cloud API required",
+          "FastAPI backend exposing a REST interface to manage agent sessions and context",
+          "Dockerized setup for fully reproducible local development",
+          "Modular tool system designed to expand to new services and integrations"
+        ]
       }
     }
   },

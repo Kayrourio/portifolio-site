@@ -39,9 +39,12 @@
           :is-private="project.isPrivate"
           :github="project.github"
           :tech="project.tech"
+          @open="selectedProject = project"
         />
       </div>
     </div>
+
+    <ProjectModal :project="selectedProject" @close="selectedProject = null" />
   </section>
 </template>
 
@@ -49,6 +52,7 @@
 import { ref, computed } from 'vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
+import ProjectModal from '@/components/ui/ProjectModal.vue'
 
 const SI = 'https://cdn.simpleicons.org'
 
@@ -57,14 +61,14 @@ const allProjects = [
     key: 'plataforma',
     company: 'ETHO SOLUÇÕES',
     year: '2025–2026',
-    status: 'completed',
+    status: 'wip',
     isPrivate: true,
     github: null,
     type: 'work',
     tech: [
       { name: 'Vue.js', icon: `${SI}/vuedotjs`, color: '#42B883' },
-      { name: 'Node.js', icon: `${SI}/nodedotjs`, color: '#339933' },
       { name: 'Go', icon: `${SI}/go`, color: '#00ACD7' },
+      { name: 'MySQL', icon: `${SI}/mysql/mysql-original.svg`, color: '#4479A1' },
       { name: 'GCP', icon: `${SI}/googlecloud`, color: '#4285F4' },
     ],
   },
@@ -74,7 +78,7 @@ const allProjects = [
     year: '2026',
     status: 'wip',
     isPrivate: false,
-    github: 'https://github.com/Kayrourio',
+    github: 'https://github.com/Kayrourio/personal-agent',
     type: 'projects',
     tech: [
       { name: 'Python', icon: `${SI}/python`, color: '#43A047' },
@@ -85,6 +89,7 @@ const allProjects = [
 ]
 
 const activeTab = ref('all')
+const selectedProject = ref(null)
 
 const tabs = computed(() => [
   { key: 'all', count: allProjects.length },

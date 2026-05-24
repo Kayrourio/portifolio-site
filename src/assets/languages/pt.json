@@ -23,12 +23,12 @@
       "loc1": "Nova York",
       "p2": ", criado no ",
       "loc2": "Brasil",
-      "p3": ", construindo coisas desde a época do Lego."
+      "p3": ", construindo coisas desde pequeno."
     },
     "photo_alt": "Kaike Boechat",
-    "bio_1": "Desde criança, sempre fui ligado em tecnologia e em construir coisas. Comecei a programar aos 13, transformei isso em profissão aos 15, e não parei mais. De scripts de RPA a microsserviços no GCP, os problemas só ficam maiores.",
-    "bio_2": "Hoje sou desenvolvedor full-stack, estudante de Engenharia de Robôs na UFV e faço parte do NERo, onde desenvolvo software para robôs educacionais. Gosto de problemas difíceis, código limpo e coisas que realmente se movem.",
-    "quote": "\"Código e robôs.\"",
+    "bio_1": "Desde criança, sempre fui interessado em tecnologia e em construir coisas. Comecei a programar aos 13, transformei isso em profissão aos 15, e não parei mais. De scripts de RPA a plataformas completas, os desafios só ficam maiores.",
+    "bio_2": "Hoje sou desenvolvedor full-stack, estudante de Engenharia de Robôs na UFV e faço parte do NERo, onde atuo no desenvolvimento de robôs. Gosto de criar coisas, desenvolver e automatizar tarefas.",
+    "quote": "\"Any sufficiently advanced technology is indistinguishable from magic.\" - Arthur C. Clarke",
     "area_label": "Área",
     "areas": {
       "fullstack": "Full-Stack",
@@ -39,7 +39,7 @@
   "history": {
     "label": "02, Histórico",
     "subtitle": "Linha do Tempo •",
-    "period": "2019 → Hoje",
+    "period": "2020 → Hoje",
     "media_placeholder": "Vídeos / Fotos",
     "headline": {
       "p1": "Da robótica ",
@@ -80,10 +80,9 @@
       "estagio": {
         "period": "Jan 2024 – Jan 2025",
         "title": "Estágio na Etho Soluções IT",
-        "description": "Entrei como estagiário e saí diferente. Automatizei processos internos, conduzi um projeto de análise de dados em escala nacional e dei os primeiros passos no portal interno da empresa.",
+        "description": "Entrei como estagiário e continuo até hoje. Automatizei processos internos, atuei em um projeto de análise de dados em escala nacional e dei os primeiros passos no portal interno da empresa.",
         "highlights": [
           "Análise de dados para um grande cliente estratégico nacional",
-          "Primeiros passos com Go e FastAPI em ambiente profissional",
           "Relatórios financeiros e correção de discrepâncias internas",
           "Automação de processos que antes eram feitos manualmente"
         ]
@@ -111,7 +110,7 @@
       "nero": {
         "period": "Fev 2026 – Hoje",
         "title": "NERo UFV, Engenharia de Robôs",
-        "description": "Aprovado na UFV antes mesmo de terminar o ensino médio. Entrei no laboratório de robótica ainda no primeiro mês e já assumi a responsabilidade por toda a parte de software de um projeto de robótica educacional.",
+        "description": "Entrei no laboratório de robótica ainda no primeiro mês e já assumi a responsabilidade por toda a parte de software de um projeto de robótica educacional.",
         "highlights": [
           "Responsável pelo código do robô e pelo app que se conecta a ele",
           "Software embarcado em C++ para controle e comunicação do robô"
@@ -137,14 +136,33 @@
     "label_private": "Privado",
     "label_public": "Público",
     "view": "ver",
+    "modal_close": "Fechar",
+    "modal_overview": "Visão Geral",
+    "modal_highlights": "Destaques",
+    "modal_tech": "Stack",
+    "modal_view_github": "Ver no GitHub",
     "list": {
       "plataforma": {
         "title": "Plataforma Empresarial",
-        "description": "Plataforma full-stack usada por todos os departamentos, Financeiro, RH e Administrativo. Microsserviços no GCP, dashboards por perfil e integrações com IA."
+        "description": "Plataforma interna full-stack usada diariamente por todos os departamentos, Financeiro, RH e Administrativo. Criada para substituir planilhas fragmentadas e processos manuais por um sistema unificado e com controle de acesso.",
+        "highlights": [
+          "Dashboards com controle de acesso por perfil para Financeiro, RH e Administrativo",
+          "Arquitetura de microsserviços implantada e escalada no Google Cloud Platform",
+          "Integrações com IA interna para automatizar tarefas repetitivas do back-office",
+          "Desenvolvimento completo: frontend em Vue.js, backend em Go, banco de dados MySQL",
+          "Modelagem de dados para suportar consultas multi-tenant e multi-departamento"
+        ]
       },
       "agent": {
         "title": "Agente Pessoal",
-        "description": "Agente de IA conectado a múltiplas ferramentas usando FastAPI, construído sobre Ollama."
+        "description": "Agente de IA local e autônomo, capaz de usar múltiplas ferramentas para me auxiliar no dia a dia. Conectado ao WhatsApp, me lembra de tarefas e atividades nos momentos certos — com arquitetura pensada para crescer e se integrar a outros serviços.",
+        "highlights": [
+          "Integração com WhatsApp para enviar lembretes e receber comandos em linguagem natural",
+          "Agente autônomo com chamada de ferramentas usando modelos Ollama locais, sem API na nuvem",
+          "Backend FastAPI com interface REST para gerenciar sessões e contexto do agente",
+          "Setup Dockerizado para desenvolvimento local totalmente reproduzível",
+          "Sistema de ferramentas modular, pensado para expansão a novos serviços"
+        ]
       }
     }
   },
