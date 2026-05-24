@@ -42,7 +42,7 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <span class="visual-label">Mesh / Animation / Items</span>
+          <WireframeMesh />
         </div>
       </div>
       <div class="scroll-indicator" aria-hidden="true">
@@ -63,6 +63,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import TypewriterText from '@/components/ui/TypewriterText.vue'
+import WireframeMesh from '@/components/ui/WireframeMesh.vue'
 
 const { tm } = useI18n()
 
@@ -160,19 +161,13 @@ const roles = computed(() => tm('hero.roles'))
   align-items: center;
 }
 
-/* ── Visual placeholder ── */
+/* ── Visual / 3D mesh ── */
 .hero-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex: 1;
   max-width: 45%;
-}
-
-.visual-label {
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-  letter-spacing: 0.05em;
+  min-height: 520px;
+  position: relative;
+  align-self: center;
 }
 
 /* ── Scroll indicator ── */
