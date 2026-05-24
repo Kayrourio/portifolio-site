@@ -163,6 +163,28 @@
           "Dockerized setup for fully reproducible local development",
           "Modular tool system designed to expand to new services and integrations"
         ]
+      },
+      "tagbot": {
+        "title": "TagBot",
+        "description": "Educational robot that visits schools to inspire robotics in elementary students. The robot communicates with a Flutter mobile app via BLE, offering joystick control, command sequences, geometric path execution (triangle, square…), and gyroscope-based control by tilting the phone.",
+        "highlights": [
+          "ESP32 firmware built with PlatformIO and modular C++ architecture",
+          "Flutter mobile app with BLE communication layer",
+          "Joystick control and programmable command sequences",
+          "Geometric path modes: triangle, square, and other shapes",
+          "Gyroscope control: move the robot by tilting the phone",
+          "Full refactor: migrated from Arduino IDE to PlatformIO, rewrote the app from scratch"
+        ]
+      },
+      "lineFollower": {
+        "title": "Line Follower",
+        "description": "First entry in the 'Projeto Roboticista' series — a growing set of robotics projects of increasing complexity. Built with two friends, with a focus on learning and thorough documentation of each decision.",
+        "highlights": [
+          "ESP32-based line follower with PlatformIO and modular C++ codebase",
+          "First project in the Projeto Roboticista learning series",
+          "Built collaboratively with two friends as a structured learning exercise",
+          "Documented design and implementation decisions throughout development"
+        ]
       }
     }
   },

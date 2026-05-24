@@ -86,6 +86,36 @@ const allProjects = [
       { name: 'Docker', icon: `${SI}/docker`, color: '#2496ED' },
     ],
   },
+  {
+    key: 'tagbot',
+    company: 'NERO UFV',
+    year: '2026',
+    status: 'wip',
+    isPrivate: true,
+    github: null,
+    type: 'work',
+    tech: [
+      { name: 'C++', icon: `${SI}/cplusplus`, color: '#00599C' },
+      { name: 'Flutter', icon: `${SI}/flutter`, color: '#02569B' },
+      { name: 'PlatformIO', icon: `${SI}/platformio`, color: '#F5822A' },
+      { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
+      { name: 'Bluetooth', icon: `${SI}/bluetooth`, color: '#0082FC' },
+    ],
+  },
+  {
+    key: 'lineFollower',
+    company: 'PROJETO ROBOTICISTA',
+    year: '2026',
+    status: 'wip',
+    isPrivate: false,
+    github: 'https://github.com/Kayrourio/robotics-line-follower',
+    type: 'projects',
+    tech: [
+      { name: 'C++', icon: `${SI}/cplusplus`, color: '#00599C' },
+      { name: 'PlatformIO', icon: `${SI}/platformio`, color: '#F5822A' },
+      { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
+    ],
+  },
 ]
 
 const activeTab = ref('all')

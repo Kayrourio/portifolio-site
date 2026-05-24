@@ -82,8 +82,10 @@ const areas = [
       { name: 'AI Agents', icon: `${SI}/openai.svg`,                       color: '#10a37f' },
       { name: 'Selenium',  icon: `${DI}/selenium/selenium-original.svg`,   color: '#43B02A' },
       { name: 'Pandas',    icon: `${DI}/pandas/pandas-original.svg`,       color: '#e70488' },
-      { name: 'C++',       icon: `${DI}/cplusplus/cplusplus-plain.svg`,    color: '#00599C' },
-      { name: 'Arduino',   icon: `${DI}/arduino/arduino-original.svg`,     color: '#00979D' },
+      { name: 'C++',        icon: `${DI}/cplusplus/cplusplus-plain.svg`,    color: '#00599C' },
+      { name: 'Arduino',    icon: `${DI}/arduino/arduino-original.svg`,     color: '#00979D' },
+      { name: 'PlatformIO', icon: `${SI}/platformio.svg`,                   color: '#F5822A' },
+      { name: 'ESP32',      icon: `${SI}/espressif.svg`,                    color: '#E7352C' },
     ],
   },
   {
