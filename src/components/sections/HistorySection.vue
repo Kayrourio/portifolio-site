@@ -123,7 +123,7 @@ const events = [
   position: relative;
 }
 
-/* Timeline rail — runs down col 2, fades at the bottom */
+/* Timeline rail, runs down col 2, fades at the bottom */
 .history-events::before {
   content: '';
   position: absolute;

@@ -23,24 +23,177 @@
             </svg>
           </button>
 
-          <!-- Media -->
+          <!-- ── Media ── -->
           <div class="modal-media" aria-hidden="true">
-            <div class="media-grid" aria-hidden="true">
-              <span v-for="n in 48" :key="n" class="media-cell" />
-            </div>
-            <div class="media-glow" aria-hidden="true" />
+            <template v-if="project.isNarrative && project.images && project.images[0]">
+              <img :src="project.images[0]" alt="" class="modal-hero-img" />
+            </template>
+            <template v-else-if="!project.isNarrative && project.images && project.images.length">
+              <div class="modal-photos">
+                <img
+                  v-for="(src, i) in project.images"
+                  :key="i"
+                  :src="src"
+                  alt=""
+                  class="modal-photo"
+                />
+              </div>
+            </template>
+            <template v-else>
+              <div class="media-grid" aria-hidden="true">
+                <span v-for="n in 48" :key="n" class="media-cell" />
+              </div>
+              <div class="media-glow" aria-hidden="true" />
+            </template>
           </div>
 
-          <div class="modal-content">
+          <!-- ── Narrative layout ── -->
+          <div v-if="project.isNarrative" class="modal-content modal-content--narrative">
 
-            <!-- Header -->
             <header class="modal-header">
               <div class="modal-meta">
                 <span class="status-badge">
                   <span class="status-dot" aria-hidden="true" />
                   {{ statusLabel }}
                 </span>
-                <span class="modal-company">{{ project.company }} • {{ project.year }}</span>
+                <span v-if="project.award" class="award-badge" :title="project.awardTitle || awardLabel">
+                  {{ awardLabel }}
+                </span>
+                <span class="modal-company">{{ $te(`projects.list.${project.key}.company`) ? $t(`projects.list.${project.key}.company`) : project.company }} • {{ project.year }}</span>
+              </div>
+              <div class="narrative-title-row">
+                <h2 :id="`modal-title-${project.key}`" class="modal-title">
+                  {{ $t(`projects.list.${project.key}.title`) }}
+                </h2>
+                <div class="narrative-header-links">
+                  <a
+                    v-if="!project.isPrivate && project.github"
+                    :href="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="narrative-icon-link"
+                    aria-label="GitHub"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                  </a>
+                  <a
+                    v-if="!project.isPrivate && project.link"
+                    :href="project.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="narrative-icon-link"
+                    aria-label="Ver site"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <p class="narrative-subtitle">{{ $t(`projects.list.${project.key}.n_intro`) }}</p>
+            </header>
+
+            <template v-for="sec in project.narrativeSections" :key="sec">
+              <!-- Full-width image break -->
+              <div v-if="sec === 'img_group'" class="narrative-img-break" aria-hidden="true">
+                <img :src="project.images[1]" alt="" class="narrative-break-img" />
+              </div>
+
+              <!-- Text section -->
+              <section v-else class="narrative-section">
+                <h3 class="narrative-h3">{{ $t(`projects.list.${project.key}.n_${sec}`) }}</h3>
+                <img
+                  v-if="sec === 'hardware' && project.images && project.images[2]"
+                  :src="project.images[2]"
+                  alt=""
+                  class="narrative-cad-img"
+                />
+                <p class="narrative-body">{{ $t(`projects.list.${project.key}.n_${sec}_body`) }}</p>
+                <div v-if="sec === 'resultado'" class="narrative-inline-links">
+                  <a
+                    v-if="!project.isPrivate && project.link"
+                    :href="project.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="narrative-text-link"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    smartcamp-project.vercel.app
+                  </a>
+                  <a
+                    v-if="!project.isPrivate && project.github"
+                    :href="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="narrative-text-link"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                    github.com/Kayrourio/smartcamp-project
+                  </a>
+                </div>
+              </section>
+            </template>
+
+            <section class="narrative-stack" :aria-label="$t('projects.modal_tech')">
+              <p class="section-label">{{ $t('projects.modal_tech') }}</p>
+              <div class="modal-tech">
+                <SkillBadge
+                  v-for="skill in project.tech"
+                  :key="skill.name"
+                  :name="skill.name"
+                  :icon="skill.icon"
+                  :color="skill.color"
+                />
+              </div>
+            </section>
+
+            <footer class="modal-footer">
+              <span class="modal-visibility">
+                {{ project.isPrivate ? $t('projects.label_private') : $t('projects.label_public') }}
+              </span>
+              <div class="modal-links">
+                <a
+                  v-if="!project.isPrivate && project.link"
+                  :href="project.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="modal-link"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  {{ $t('projects.view') }} →
+                </a>
+              </div>
+            </footer>
+
+          </div>
+
+          <!-- ── Standard layout ── -->
+          <div v-else class="modal-content">
+
+            <header class="modal-header">
+              <div class="modal-meta">
+                <span class="status-badge">
+                  <span class="status-dot" aria-hidden="true" />
+                  {{ statusLabel }}
+                </span>
+                <span v-if="project.award" class="award-badge" :title="project.awardTitle || awardLabel">
+                  {{ awardLabel }}
+                </span>
+                <span class="modal-company">{{ $te(`projects.list.${project.key}.company`) ? $t(`projects.list.${project.key}.company`) : project.company }} • {{ project.year }}</span>
                 <span class="modal-type-badge">{{ project.type }}</span>
               </div>
               <h2 :id="`modal-title-${project.key}`" class="modal-title">
@@ -48,7 +201,6 @@
               </h2>
             </header>
 
-            <!-- Overview -->
             <section class="modal-section" :aria-label="$t('projects.modal_overview')">
               <p class="section-label">{{ $t('projects.modal_overview') }}</p>
               <p class="overview-text">
@@ -56,22 +208,16 @@
               </p>
             </section>
 
-            <!-- Highlights -->
             <section class="modal-section" :aria-label="$t('projects.modal_highlights')">
               <p class="section-label">{{ $t('projects.modal_highlights') }}</p>
               <ul class="highlights-list">
-                <li
-                  v-for="(item, i) in highlights"
-                  :key="i"
-                  class="highlight-item"
-                >
+                <li v-for="(item, i) in highlights" :key="i" class="highlight-item">
                   <span class="highlight-bullet" aria-hidden="true">→</span>
                   <span>{{ item }}</span>
                 </li>
               </ul>
             </section>
 
-            <!-- Stack -->
             <section class="modal-section" :aria-label="$t('projects.modal_tech')">
               <p class="section-label">{{ $t('projects.modal_tech') }}</p>
               <div class="modal-tech">
@@ -85,7 +231,6 @@
               </div>
             </section>
 
-            <!-- Footer -->
             <footer class="modal-footer">
               <span class="modal-visibility">
                 {{ project.isPrivate ? $t('projects.label_private') : $t('projects.label_public') }}
@@ -102,6 +247,20 @@
                     <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
                   </svg>
                   {{ $t('projects.modal_view_github') }}
+                </a>
+                <a
+                  v-if="!project.isPrivate && project.link"
+                  :href="project.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="modal-link"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  {{ $t('projects.view') }} →
                 </a>
               </div>
             </footer>
@@ -133,6 +292,8 @@ const statusLabel = computed(() =>
     ? t('projects.status_completed')
     : t('projects.status_wip')
 )
+
+const awardLabel = computed(() => (props.project?.award ? t(props.project.award) : null))
 
 const highlights = computed(() => {
   if (!props.project) return []
@@ -233,6 +394,26 @@ onUnmounted(() => {
   border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
 }
 
+.modal-photos {
+  display: flex;
+  height: 100%;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.modal-photo {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.modal-photo:first-child {
+  flex: 0 0 42%;
+  object-position: center center;
+}
+
 .media-grid {
   position: absolute;
   inset: 0;
@@ -295,6 +476,19 @@ onUnmounted(() => {
   border-radius: var(--radius-full);
   background: v-bind("project?.status === 'completed' ? 'var(--color-primary)' : 'var(--color-warning)'");
   flex-shrink: 0;
+}
+
+.award-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-warning);
+  cursor: default;
 }
 
 .modal-company {
@@ -494,6 +688,183 @@ onUnmounted(() => {
   @keyframes panel-out-mobile {
     from { transform: translateY(0); }
     to   { transform: translateY(100%); }
+  }
+}
+
+/* ── Hero image (narrative) ── */
+.modal-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+/* ── Narrative layout ── */
+.modal-content--narrative {
+  gap: 0;
+}
+
+.modal-content--narrative .modal-header {
+  padding-bottom: var(--space-6);
+  gap: var(--space-4);
+}
+
+.narrative-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.narrative-header-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: 6px;
+  flex-shrink: 0;
+}
+
+.narrative-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition:
+    color var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base);
+}
+
+.narrative-icon-link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary-muted);
+  background: var(--color-surface-hover);
+}
+
+.narrative-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+.narrative-inline-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.narrative-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.narrative-text-link:hover {
+  color: var(--color-primary-hover);
+}
+
+.narrative-cad-img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  object-position: center;
+  background: var(--color-bg-deep);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  display: block;
+}
+
+.narrative-img-break {
+  margin-left: calc(-1 * var(--space-8));
+  margin-right: calc(-1 * var(--space-8));
+  overflow: hidden;
+}
+
+.narrative-break-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.narrative-section {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.narrative-h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  margin: 0;
+  line-height: var(--leading-snug);
+}
+
+.narrative-body {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+.narrative-award-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+.narrative-stack {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (max-width: 767px) {
+  .modal-content--narrative .modal-header {
+    padding-bottom: var(--space-5);
+  }
+
+  .narrative-section {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+
+  .narrative-award-img {
+    max-height: 220px;
+  }
+
+  .narrative-img-break {
+    margin-left: calc(-1 * var(--space-5));
+    margin-right: calc(-1 * var(--space-5));
+  }
+
+  .narrative-break-img {
+    height: 200px;
   }
 }
 </style>

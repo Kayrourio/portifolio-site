@@ -39,7 +39,7 @@ defineProps({
   transform: translateY(0);
 }
 
-/* Glow layer — invisible by default, appears on hover */
+/* Glow layer, invisible by default, appears on hover */
 .base-btn--glow::before {
   content: '';
   position: absolute;

@@ -129,6 +129,7 @@
       "p3": "."
     },
     "tab_all": "Todos",
+    "award_first_place": "🏆 1º Lugar",
     "tab_projects": "Projetos",
     "tab_work": "Trabalho",
     "status_completed": "Concluído",
@@ -155,7 +156,7 @@
       },
       "agent": {
         "title": "Agente Pessoal",
-        "description": "Agente de IA local e autônomo, capaz de usar múltiplas ferramentas para me auxiliar no dia a dia. Conectado ao WhatsApp, me lembra de tarefas e atividades nos momentos certos — com arquitetura pensada para crescer e se integrar a outros serviços.",
+        "description": "Agente de IA local e autônomo, capaz de usar múltiplas ferramentas para me auxiliar no dia a dia. Conectado ao WhatsApp, me lembra de tarefas e atividades nos momentos certos, com arquitetura pensada para crescer e se integrar a outros serviços.",
         "highlights": [
           "Integração com WhatsApp para enviar lembretes e receber comandos em linguagem natural",
           "Agente autônomo com chamada de ferramentas usando modelos Ollama locais, sem API na nuvem",
@@ -178,13 +179,30 @@
       },
       "lineFollower": {
         "title": "Seguidor de Linha",
-        "description": "Primeiro projeto da série 'Projeto Roboticista' — uma coleção crescente de projetos de robótica com complexidade progressiva. Desenvolvido com dois amigos, com foco em aprendizado e documentação detalhada de cada decisão.",
+        "company": "PROJETO ROBOTICISTA",
+        "description": "Primeiro projeto da série 'Projeto Roboticista', uma coleção crescente de projetos de robótica com complexidade progressiva. Desenvolvido com dois amigos, com foco em aprendizado e documentação detalhada de cada decisão.",
         "highlights": [
           "Seguidor de linha com ESP32, PlatformIO e código C++ modular",
           "Primeiro projeto da série de aprendizado Projeto Roboticista",
           "Desenvolvido em equipe com dois amigos como exercício de aprendizado estruturado",
           "Decisões de design e implementação documentadas ao longo do desenvolvimento"
         ]
+      },
+      "terrasafe": {
+        "title": "TerraSafe",
+        "description": "Rede de sensores IoT de baixo custo para monitoramento de umidade do solo em encostas, desenvolvida durante o SmartCamp Cidades Inteligentes, bootcamp de 13–14 de junho de 2026 no TecnoParque UFV.",
+        "highlights": [],
+        "n_intro": "Rede de sensores IoT de baixo custo para monitoramento de umidade do solo em encostas, desenvolvida durante o SmartCamp Cidades Inteligentes, bootcamp de 13–14 de junho de 2026 no TecnoParque UFV.",
+        "n_resultado": "Resultado",
+        "n_resultado_body": "1º lugar no SmartCamp Cidades Inteligentes, bootcamp organizado pelo projeto Viçosa SMART em parceria com o LabMAKER e a VUEI/UFV. Premiação de R$ 2.000.",
+        "n_contexto": "Contexto",
+        "n_contexto_body": "A Zona da Mata mineira registrou 72 mortes confirmadas em deslizamentos em fevereiro de 2026, com 5.500 pessoas deslocadas e 752 mm de chuva acumulada em um mês em Juiz de Fora, recorde do INMET. Sistemas de previsão como os do INMET indicam quando vai chover, mas não indicam quando o solo está saturado o suficiente para ceder. 50 mm de chuva em solo seco não tem o mesmo efeito que 50 mm em solo já saturado, e essa diferença não é capturada por um alerta de chuva.",
+        "n_construido": "O que foi construído",
+        "n_construido_body": "O TerraSafe monitora diretamente a condição do solo, em vez de só prever chuva. Cada sonda fica parcialmente enterrada na encosta (~80 cm) e mede umidade do solo, inclinação (via acelerômetro), temperatura e umidade do ar. As leituras saem da sonda por uma rede mesh ESP-NOW, sem depender de roteador Wi-Fi —, chegam a um hub local e seguem via serial até um backend em FastAPI, que atualiza um mapa em tempo real e gera alertas quando a saturação ultrapassa o limiar configurado.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "ESP32 como microcontrolador, sensor capacitivo de umidade do solo, DHT11 para temperatura/umidade do ar, MPU6050 para inclinação, e bateria Li-Ion 18650 para autonomia de campo. Custo por unidade: R$ 60–80.",
+        "n_escala": "Protótipo e escala planejada",
+        "n_escala_body": "O protótipo apresentado no hackathon rodou com 1 a 3 sensores, cobrindo o fluxo completo do sensor ao alerta. A proposta de evolução prevê um piloto municipal com 50 a 200 sensores nos pontos mapeados pela Defesa Civil de Viçosa, escala regional com 1.000 a 5.000 sensores integrados ao SGB e ao CEMADEN, e eventualmente um modelo de SaaS para municípios."
       }
     }
   },

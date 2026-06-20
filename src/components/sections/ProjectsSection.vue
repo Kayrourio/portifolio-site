@@ -33,11 +33,15 @@
           :key="project.key"
           :title="$t(`projects.list.${project.key}.title`)"
           :description="$t(`projects.list.${project.key}.description`)"
-          :company="project.company"
+          :company="$te(`projects.list.${project.key}.company`) ? $t(`projects.list.${project.key}.company`) : project.company"
           :year="project.year"
           :status="project.status"
           :is-private="project.isPrivate"
           :github="project.github"
+          :link="project.link"
+          :award="project.award"
+          :award-title="project.awardTitle"
+          :images="project.images || []"
           :tech="project.tech"
           @open="selectedProject = project"
         />
@@ -53,6 +57,9 @@ import { ref, computed } from 'vue'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
 import ProjectModal from '@/components/ui/ProjectModal.vue'
+import terrasafe1 from '@/assets/images/smartcamp2.jpeg'
+import terrasafe2 from '@/assets/images/smartcamp1.jpeg'
+import terrasafe3 from '@/assets/images/cad-image.png'
 
 const SI = 'https://cdn.simpleicons.org'
 
@@ -114,6 +121,29 @@ const allProjects = [
       { name: 'C++', icon: `${SI}/cplusplus`, color: '#00599C' },
       { name: 'PlatformIO', icon: `${SI}/platformio`, color: '#F5822A' },
       { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
+    ],
+  },
+  {
+    key: 'terrasafe',
+    company: 'SMARTCAMP UFV',
+    year: '2026',
+    status: 'completed',
+    isPrivate: false,
+    github: 'https://github.com/Kayrourio/smartcamp-project',
+    link: 'https://smartcamp-project.vercel.app',
+    type: 'projects',
+    award: 'projects.award_first_place',
+    awardTitle:
+      '1º Lugar, SmartCamp Cidades Inteligentes · UFV, 13–14 jun. 2026, TecnoParque UFV. Prêmio de R$ 2.000. Org.: Viçosa SMART, LabMAKER e VUEI/UFV.',
+    images: [terrasafe1, terrasafe2, terrasafe3],
+    isNarrative: true,
+    narrativeSections: ['resultado', 'img_group', 'contexto', 'construido', 'hardware', 'escala'],
+    tech: [
+      { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
+      { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
+      { name: 'Python', icon: `${SI}/python`, color: '#3776AB' },
+      { name: 'IoT', icon: `${SI}/mqtt`, color: '#8B6914' },
+      { name: 'ESP-NOW', icon: `${SI}/espressif`, color: '#FF6B35' },
     ],
   },
 ]

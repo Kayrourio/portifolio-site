@@ -12,21 +12,21 @@
    ─────────────────────────────────────────── */
 :root {
   /* Map Bootstrap color system to our palette */
-  --bs-primary:        var(--color-primary);
-  --bs-primary-rgb:    176, 137, 255;
-  --bs-body-bg:        var(--color-bg);
-  --bs-body-color:     var(--color-text);
+  --bs-primary: var(--color-primary);
+  --bs-primary-rgb: 176, 137, 255;
+  --bs-body-bg: var(--color-bg);
+  --bs-body-color: var(--color-text);
   --bs-body-font-family: var(--font-body);
-  --bs-border-color:   var(--color-border);
-  --bs-border-radius:  var(--radius-md);
+  --bs-border-color: var(--color-border);
+  --bs-border-radius: var(--radius-md);
   --bs-border-radius-sm: var(--radius-sm);
   --bs-border-radius-lg: var(--radius-lg);
-  --bs-link-color:     var(--color-primary);
+  --bs-link-color: var(--color-primary);
   --bs-link-hover-color: var(--color-primary-hover);
   --bs-focus-ring-color: rgba(176, 137, 255, 0.35);
-  --bs-success-rgb:    34, 197, 94;
-  --bs-warning-rgb:    245, 158, 11;
-  --bs-danger-rgb:     239, 68, 68;
+  --bs-success-rgb: 34, 197, 94;
+  --bs-warning-rgb: 245, 158, 11;
+  --bs-danger-rgb: 239, 68, 68;
 }
 
 /* ── 2. Base reset ───────────────────────────── */
@@ -44,13 +44,11 @@ html {
 body {
   margin: 0;
   background-color: var(--color-bg);
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent calc(100% / 7 - 1px),
-    var(--color-border-subtle) calc(100% / 7 - 1px),
-    var(--color-border-subtle) calc(100% / 7)
-  );
+  background-image: repeating-linear-gradient(90deg,
+      transparent,
+      transparent calc(100% / 7 - 1px),
+      var(--color-border-subtle) calc(100% / 7 - 1px),
+      var(--color-border-subtle) calc(100% / 7));
   color: var(--color-text);
   line-height: var(--leading-normal);
 }
@@ -84,7 +82,7 @@ ol[role='list'] {
   margin: 0;
 }
 
-/* Focus ring — accessible and on-brand */
+/* Focus ring, accessible and on-brand */
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
@@ -93,6 +91,7 @@ ol[role='list'] {
 
 /* ── 3. Reduced motion ───────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -124,8 +123,15 @@ ol[role='list'] {
 
 /* ── Scroll reveal ───────────────────────────── */
 @keyframes reveal-in {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0);    }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Fallback: transition + IntersectionObserver class */

@@ -129,6 +129,7 @@
       "p3": "."
     },
     "tab_all": "All",
+    "award_first_place": "🏆 1st Place",
     "tab_projects": "Projects",
     "tab_work": "Work",
     "status_completed": "Completed",
@@ -155,7 +156,7 @@
       },
       "agent": {
         "title": "Personal Agent",
-        "description": "A local, autonomous AI agent that uses multiple tools to assist me throughout the day. Connected to WhatsApp, it reminds me of tasks and activities at the right moments — built on an agentic architecture designed to expand to other services.",
+        "description": "A local, autonomous AI agent that uses multiple tools to assist me throughout the day. Connected to WhatsApp, it reminds me of tasks and activities at the right moments, built on an agentic architecture designed to expand to other services.",
         "highlights": [
           "WhatsApp integration to send reminders and receive natural-language commands",
           "Autonomous tool-calling agent powered by local Ollama models, no cloud API required",
@@ -179,13 +180,30 @@
 
       "lineFollower": {
         "title": "Line Follower",
-        "description": "First entry in the 'Projeto Roboticista' series — a growing set of robotics projects of increasing complexity. Built with two friends, with a focus on learning and thorough documentation of each decision.",
+        "company": "ROBOTICIST PROJECT",
+        "description": "First entry in the 'Projeto Roboticista' series, a growing set of robotics projects of increasing complexity. Built with two friends, with a focus on learning and thorough documentation of each decision.",
         "highlights": [
           "ESP32-based line follower with PlatformIO and modular C++ codebase",
           "First project in the Projeto Roboticista learning series",
           "Built collaboratively with two friends as a structured learning exercise",
           "Documented design and implementation decisions throughout development"
         ]
+      },
+      "terrasafe": {
+        "title": "TerraSafe",
+        "description": "Low-cost IoT sensor network for soil moisture monitoring on slopes, developed during the SmartCamp Cidades Inteligentes bootcamp, June 13–14, 2026, TecnoParque UFV.",
+        "highlights": [],
+        "n_intro": "Low-cost IoT sensor network for soil moisture monitoring on slopes, developed during the SmartCamp Cidades Inteligentes bootcamp, June 13–14, 2026, TecnoParque UFV.",
+        "n_resultado": "Result",
+        "n_resultado_body": "1st place at SmartCamp Cidades Inteligentes, a bootcamp organized by the Viçosa SMART project in partnership with LabMAKER and VUEI/UFV. Prize: R$ 2,000.",
+        "n_contexto": "Context",
+        "n_contexto_body": "Brazil's Zona da Mata recorded 72 confirmed deaths in landslides in February 2026, with 5,500 people displaced and 752 mm of accumulated rainfall in a single month in Juiz de Fora, an INMET record. Forecasting systems like INMET's predict when it will rain, but they don't indicate when soil is saturated enough to give way. 50 mm of rain on dry soil doesn't have the same effect as 50 mm on already-saturated soil, and that difference is not captured by a rain alert.",
+        "n_construido": "What was built",
+        "n_construido_body": "TerraSafe monitors soil conditions directly, rather than just predicting rain. Each probe sits partially buried in the slope (~80 cm) and measures soil moisture, slope angle (via accelerometer), air temperature, and humidity. Readings leave the probe over an ESP-NOW mesh network, no Wi-Fi router needed, reach a local hub, and travel over serial to a FastAPI backend that updates a live map in real time and generates alerts when saturation crosses the configured threshold.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "ESP32 as the microcontroller, capacitive soil moisture sensor, DHT11 for temperature and air humidity, MPU6050 for slope angle, and an 18650 Li-Ion battery for field autonomy. Cost per unit: R$ 60–80.",
+        "n_escala": "Prototype and planned scale",
+        "n_escala_body": "The prototype presented at the hackathon ran with 1 to 3 sensors, covering the full flow from sensor to alert. The planned roadmap includes a municipal pilot with 50 to 200 sensors at risk points mapped by Viçosa's Defesa Civil, regional scale with 1,000 to 5,000 sensors integrated with SGB and CEMADEN, and eventually a SaaS model for municipalities."
       }
     }
   },

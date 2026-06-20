@@ -27,7 +27,7 @@ onMounted(async () => {
       .replace(/fill="(?!none)[^"]*"/g, 'fill="currentColor"')
       .replace(/fill:\s*(?!none)[^;}"]+/g, 'fill:currentColor')
   } catch {
-    // badge shows empty — border + label still visible
+    // badge shows empty, border + label still visible
   }
 })
 </script>

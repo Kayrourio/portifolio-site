@@ -12,9 +12,14 @@
         <span class="status-dot" aria-hidden="true" />
         {{ statusLabel }}
       </span>
+      <span v-if="award" class="award-badge" :title="awardTitle || awardLabel">
+        {{ awardLabel }}
+      </span>
     </header>
 
-    <div class="card-media" aria-hidden="true" />
+    <div class="card-media" aria-hidden="true">
+      <img v-if="images[0]" :src="images[0]" alt="" class="card-media-img" />
+    </div>
 
     <div class="card-body">
       <p class="card-meta">{{ company }} • {{ year }}</p>
@@ -47,6 +52,21 @@
         </svg>
         {{ $t('projects.view') }} →
       </a>
+      <a
+        v-else-if="!isPrivate && link"
+        :href="link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-link"
+        @click.stop
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        {{ $t('projects.view') }} →
+      </a>
     </footer>
   </article>
 </template>
@@ -68,12 +88,18 @@ const props = defineProps({
   status:      { type: String,  required: true },
   isPrivate:   { type: Boolean, default: true  },
   github:      { type: String,  default: null  },
+  link:        { type: String,  default: null  },
+  award:       { type: String,  default: null  },
+  awardTitle:  { type: String,  default: null  },
+  images:      { type: Array,   default: () => [] },
   tech:        { type: Array,   default: () => [] }
 })
 
 const statusLabel = computed(() =>
   props.status === 'completed' ? t('projects.status_completed') : t('projects.status_wip')
 )
+
+const awardLabel = computed(() => (props.award ? t(props.award) : null))
 </script>
 
 <style scoped>
@@ -101,6 +127,10 @@ const statusLabel = computed(() =>
 /* ── Header ── */
 .card-header {
   padding: var(--space-4) var(--space-5) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
 }
 
 .status-badge {
@@ -114,6 +144,19 @@ const statusLabel = computed(() =>
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
+}
+
+.award-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-warning);
+  cursor: default;
 }
 
 .status-dot {
@@ -131,6 +174,15 @@ const statusLabel = computed(() =>
   border-radius: var(--radius-lg);
   background: var(--color-bg-deep);
   border: 1px solid var(--color-border-subtle);
+  overflow: hidden;
+}
+
+.card-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 /* ── Body ── */

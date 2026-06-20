@@ -1,6 +1,6 @@
 /* ─────────────────────────────────────────────
-   Design Tokens — single source of truth
-   All values consumed via var() — never hardcode
+   Design Tokens, single source of truth
+   All values consumed via var(), never hardcode
    ───────────────────────────────────────────── */
 
 :root {
@@ -8,7 +8,7 @@
   --color-bg: #292727;
   /* Primary Black */
   --color-bg-deep: #211f1f;
-  /* Secondary Black — darker sections */
+  /* Secondary Black, darker sections */
   --color-bg-elevated: #312f2f;
   /* Derived: cards, nav */
   --color-surface: #3a3737;
@@ -21,7 +21,7 @@
   --color-primary: #b089ff;
   /* Primary Purple */
   --color-primary-light: #e0ccff;
-  /* lightest tint — used in gradients */
+  /* lightest tint, used in gradients */
   --color-primary-hover: #c4a4ff;
   /* lighter on hover */
   --color-primary-dark: #8b5cf6;
@@ -30,7 +30,7 @@
 
   /* ── Colors: Text ── */
   --color-text: #edece8;
-  /* Primary White — warm white */
+  /* Primary White, warm white */
   --color-text-secondary: #b6b1ad;
   /* Primary Gray */
   --color-text-muted: #7e7975;
