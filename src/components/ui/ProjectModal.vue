@@ -193,33 +193,12 @@
                 <span v-if="project.award" class="award-badge" :title="project.awardTitle || awardLabel">
                   {{ awardLabel }}
                 </span>
-                <span class="modal-company">{{ $te(`projects.list.${project.key}.company`) ? $t(`projects.list.${project.key}.company`) : project.company }} • {{ project.year }}</span>
-                <span class="modal-type-badge">{{ project.type }}</span>
+                <span class="modal-company">{{ $te(`projects.list.${project.key}.company`) ? $t(`projects.list.${project.key}.company`) : project.company }} · {{ project.year }}</span>
               </div>
               <h2 :id="`modal-title-${project.key}`" class="modal-title">
                 {{ $t(`projects.list.${project.key}.title`) }}
               </h2>
-            </header>
-
-            <section class="modal-section" :aria-label="$t('projects.modal_overview')">
-              <p class="section-label">{{ $t('projects.modal_overview') }}</p>
-              <p class="overview-text">
-                {{ $t(`projects.list.${project.key}.description`) }}
-              </p>
-            </section>
-
-            <section class="modal-section" :aria-label="$t('projects.modal_highlights')">
-              <p class="section-label">{{ $t('projects.modal_highlights') }}</p>
-              <ul class="highlights-list">
-                <li v-for="(item, i) in highlights" :key="i" class="highlight-item">
-                  <span class="highlight-bullet" aria-hidden="true">→</span>
-                  <span>{{ item }}</span>
-                </li>
-              </ul>
-            </section>
-
-            <section class="modal-section" :aria-label="$t('projects.modal_tech')">
-              <p class="section-label">{{ $t('projects.modal_tech') }}</p>
+              <!-- Tech badges right under title -->
               <div class="modal-tech">
                 <SkillBadge
                   v-for="skill in project.tech"
@@ -229,40 +208,62 @@
                   :color="skill.color"
                 />
               </div>
-            </section>
+            </header>
 
-            <footer class="modal-footer">
-              <span class="modal-visibility">
-                {{ project.isPrivate ? $t('projects.label_private') : $t('projects.label_public') }}
-              </span>
-              <div class="modal-links">
+            <!-- Two-column: overview + links -->
+            <div class="modal-body-grid">
+              <section class="modal-section" :aria-label="$t('projects.modal_overview')">
+                <p class="section-label">{{ $t('projects.modal_overview') }}</p>
+                <p class="overview-text">
+                  {{ $t(`projects.list.${project.key}.description`) }}
+                </p>
+              </section>
+
+              <aside class="modal-links-col" v-if="!project.isPrivate && (project.github || project.link)">
+                <p class="section-label">{{ $t('projects.modal_links') }}</p>
                 <a
-                  v-if="!project.isPrivate && project.github"
+                  v-if="project.github"
                   :href="project.github"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="modal-link"
+                  class="modal-cta-btn"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
                   </svg>
                   {{ $t('projects.modal_view_github') }}
                 </a>
                 <a
-                  v-if="!project.isPrivate && project.link"
+                  v-if="project.link"
                   :href="project.link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="modal-link"
+                  class="modal-cta-btn modal-cta-btn--outline"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                     <polyline points="15 3 21 3 21 9"/>
                     <line x1="10" y1="14" x2="21" y2="3"/>
                   </svg>
-                  {{ $t('projects.view') }} →
+                  {{ $t('projects.view') }}
                 </a>
-              </div>
+              </aside>
+            </div>
+
+            <section class="modal-section" :aria-label="$t('projects.modal_highlights')">
+              <p class="section-label">{{ $t('projects.modal_highlights') }}</p>
+              <ul class="highlights-list">
+                <li v-for="(item, i) in highlights" :key="i" class="highlight-item">
+                  <span class="highlight-bullet" aria-hidden="true" />
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </section>
+
+            <footer class="modal-footer">
+              <span class="modal-visibility">
+                {{ project.isPrivate ? $t('projects.label_private') : $t('projects.label_public') }}
+              </span>
             </footer>
 
           </div>
@@ -435,6 +436,7 @@ onUnmounted(() => {
   background: radial-gradient(ellipse 60% 60% at 50% 80%, rgba(176, 137, 255, 0.18) 0%, transparent 70%);
 }
 
+
 /* ── Content ── */
 .modal-content {
   padding: var(--space-6) var(--space-8) var(--space-8);
@@ -499,15 +501,59 @@ onUnmounted(() => {
   letter-spacing: 0.08em;
 }
 
-.modal-type-badge {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--color-primary);
-  background: var(--color-primary-muted);
-  border-radius: var(--radius-full);
-  padding: var(--space-1) var(--space-3);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+/* ── Two-column body ── */
+.modal-body-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-6);
+  align-items: start;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
+}
+
+.modal-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 180px;
+}
+
+.modal-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-text);
+  color: var(--color-bg-deep);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  transition:
+    background var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
+  white-space: nowrap;
+}
+
+.modal-cta-btn:hover {
+  background: var(--color-primary-light);
+}
+
+.modal-cta-btn--outline {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
+
+.modal-cta-btn--outline:hover {
+  color: var(--color-text);
+  border-color: var(--color-primary-muted);
+  background: var(--color-surface);
 }
 
 .modal-title {
@@ -564,11 +610,13 @@ onUnmounted(() => {
 }
 
 .highlight-bullet {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--color-primary);
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
   flex-shrink: 0;
-  margin-top: 1px;
+  margin-top: 6px;
 }
 
 /* ── Tech ── */
@@ -645,6 +693,17 @@ onUnmounted(() => {
 @keyframes panel-out {
   from { opacity: 1; transform: translateY(0) scale(1); }
   to   { opacity: 0; transform: translateY(10px) scale(0.98); }
+}
+
+/* ── Responsive two-column ── */
+@media (max-width: 600px) {
+  .modal-body-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-links-col {
+    min-width: 0;
+  }
 }
 
 /* ── Mobile ── */
