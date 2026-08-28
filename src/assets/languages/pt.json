@@ -110,10 +110,13 @@
       "nero": {
         "period": "Fev 2026 – Hoje",
         "title": "NERo UFV, Engenharia de Robôs",
-        "description": "Entrei no laboratório de robótica ainda no primeiro mês e já assumi a responsabilidade por toda a parte de software de um projeto de robótica educacional.",
+        "description": "Entrei no laboratório de robótica ainda no primeiro mês e hoje toco várias frentes: capitaneio a equipe de drone AsiMAV, lidero o software do TagBot e do Capybot, e criei o Robótica // Hub, plataforma não-oficial do curso.",
         "highlights": [
-          "Responsável pelo código do robô e pelo app que se conecta a ele",
-          "Software embarcado em C++ para controle e comunicação do robô"
+          "Capitão da equipe de drone AsiMAV, rumo à Flying Robot League do CBR 2026",
+          "Liderança técnica de software do TagBot, robô educacional do NERo",
+          "Idealizador do Projeto R2D2, projeto próprio aprovado no NERo, com o Capybot como primeiro robô da série",
+          "Criador e desenvolvedor do Robótica // Hub, hub não-oficial do curso de Engenharia de Robôs",
+          "3º lugar na Maratona SI pelo time de calouros"
         ]
       }
     }
@@ -130,6 +133,7 @@
     },
     "tab_all": "Todos",
     "award_first_place": "🏆 1º Lugar",
+    "award_third_place": "🥉 3º Lugar",
     "tab_projects": "Projetos",
     "tab_work": "Trabalho",
     "status_completed": "Concluído",
@@ -156,39 +160,83 @@
           "Modelagem de dados para suportar consultas multi-tenant e multi-departamento"
         ]
       },
-      "agent": {
-        "title": "Agente Pessoal",
-        "description": "Agente de IA local e autônomo, capaz de usar múltiplas ferramentas para me auxiliar no dia a dia. Conectado ao WhatsApp, me lembra de tarefas e atividades nos momentos certos, com arquitetura pensada para crescer e se integrar a outros serviços.",
-        "highlights": [
-          "Integração com WhatsApp para enviar lembretes e receber comandos em linguagem natural",
-          "Agente autônomo com chamada de ferramentas usando modelos Ollama locais, sem API na nuvem",
-          "Backend FastAPI com interface REST para gerenciar sessões e contexto do agente",
-          "Setup Dockerizado para desenvolvimento local totalmente reproduzível",
-          "Sistema de ferramentas modular, pensado para expansão a novos serviços"
-        ]
-      },
       "tagbot": {
         "title": "TagBot",
-        "description": "Robô educacional que visita escolas para incentivar a robótica em crianças do ensino fundamental. O robô se comunica com um aplicativo Flutter via BLE, oferecendo controle por joystick, sequências de comandos, execução de percursos geométricos (triângulo, quadrado…) e controle por giroscópio inclinando o celular.",
-        "highlights": [
-          "Firmware para ESP32 desenvolvido com PlatformIO e arquitetura C++ modular",
-          "Aplicativo Flutter com camada de comunicação BLE",
-          "Controle por joystick e sequências de comandos programáveis",
-          "Modos de percurso geométrico: triângulo, quadrado e outras formas",
-          "Controle por giroscópio: mova o robô inclinando o celular",
-          "Refatoração completa: migração da Arduino IDE para PlatformIO e reescrita do app do zero"
-        ]
+        "description": "Robô de robótica educacional com ESP32, controlado via app Flutter por BLE/WiFi, com câmera embarcada e 6 modos de operação. Apresentado em parceria com a Receita Federal, com aplicação futura em escolas.",
+        "highlights": [],
+        "n_intro": "Robô de robótica educacional com ESP32, controlado via app Flutter por BLE/WiFi, com câmera embarcada e 6 modos de operação. Apresentado em parceria com a Receita Federal, com aplicação futura em escolas.",
+        "n_resultado": "Resultado",
+        "n_resultado_body": "Protótipo funcional construído e testado, com app de controle Android publicado em Flutter e 6 modos de operação implementados: controle digital (D-pad + sequência), joystick, formas geométricas autônomas, controle por giroscópio (inclinação do celular), comandos por tempo (timer) e controle direto de velocidade dos motores (PWM). O projeto foi apresentado em parceria com a Receita Federal, marco institucional relevante para o NERo, além de demonstração pública na Semana do Fazendeiro (UFV). O uso em escolas está previsto como próxima fase do projeto.",
+        "n_contexto": "Contexto",
+        "n_contexto_body": "O ensino de robótica na educação básica brasileira esbarra em barreiras de custo e falta de material didático adaptado. O NERo/UFV propôs o TagBot como plataforma de robótica educacional de baixo custo, pensada para, no futuro, ser levada a escolas como ferramenta de introdução prática à programação e robótica. Como etapa de validação e divulgação do projeto, o TagBot foi apresentado em parceria com a Receita Federal e na Semana do Fazendeiro (UFV).",
+        "n_construido": "O que foi construído",
+        "n_construido_body": "Firmware em C++ no ESP32 via PlatformIO, com arquitetura modular separando drivers de sensores/atuadores, camada de controle e camada de comunicação. O app Android em Flutter oferece os 6 modos de controle (Digital, Joystick, Geometry (percursos geométricos autônomos), Gyroscope (controle por inclinação via acelerômetro do celular), Timer (comandos temporizados) e PWM (controle direto de velocidade dos motores)), com indicador de status de conexão em tempo real (TAGBOT-01 · ONLINE) e leitura de telemetria. A comunicação é dupla: BLE nativo do ESP32 e WiFi via módulo de TV Box descaracterizado, dando redundância e mais alcance de conexão.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "Módulo de câmera USB (C3Tech Full HD 1080p) acoplado ao robô, possível base para expansão futura em visão computacional. Sensor ultrassônico (HC-SR04) para detecção de obstáculos, sensor de linha para seguimento de trajetória e encoders (E2-Q2) para odometria, todos integrados via firmware aos modos de operação do app."
       },
-      "lineFollower": {
-        "title": "Seguidor de Linha",
-        "company": "PROJETO ROBOTICISTA",
-        "description": "Primeiro projeto da série 'Projeto Roboticista', uma coleção crescente de projetos de robótica com complexidade progressiva. Desenvolvido com dois amigos, com foco em aprendizado e documentação detalhada de cada decisão.",
-        "highlights": [
-          "Seguidor de linha com ESP32, PlatformIO e código C++ modular",
-          "Primeiro projeto da série de aprendizado Projeto Roboticista",
-          "Desenvolvido em equipe com dois amigos como exercício de aprendizado estruturado",
-          "Decisões de design e implementação documentadas ao longo do desenvolvimento"
-        ]
+      "asimav": {
+        "title": "AsiMAV",
+        "description": "Sistema de drone autônomo do NERo/UFV para a Flying Robot League do CBR 2026. Capitão da equipe, à frente do software, desenvolvimento e testes do projeto.",
+        "highlights": [],
+        "n_intro": "Sistema de drone autônomo do NERo/UFV para a Flying Robot League do CBR 2026. Capitão da equipe, à frente do software, desenvolvimento e testes do projeto.",
+        "n_resultado": "Resultado",
+        "n_resultado_body": "Em aberto: a competição ocorre em novembro de 2026, em João Pessoa/PB, e a equipe ainda está na fase de preparação da Fase 1.",
+        "n_contexto": "Contexto",
+        "n_contexto_body": "A Flying Robot League do RoboCup Brasil desafia equipes a desenvolver VANTs autônomos (sem GPS, sem controle externo) capazes de reconhecer bases de pouso por visão, transportar carga, interagir com humanos via gestos e navegar em ambientes confinados. O AsiMAV é a resposta do NERo/UFV a esse desafio, montado por uma equipe majoritariamente sem experiência prévia em sistemas voadores.",
+        "n_construido": "O que foi construído",
+        "n_construido_body": "Projeto em estágio inicial, ainda na Fase 1 da competição. A arquitetura planejada usa ROS2 e Gazebo para simulação, pyparrot para controle do drone real (Bebop 2), e OpenCV para visão computacional. Como capitão, sou o principal responsável pelo software, desenvolvimento e testes do projeto.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "Drone Parrot Bebop 2."
+      },
+      "capybot": {
+        "title": "Capybot",
+        "description": "Robô de recepção social estacionário com design inspirado em capivara, usando LLM local e STT/TTS para interação natural com visitantes.",
+        "highlights": [],
+        "n_intro": "Robô de recepção social estacionário com design inspirado em capivara, usando LLM local e STT/TTS para interação natural com visitantes.",
+        "n_resultado": "Resultado",
+        "n_resultado_body": "Arquitetura da MVP1 totalmente fechada e validada: pipeline de voz (VAD → STT → LLM → TTS), reconhecimento facial e RAG local definidos ponta a ponta. Seleção final do modelo LLM ainda pendente de benchmark de latência e uso de RAM na Raspberry Pi 5.",
+        "n_contexto": "Contexto",
+        "n_contexto_body": "Primeiro de três projetos progressivos do Projeto R2D2 (NERo/UFV), servindo como prova de conceito de interação humano-robô 100% local, sem dependência de cloud, antes de escalar para robótica móvel (Sentinel-X) e sistemas de resposta ativa (Aegis). O desafio central é rodar percepção multimodal (voz, visão, LLM) com restrição de hardware embarcado, mantendo baixa latência de resposta.",
+        "n_construido": "O que foi construído",
+        "n_construido_body": "Pipeline de voz com detecção de atividade (silero-vad) e transcrição (faster-whisper) alimentando um classificador de intenção (sentence-transformers) rodando em paralelo ao LLM via asyncio.gather, reduzindo a latência percebida. Reconhecimento facial via InsightFace (buffalo_sc). Contexto e memória via RAG com sqlite-vec, escolhido sobre ChromaDB por ter overhead menor em ambiente embarcado. Modelos de visão multimodal carregados e descarregados sequencialmente para conter o uso de RAM na RPi 5. Saída de voz via Piper TTS; estados visuais do LCD pré-renderizados estaticamente via pygame para evitar o custo de renderização em tempo real. Controle de servos via ESP32, comunicando com a RPi 5 por WebSocket. Liderança técnica das decisões de arquitetura junto com o Cauan, como organizadores do NERo.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "Raspberry Pi 5 (8GB), ESP32, servos e display LCD de 3,5 polegadas."
+      },
+      "fluxo": {
+        "title": "Fluxo",
+        "description": "Plataforma web de inteligência operacional para restaurantes em cidades com demanda de eventos: mede fila e serviço em tempo real e converte sobrecarga em R$ perdido antes que aconteça.",
+        "highlights": [],
+        "n_intro": "Plataforma web de inteligência operacional para restaurantes em cidades com demanda de eventos: mede fila e serviço em tempo real e converte sobrecarga em R$ perdido antes que aconteça.",
+        "n_resultado": "Resultado",
+        "n_resultado_body": "3º lugar no Hackathon Abrasel, organizado pelo TecnoPARQ, realizado de 21 a 23 de agosto de 2026 em Viçosa, MG.",
+        "n_contexto": "Contexto",
+        "n_contexto_body": "Viçosa é uma cidade universitária cujo comércio vive de picos de demanda ligados a eventos. Só a Semana do Fazendeiro atrai cerca de 134 mil visitantes em 9 dias (mais de 42 mil só no primeiro fim de semana), mas os restaurantes locais ainda dimensionam equipe e estoque no olho. O problema não é falta de previsão para a cidade, é que nenhum restaurante mede a própria operação em tempo real: 89% dos empresários do setor relatam dificuldade para contratar mão de obra qualificada (ABRASEL/Panrotas, 2024), 40% dos clientes desistem da fila após 15 minutos sem estimativa de espera (Sebrae/WiFire, 2025), e 62,7% dos estabelecimentos do setor fecham em até 5 anos (IBGE, 2024). Ferramentas enterprise como Toast ou Restaurant365 custam a partir de R$ 2.500/mês por unidade, fora do alcance de um restaurante pequeno ou médio.",
+        "n_construido": "O que foi construído",
+        "n_construido_body": "Fluxo é uma plataforma web em tempo real onde a equipe registra o ciclo completo do cliente (fila, mesa, pedido, entrega) em telas simples de 1-2 toques, sem hardware novo no bolso de ninguém. Um motor de decisão puro no backend transforma esses eventos em métricas reais de teoria de filas: λ/μ (taxas de chegada e atendimento via EWMA sobre eventos ao vivo, não modeladas nem estimadas), Wq (espera medida de verdade), projeção de sobrecarga via Erlang C, e conversão direta em R$ em risco. Toda decisão (cor, tempo estimado, recomendação normal/atenção/urgente) é calculada uma vez no backend e distribuída por WebSocket como snapshot completo para cada tela: dashboard, tablet do cliente e os dois celulares do painel operacional são apenas renderizadores finos dessa mesma verdade.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "Um suporte de tablet foi cortado a laser para a view do cliente na mesa (prisma triangular, paleta marrom café + terracota, com botão fixo \"Chamar garçom\"). O painel operacional que cobre as 4 categorias de urgência para a equipe roda em dois celulares comuns via web, sem fabricação nenhuma."
+      },
+      "neroSite": {
+        "title": "Website do NERo",
+        "description": "Site institucional do NERo UFV, atualmente em desenvolvimento.",
+        "highlights": []
+      },
+      "robosPlatform": {
+        "title": "Robótica // Hub",
+        "description": "Hub não-oficial do curso de Engenharia de Robôs (ERO) da UFV, reunindo em um só lugar o grafo interativo da grade curricular, um archive de materiais de estudo e o calendário de provas e eventos do semestre.",
+        "highlights": [],
+        "n_intro": "Hub não-oficial do curso de Engenharia de Robôs (ERO) da UFV, reunindo em um só lugar o grafo interativo da grade curricular, um archive de materiais de estudo e o calendário de provas e eventos do semestre.",
+        "n_resultado": "Resultado",
+        "n_resultado_body": "A plataforma está completa e no ar. O grafo curricular renderiza as 55 disciplinas do curso com todas as relações de pré-requisito e correquisito, navegável por zoom, pan, busca e minimapa. O Archive já reúne dezenas de materiais de estudo (provas, listas, resumos, slides e livros), organizados por período e por disciplina, sincronizados automaticamente a partir de uma pasta compartilhada no Google Drive. O fluxo de upload permite que qualquer aluno da turma envie múltiplos arquivos, de tipos diferentes, em um único lote, direto para o Drive, sem depender de um formulário manual. O calendário puxa provas, entregas e prazos de uma planilha do Google Sheets mantida pela turma, então fica sempre atualizado sem precisar mexer no código. A ideia é seguir evoluindo aos poucos, adicionando novas funcionalidades conforme a necessidade dos alunos aparecer ao longo dos semestres.",
+        "n_contexto": "Contexto",
+        "n_contexto_body": "O curso de Engenharia de Robôs da UFV não tinha, até então, um espaço central onde os alunos pudessem visualizar de forma clara a estrutura curricular (quais disciplinas dependem de quais, em que período cursar cada uma), nem um lugar único para reunir e compartilhar o material de estudo produzido pela própria turma ao longo dos períodos. As informações ficavam espalhadas entre grupos de WhatsApp, pastas soltas de Drive e a grade em PDF da universidade. Esse projeto nasceu como iniciativa pessoal, sem vínculo institucional com o NERo, para resolver esse problema de forma simples e visual.",
+        "n_construido": "O que foi construído",
+        "n_construido_body": "O Robótica // Hub é uma SPA construída em Vue 3, com um sistema de rotas próprio e minimalista (sem vue-router, por conflito de dependências com a versão beta do Vue usada no projeto), cobrindo cinco páginas principais. O Grafo é um canvas interativo que desenha as 55 disciplinas do curso como nós conectados por suas dependências de pré-requisito e correquisito, com zoom, pan, busca por disciplina e um minimapa para orientação em currículos grandes. O Archive é um repositório de materiais de estudo organizado por período e por tipo (provas, listas, resumos, slides, livros), com dados sincronizados automaticamente de uma pasta do Google Drive por um script que roda em CI, mantendo o site sempre atualizado sem intervenção manual. O Upload é um formulário protegido por senha de acesso compartilhada, validada inteiramente no servidor por uma função serverless da Vercel e nunca exposta no bundle do navegador, que autentica via OAuth com a conta Google dona da pasta e gera uma URL de resumable upload para o próprio navegador enviar o arquivo direto ao Google Drive, contornando o limite de payload das funções serverless, com suporte a múltiplos arquivos e tipos de material diferentes em um único envio. O Calendário carrega eventos do semestre (provas, entregas, prazos) dinamicamente de uma planilha do Google Sheets publicada como CSV, permitindo à turma manter o calendário atualizado sem depender de um deploy. E os Links reúnem recursos e serviços úteis da UFV para os alunos do curso. Fui responsável pelo projeto, do design e da arquitetura até o desenvolvimento e a publicação."
+      },
+      "calouros": {
+        "title": "Maratona SI UFV",
+        "description": "Disputamos a Maratona SI, competição de programação da Semana da Informática (UFV), e ficamos com o 3º melhor time entre os calouros.",
+        "highlights": []
       },
       "terrasafe": {
         "title": "TerraSafe",
@@ -200,7 +248,7 @@
         "n_contexto": "Contexto",
         "n_contexto_body": "A Zona da Mata mineira registrou 72 mortes confirmadas em deslizamentos em fevereiro de 2026, com 5.500 pessoas deslocadas e 752 mm de chuva acumulada em um mês em Juiz de Fora, recorde do INMET. Sistemas de previsão como os do INMET indicam quando vai chover, mas não indicam quando o solo está saturado o suficiente para ceder. 50 mm de chuva em solo seco não tem o mesmo efeito que 50 mm em solo já saturado, e essa diferença não é capturada por um alerta de chuva.",
         "n_construido": "O que foi construído",
-        "n_construido_body": "O TerraSafe monitora diretamente a condição do solo, em vez de só prever chuva. Cada sonda fica parcialmente enterrada na encosta (~80 cm) e mede umidade do solo, inclinação (via acelerômetro), temperatura e umidade do ar. As leituras saem da sonda por uma rede mesh ESP-NOW, sem depender de roteador Wi-Fi —, chegam a um hub local e seguem via serial até um backend em FastAPI, que atualiza um mapa em tempo real e gera alertas quando a saturação ultrapassa o limiar configurado.",
+        "n_construido_body": "O TerraSafe monitora diretamente a condição do solo, em vez de só prever chuva. Cada sonda fica parcialmente enterrada na encosta (~80 cm) e mede umidade do solo, inclinação (via acelerômetro), temperatura e umidade do ar. As leituras saem da sonda por uma rede mesh ESP-NOW, sem depender de roteador Wi-Fi, chegam a um hub local e seguem via serial até um backend em FastAPI, que atualiza um mapa em tempo real e gera alertas quando a saturação ultrapassa o limiar configurado.",
         "n_hardware": "Hardware",
         "n_hardware_body": "ESP32 como microcontrolador, sensor capacitivo de umidade do solo, DHT11 para temperatura/umidade do ar, MPU6050 para inclinação, e bateria Li-Ion 18650 para autonomia de campo. Custo por unidade: R$ 60–80.",
         "n_escala": "Protótipo e escala planejada",

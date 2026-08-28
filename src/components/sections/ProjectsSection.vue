@@ -43,6 +43,7 @@
           :award-title="project.awardTitle"
           :images="project.images || []"
           :tech="project.tech"
+          :hero-position="project.heroPosition"
           @open="selectedProject = project"
         />
       </div>
@@ -60,6 +61,14 @@ import ProjectModal from '@/components/ui/ProjectModal.vue'
 import terrasafe1 from '@/assets/images/smartcamp2.jpeg'
 import terrasafe2 from '@/assets/images/smartcamp1.jpeg'
 import terrasafe3 from '@/assets/images/cad-image.png'
+import tagbot1 from '@/assets/images/tagbot-device.jpg'
+import tagbot2 from '@/assets/images/tagbot-receita-federal.jpg'
+import tagbot3 from '@/assets/images/tagbot-fazendeiro.jpg'
+import robosHub1 from '@/assets/images/robos-hub-home.png'
+import robosHub2 from '@/assets/images/robos-hub-grafo.png'
+import capybotLogo from '@/assets/images/capybot-r2d2-logo.svg'
+import asimavLogo from '@/assets/images/asimav-identity.png'
+import calourosPhoto from '@/assets/images/calouros-maratona-si.jpg'
 
 const SI = 'https://cdn.simpleicons.org'
 
@@ -80,21 +89,85 @@ const allProjects = [
     ],
   },
   {
-    key: 'agent',
-    company: 'PERSONAL',
+    key: 'tagbot',
+    company: 'NERO UFV',
     year: '2026',
     status: 'wip',
-    isPrivate: false,
-    github: 'https://github.com/Kayrourio/personal-agent',
+    isPrivate: true,
+    github: null,
     type: 'projects',
+    isNarrative: true,
+    narrativeSections: ['resultado', 'img_group', 'contexto', 'construido', 'hardware'],
+    images: [tagbot1, tagbot2, tagbot3],
+    heroPosition: 'center',
     tech: [
-      { name: 'Python', icon: `${SI}/python`, color: '#43A047' },
-      { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
-      { name: 'Docker', icon: `${SI}/docker`, color: '#2496ED' },
+      { name: 'C++', icon: `${SI}/cplusplus`, color: '#00599C' },
+      { name: 'PIO', icon: `${SI}/platformio`, color: '#F5822A' },
+      { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
+      { name: 'Flutter', icon: `${SI}/flutter`, color: '#02569B' },
+      { name: 'Dart', icon: `${SI}/dart`, color: '#0175C2' },
     ],
   },
   {
-    key: 'tagbot',
+    key: 'asimav',
+    company: 'NERO UFV · CBR FRL',
+    year: '2026',
+    status: 'wip',
+    isPrivate: false,
+    github: null,
+    link: 'https://www.instagram.com/asimav.ufv/',
+    type: 'projects',
+    isNarrative: true,
+    narrativeSections: ['resultado', 'contexto', 'construido', 'hardware'],
+    images: [asimavLogo],
+    heroPosition: 'center',
+    tech: [
+      { name: 'ROS2', icon: `${SI}/ros`, color: '#5C8DFF' },
+      { name: 'Gazebo', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gazebo/gazebo-original.svg', color: '#F58113' },
+      { name: 'Python', icon: `${SI}/python`, color: '#3776AB' },
+      { name: 'OpenCV', icon: `${SI}/opencv`, color: '#5C3EE8' },
+    ],
+  },
+  {
+    key: 'capybot',
+    company: 'PROJETO R2D2 · NERO UFV',
+    year: '2026',
+    status: 'wip',
+    isPrivate: true,
+    github: null,
+    type: 'projects',
+    isNarrative: true,
+    narrativeSections: ['resultado', 'contexto', 'construido', 'hardware'],
+    images: [capybotLogo],
+    tech: [
+      { name: 'Ollama', icon: `${SI}/ollama`, color: '#FFFFFF' },
+      { name: 'RPI', icon: `${SI}/raspberrypi`, color: '#A22846' },
+      { name: 'SQLite', icon: `${SI}/sqlite`, color: '#003B57' },
+      { name: 'OpenCV', icon: `${SI}/opencv`, color: '#5C3EE8' },
+    ],
+  },
+  {
+    key: 'fluxo',
+    company: 'HACKATHON ABRASEL',
+    year: '2026',
+    status: 'completed',
+    isPrivate: false,
+    github: 'https://github.com/Kayrourio/fluxo-project',
+    link: 'https://fluxo-hackathon.vercel.app',
+    type: 'projects',
+    award: 'projects.award_third_place',
+    awardTitle: '3º Lugar, Hackathon Abrasel · TecnoPARQ, 21–23 ago. 2026, Viçosa, MG.',
+    isNarrative: true,
+    narrativeSections: ['resultado', 'contexto', 'construido', 'hardware'],
+    tech: [
+      { name: 'Python', icon: `${SI}/python`, color: '#3776AB' },
+      { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
+      { name: 'React', icon: `${SI}/react`, color: '#61DAFB' },
+      { name: 'TSX', icon: `${SI}/typescript`, color: '#3178C6' },
+    ],
+  },
+  {
+    key: 'neroSite',
     company: 'NERO UFV',
     year: '2026',
     status: 'wip',
@@ -102,30 +175,43 @@ const allProjects = [
     github: null,
     type: 'work',
     tech: [
-      { name: 'C++', icon: `${SI}/cplusplus`, color: '#00599C' },
-      { name: 'Flutter', icon: `${SI}/flutter`, color: '#02569B' },
-      { name: 'PlatformIO', icon: `${SI}/platformio`, color: '#F5822A' },
-      { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
-      { name: 'Bluetooth', icon: `${SI}/bluetooth`, color: '#0082FC' },
+      { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
+      { name: 'Vue.js', icon: `${SI}/vuedotjs`, color: '#42B883' },
     ],
   },
   {
-    key: 'lineFollower',
-    company: 'PROJETO ROBOTICISTA',
+    key: 'robosPlatform',
+    company: 'ENGENHARIA DE ROBÔS · UFV',
     year: '2026',
-    status: 'wip',
+    status: 'completed',
     isPrivate: false,
-    github: 'https://github.com/Kayrourio/robotics-line-follower',
+    github: 'https://github.com/Kayrourio/ero-ufv',
+    link: 'https://robos.eng.br',
     type: 'projects',
+    isNarrative: true,
+    narrativeSections: ['resultado', 'img_group', 'contexto', 'construido'],
+    images: [robosHub1, robosHub2],
     tech: [
-      { name: 'C++', icon: `${SI}/cplusplus`, color: '#00599C' },
-      { name: 'PlatformIO', icon: `${SI}/platformio`, color: '#F5822A' },
-      { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
+      { name: 'Vue.js', icon: `${SI}/vuedotjs`, color: '#42B883' },
+    ],
+  },
+  {
+    key: 'calouros',
+    company: 'MARATONA SI',
+    year: '2026',
+    status: 'completed',
+    isPrivate: true,
+    github: null,
+    type: 'projects',
+    award: 'projects.award_third_place',
+    images: [calourosPhoto],
+    tech: [
+      { name: 'Python', icon: `${SI}/python`, color: '#3776AB' },
     ],
   },
   {
     key: 'terrasafe',
-    company: 'SMARTCAMP UFV',
+    company: 'BOOTCAMP · SMARTCAMP',
     year: '2026',
     status: 'completed',
     isPrivate: false,
@@ -234,8 +320,8 @@ const filteredProjects = computed(() =>
 /* ── Cards grid ── */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
 }
 
 /* ── Mobile ── */

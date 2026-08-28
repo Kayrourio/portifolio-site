@@ -8,13 +8,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
   name: { type: String, required: true },
   icon: { type: String, required: true },
   color: { type: String, required: true },
+  size: { type: Number, default: 48 },
 })
+
+const iconSize = computed(() => Math.round(props.size * (32 / 48)))
 
 const svgContent = ref('')
 
@@ -41,8 +44,8 @@ onMounted(async () => {
 }
 
 .badge {
-  width: 48px;
-  height: 48px;
+  width: v-bind("size + 'px'");
+  height: v-bind("size + 'px'");
   border-radius: 12px;
   border: 2px solid v-bind(color);
   display: flex;
@@ -76,8 +79,8 @@ onMounted(async () => {
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
+  width: v-bind("iconSize + 'px'");
+  height: v-bind("iconSize + 'px'");
   color: v-bind(color);
   display: flex;
   align-items: center;
@@ -85,8 +88,8 @@ onMounted(async () => {
 }
 
 .icon :deep(svg) {
-  width: 32px;
-  height: 32px;
+  width: v-bind("iconSize + 'px'");
+  height: v-bind("iconSize + 'px'");
 }
 
 .label {

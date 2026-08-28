@@ -66,11 +66,11 @@ const areas = [
       { name: 'Python',     icon: `${DI}/python/python-original.svg`,          color: '#3776AB' },
       { name: 'Go',         icon: `${DI}/go/go-original-wordmark.svg`,          color: '#00ADD8' },
       { name: 'C#',         icon: `${SI}/csharp.svg`,                          color: '#9B4F96' },
-      { name: 'JavaScript', icon: `${SI}/javascript.svg`,                       color: '#F7DF1E' },
+      { name: 'JS',         icon: `${SI}/javascript.svg`,                       color: '#F7DF1E' },
       { name: 'Vue.js',     icon: `${DI}/vuejs/vuejs-original.svg`,             color: '#42B883' },
       { name: 'FastAPI',    icon: `${DI}/fastapi/fastapi-original.svg`,         color: '#009688' },
       { name: 'MySQL',      icon: `${DI}/mysql/mysql-original.svg`,             color: '#4479A1' },
-      { name: 'PostgreSQL', icon: `${DI}/postgresql/postgresql-original.svg`,   color: '#336791' },
+      { name: 'Postgres',   icon: `${DI}/postgresql/postgresql-original.svg`,   color: '#336791' },
       { name: 'Docker',     icon: `${DI}/docker/docker-original.svg`,           color: '#2496ED' },
       { name: 'GCP',        icon: `${DI}/googlecloud/googlecloud-original.svg`, color: '#4285F4' },
     ],
@@ -83,9 +83,11 @@ const areas = [
       { name: 'Selenium',  icon: `${DI}/selenium/selenium-original.svg`,   color: '#43B02A' },
       { name: 'Pandas',    icon: `${DI}/pandas/pandas-original.svg`,       color: '#e70488' },
       { name: 'C++',        icon: `${DI}/cplusplus/cplusplus-plain.svg`,    color: '#00599C' },
-      { name: 'Arduino',    icon: `${DI}/arduino/arduino-original.svg`,     color: '#00979D' },
-      { name: 'PlatformIO', icon: `${SI}/platformio.svg`,                   color: '#F5822A' },
+      { name: 'OpenCV',     icon: `${SI}/opencv.svg`,                       color: '#5C3EE8' },
+      { name: 'PIO',        icon: `${SI}/platformio.svg`,                   color: '#F5822A' },
       { name: 'ESP32',      icon: `${SI}/espressif.svg`,                    color: '#E7352C' },
+      { name: 'ROS',        icon: `${SI}/ros.svg`,                          color: '#5C8DFF' },
+      { name: 'Gazebo',     icon: `${DI}/gazebo/gazebo-original.svg`,       color: '#F58113' },
     ],
   },
   {
@@ -222,9 +224,10 @@ const areas = [
 }
 
 .area-card__skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  justify-items: center;
+  row-gap: var(--space-4);
   margin-top: var(--space-2);
 }
 

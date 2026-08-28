@@ -9,7 +9,13 @@
   >
     <!-- ── Image area ── -->
     <div class="card-media">
-      <img v-if="images[0]" :src="images[0]" alt="" class="card-media-img" />
+      <img
+        v-if="images[0]"
+        :src="images[0]"
+        alt=""
+        class="card-media-img"
+        :style="{ objectPosition: heroPosition || 'center 15%' }"
+      />
       <div v-else class="card-media-placeholder" aria-hidden="true">
         <span class="placeholder-letter">{{ title.charAt(0) }}</span>
         <div class="placeholder-grid" aria-hidden="true" />
@@ -45,6 +51,7 @@
           :name="t.name"
           :icon="t.icon"
           :color="t.color"
+          :size="38"
         />
       </div>
 
@@ -106,7 +113,8 @@ const props = defineProps({
   award:       { type: String,  default: null  },
   awardTitle:  { type: String,  default: null  },
   images:      { type: Array,   default: () => [] },
-  tech:        { type: Array,   default: () => [] }
+  tech:        { type: Array,   default: () => [] },
+  heroPosition: { type: String, default: null }
 })
 
 const statusLabel = computed(() =>
@@ -145,7 +153,7 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
 /* ── Media ── */
 .card-media {
   position: relative;
-  height: 220px;
+  height: 160px;
   overflow: hidden;
   background: var(--color-bg-deep);
   flex-shrink: 0;
@@ -178,7 +186,7 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
 
 .placeholder-letter {
   font-family: var(--font-display);
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: var(--font-extrabold);
   color: var(--color-primary-muted);
   position: relative;
@@ -280,7 +288,7 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
 
 /* ── Info area ── */
 .card-info {
-  padding: var(--space-5);
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -298,7 +306,7 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
 
 .card-title {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-bold);
   color: var(--color-text);
   margin: 0;
@@ -319,6 +327,7 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
 .card-tech {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: var(--space-2);
   margin-top: var(--space-1);
 }
@@ -328,7 +337,7 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: var(--space-4);
+  padding-top: var(--space-3);
   margin-top: auto;
   border-top: 1px solid var(--color-border);
 }

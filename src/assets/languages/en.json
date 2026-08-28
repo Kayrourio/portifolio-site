@@ -110,10 +110,13 @@
       "nero": {
         "period": "Feb 2026 – Now",
         "title": "NERo UFV, Robotics Engineering",
-        "description": "Joined the robotics lab in the very first month and took over all software responsibilities for an educational robotics project.",
+        "description": "Joined the robotics lab in the very first month and now cover several fronts: I captain the AsiMAV drone team, lead software on TagBot and Capybot, and built Robótica // Hub, the program's unofficial platform.",
         "highlights": [
-          "Responsible for the robot's code and the app that connects to it",
-          "Embedded software in C++ for robot control and communication"
+          "Captain of the AsiMAV drone team, heading to the Flying Robot League at CBR 2026",
+          "Technical software lead on TagBot, NERo's educational robot",
+          "Creator of Projeto R2D2, my own project approved at NERo, with Capybot as the first robot in the series",
+          "Creator and developer of Robotics // Hub, the Robotics Engineering program's unofficial hub",
+          "3rd place at Maratona SI with the freshman team"
         ]
       }
     }
@@ -130,6 +133,7 @@
     },
     "tab_all": "All",
     "award_first_place": "🏆 1st Place",
+    "award_third_place": "🥉 3rd Place",
     "tab_projects": "Projects",
     "tab_work": "Work",
     "status_completed": "Completed",
@@ -156,40 +160,84 @@
           "Designed the data model to support multi-tenant and multi-department queries"
         ]
       },
-      "agent": {
-        "title": "Personal Agent",
-        "description": "A local, autonomous AI agent that uses multiple tools to assist me throughout the day. Connected to WhatsApp, it reminds me of tasks and activities at the right moments, built on an agentic architecture designed to expand to other services.",
-        "highlights": [
-          "WhatsApp integration to send reminders and receive natural-language commands",
-          "Autonomous tool-calling agent powered by local Ollama models, no cloud API required",
-          "FastAPI backend exposing a REST interface to manage agent sessions and context",
-          "Dockerized setup for fully reproducible local development",
-          "Modular tool system designed to expand to new services and integrations"
-        ]
-      },
       "tagbot": {
         "title": "TagBot",
-        "description": "Educational robot that visits schools to inspire robotics in elementary students. The robot communicates with a Flutter app via BLE, offering joystick control, command sequences, geometric path execution (triangle, square…), and gyroscope control by tilting the phone.",
-        "highlights": [
-          "ESP32 firmware built with PlatformIO and modular C++ architecture",
-          "Flutter app with a dedicated BLE communication layer",
-          "Joystick control and programmable command sequences",
-          "Geometric path modes: triangle, square, and other shapes",
-          "Gyroscope control: drive the robot by tilting your phone",
-          "Full refactor: migrated from Arduino IDE to PlatformIO and rewrote the app from scratch"
-        ]
+        "description": "Educational robotics robot built on an ESP32, controlled via a Flutter app over BLE/WiFi, with an onboard camera and 6 operating modes. Showcased in partnership with Brazil's Federal Revenue Service, with future use in schools planned.",
+        "highlights": [],
+        "n_intro": "Educational robotics robot built on an ESP32, controlled via a Flutter app over BLE/WiFi, with an onboard camera and 6 operating modes. Showcased in partnership with Brazil's Federal Revenue Service, with future use in schools planned.",
+        "n_resultado": "Result",
+        "n_resultado_body": "Working prototype built and tested, with a published Android control app (Flutter) and 6 operating modes: digital control (D-pad + sequence), joystick, autonomous geometric shapes, gyroscope control (phone tilt), timed commands (timer), and direct motor speed control (PWM). The project was showcased in partnership with Brazil's Federal Revenue Service, a meaningful institutional milestone for NERo, plus a public demo at Semana do Fazendeiro (UFV). Use in schools is planned as the project's next phase.",
+        "n_contexto": "Context",
+        "n_contexto_body": "Teaching robotics in Brazilian basic education runs into cost barriers and a lack of adapted teaching material. NERo/UFV proposed TagBot as a low-cost educational robotics platform, designed to eventually be brought into schools as a hands-on tool for introducing programming and robotics. As a validation and outreach step, TagBot was showcased in partnership with Brazil's Federal Revenue Service and at Semana do Fazendeiro (UFV).",
+        "n_construido": "What was built",
+        "n_construido_body": "C++ firmware on the ESP32 via PlatformIO, with a modular architecture separating sensor/actuator drivers, the control layer, and the communication layer. The Flutter Android app exposes the 6 control modes (Digital, Joystick, Geometry (autonomous geometric paths), Gyroscope (control via the phone's accelerometer tilt), Timer (timed commands), and PWM (direct motor speed control)), with a live connection-status indicator (TAGBOT-01 · ONLINE) and telemetry readout. Communication is dual: native ESP32 BLE and WiFi via a repurposed TV-box module, giving redundancy and extended range.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "A USB camera module (C3Tech Full HD 1080p) mounted on the robot, a likely base for future computer-vision work. An ultrasonic sensor (HC-SR04) for obstacle detection, a line sensor for line-following, and encoders (E2-Q2) for odometry, all wired into firmware across the app's operating modes."
       },
 
-      "lineFollower": {
-        "title": "Line Follower",
-        "company": "ROBOTICIST PROJECT",
-        "description": "First entry in the 'Projeto Roboticista' series, a growing set of robotics projects of increasing complexity. Built with two friends, with a focus on learning and thorough documentation of each decision.",
-        "highlights": [
-          "ESP32-based line follower with PlatformIO and modular C++ codebase",
-          "First project in the Projeto Roboticista learning series",
-          "Built collaboratively with two friends as a structured learning exercise",
-          "Documented design and implementation decisions throughout development"
-        ]
+      "asimav": {
+        "title": "AsiMAV",
+        "description": "NERo/UFV's autonomous drone system for the Flying Robot League at CBR 2026. Team captain, leading the software, development, and testing of the project.",
+        "highlights": [],
+        "n_intro": "NERo/UFV's autonomous drone system for the Flying Robot League at CBR 2026. Team captain, leading the software, development, and testing of the project.",
+        "n_resultado": "Result",
+        "n_resultado_body": "Still open: the competition takes place in November 2026 in João Pessoa/PB, and the team is currently in the Phase 1 preparation stage.",
+        "n_contexto": "Context",
+        "n_contexto_body": "RoboCup Brazil's Flying Robot League challenges teams to build autonomous UAVs (no GPS, no external control) capable of recognizing landing pads by vision, carrying cargo, interacting with humans via gestures, and navigating confined spaces. AsiMAV is NERo/UFV's answer to that challenge, built by a team with mostly no prior experience in flying systems.",
+        "n_construido": "What was built",
+        "n_construido_body": "The project is still at an early stage, working through Phase 1 of the competition. The planned architecture uses ROS2 and Gazebo for simulation, pyparrot to control the real drone (Bebop 2), and OpenCV for computer vision. As captain, I'm mainly responsible for the project's software, development, and testing.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "Parrot Bebop 2 drone."
+      },
+      "capybot": {
+        "title": "Capybot",
+        "description": "Stationary social-reception robot with a capybara-inspired design, using a local LLM and STT/TTS for natural interaction with visitors.",
+        "highlights": [],
+        "n_intro": "Stationary social-reception robot with a capybara-inspired design, using a local LLM and STT/TTS for natural interaction with visitors.",
+        "n_resultado": "Result",
+        "n_resultado_body": "MVP1 architecture fully closed and validated: the voice pipeline (VAD → STT → LLM → TTS), facial recognition, and local RAG are all defined end to end. Final LLM model selection is still pending a latency/RAM benchmark on the Raspberry Pi 5.",
+        "n_contexto": "Context",
+        "n_contexto_body": "Capybot is the first of three progressive robots under Projeto R2D2, my own research project that I proposed and got approved at NERo/UFV. It serves as a proof of concept for 100% local human-robot interaction, with no cloud dependency, before scaling up to mobile robotics (Sentinel-X) and active-response systems (Aegis). The core challenge is running multimodal perception (voice, vision, LLM) under embedded hardware constraints while keeping response latency low.",
+        "n_construido": "What was built",
+        "n_construido_body": "A voice pipeline with activity detection (silero-vad) and transcription (faster-whisper) feeding an intent classifier (sentence-transformers) that runs in parallel with the LLM via asyncio.gather, cutting perceived latency. Facial recognition via InsightFace (buffalo_sc). Context and memory via RAG with sqlite-vec, chosen over ChromaDB for its lower overhead on embedded hardware. Multimodal vision models are loaded and unloaded sequentially to keep RAM usage in check on the RPi 5. Voice output via Piper TTS; LCD visual states are statically pre-rendered via pygame to avoid real-time rendering cost. Servo control via ESP32, communicating with the RPi 5 over WebSocket. Technical leadership on architecture decisions alongside Cauan, as NERo organizers.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "Raspberry Pi 5 (8GB), ESP32, servos, and a 3.5-inch LCD display."
+      },
+      "fluxo": {
+        "title": "Fluxo",
+        "description": "Operational-intelligence web platform for restaurants in event-driven cities: measures queue and service in real time and converts overload into lost revenue before it happens.",
+        "highlights": [],
+        "n_intro": "Operational-intelligence web platform for restaurants in event-driven cities: measures queue and service in real time and converts overload into lost revenue before it happens.",
+        "n_resultado": "Result",
+        "n_resultado_body": "3rd place at Hackathon Abrasel, organized by TecnoPARQ, held August 21–23, 2026 in Viçosa, MG.",
+        "n_contexto": "Context",
+        "n_contexto_body": "Viçosa is a university town whose commerce lives off demand spikes tied to events. The Semana do Fazendeiro fair alone draws around 134,000 visitors over 9 days (more than 42,000 in the first weekend alone), yet local restaurants still size staff and stock by eye. The problem isn't a lack of forecasting for the city, it's that no restaurant measures its own operation in real time: 89% of industry business owners report difficulty hiring qualified labor (ABRASEL/Panrotas, 2024), 40% of customers abandon the line after 15 minutes with no wait estimate (Sebrae/WiFire, 2025), and 62.7% of establishments in the sector close within 5 years (IBGE, 2024). Enterprise tools like Toast or Restaurant365 start at R$2,500/month per unit, out of reach for a small or mid-size restaurant.",
+        "n_construido": "What was built",
+        "n_construido_body": "Fluxo is a real-time web platform where staff log the customer's full cycle (queue, table, order, delivery) on simple 1-2 tap screens, with no new hardware in anyone's pocket. A pure decision engine on the backend turns these events into real queueing-theory metrics: λ/μ (arrival and service rates via EWMA over live events, not modeled or estimated), Wq (actually measured wait), overload projection via Erlang C, and direct conversion into R$ at risk. Every decision (color, estimated time, normal/attention/urgent recommendation) is computed once on the backend and distributed over WebSocket as a full snapshot to every screen: the dashboard, the customer's table tablet, and the two phones running the operations panel are all just thin renderers of that same truth.",
+        "n_hardware": "Hardware",
+        "n_hardware_body": "A laser-cut tablet stand was built for the customer-facing table view (triangular prism, coffee-brown + terracotta palette, with a fixed \"Call waiter\" button). The operations panel that covers the 4 urgency categories for staff runs on two regular phones over the web, with no fabrication needed."
+      },
+      "neroSite": {
+        "title": "NERo Website",
+        "description": "NERo UFV's institutional website, currently in development.",
+        "highlights": []
+      },
+      "robosPlatform": {
+        "title": "Robótica // Hub",
+        "description": "Unofficial hub for UFV's Robotics Engineering (ERO) program, bringing together an interactive curriculum graph, a study-material archive, and a calendar of exams and semester events in one place.",
+        "highlights": [],
+        "n_intro": "Unofficial hub for UFV's Robotics Engineering (ERO) program, bringing together an interactive curriculum graph, a study-material archive, and a calendar of exams and semester events in one place.",
+        "n_resultado": "Result",
+        "n_resultado_body": "The platform is complete and live. The curriculum graph renders all 55 courses in the program with their full prerequisite and corequisite relationships, navigable by zoom, pan, search, and a minimap. The Archive already holds dozens of study materials (exams, problem sets, summaries, slides, and books), organized by semester and course, synced automatically from a shared Google Drive folder. The upload flow lets any student in the program send multiple files, of different types, in a single batch, straight to Drive, with no manual form involved. The calendar pulls exams, deadlines, and due dates from a Google Sheet maintained by the class, so it stays current without touching any code. The plan is to keep evolving it gradually, adding features as students' needs come up over the semesters.",
+        "n_contexto": "Context",
+        "n_contexto_body": "UFV's Robotics Engineering program didn't have a central place where students could clearly see the curriculum's structure (which courses depend on which, what semester to take each one), nor a single place to gather and share study material produced by the class itself over the semesters. Information was scattered across WhatsApp groups, loose Drive folders, and the university's PDF curriculum. This project started as a personal initiative, with no institutional tie to NERo, to solve that problem in a simple, visual way.",
+        "n_construido": "What was built",
+        "n_construido_body": "Robótica // Hub is a Vue 3 SPA with its own minimal routing system (no vue-router, due to a dependency conflict with the beta version of Vue used in the project), covering five main pages. The Graph is an interactive canvas that draws the program's 55 courses as nodes connected by their prerequisite and corequisite dependencies, with zoom, pan, course search, and a minimap for orientation across a large curriculum. The Archive is a study-material repository organized by semester and type (exams, problem sets, summaries, slides, books), with data synced automatically from a Google Drive folder by a script that runs in CI, keeping the site current with no manual work. Upload is a form gated by a shared access password, validated entirely server-side by a Vercel serverless function and never exposed in the browser bundle, which authenticates via OAuth with the Google account that owns the folder and generates a resumable-upload URL for the browser itself to send the file straight to Google Drive, working around the payload limit of serverless functions, with support for multiple files and material types in a single submission. The Calendar loads semester events (exams, deadlines, due dates) dynamically from a Google Sheet published as CSV, letting the class keep the calendar current without a deploy. And Links gathers useful UFV resources and services for students in the program. I was responsible for the project, from design and architecture through development and publishing."
+      },
+      "calouros": {
+        "title": "Maratona SI UFV",
+        "description": "We competed in Maratona SI, the programming competition at UFV's Semana da Informática, and placed 3rd best team among the freshmen.",
+        "highlights": []
       },
       "terrasafe": {
         "title": "TerraSafe",

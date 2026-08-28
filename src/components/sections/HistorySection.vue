@@ -68,7 +68,7 @@ const events = [
     tags: ['Go', 'GCP', 'Vue.js', 'MySQL', 'Docker', 'AI Agents', 'CI/CD'],
   },
   { key: 'msd', emoji: '🧬', tags: ['C#', 'Python', 'Excel/VBA', 'Pandas'] },
-  { key: 'nero', emoji: '🤖', tags: ['C++', 'Flutter'] },
+  { key: 'nero', emoji: '🤖', tags: ['C++', 'Python', 'ROS2', 'Flutter'] },
 ]
 </script>
 
