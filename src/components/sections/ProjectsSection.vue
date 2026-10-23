@@ -1,5 +1,5 @@
 <template>
-  <section class="projects-section" id="projects" aria-labelledby="projects-heading">
+  <section :class="['projects-section', { 'projects-section--page': isProjectsPage }]" id="projects" aria-labelledby="projects-heading">
     <div class="container-site">
       <!-- Header row -->
       <div class="projects-header">
@@ -26,35 +26,45 @@
         </button>
       </div>
 
-      <!-- Cards grid -->
-      <div v-reveal class="cards-grid">
-        <ProjectCard
-          v-for="project in filteredProjects"
-          :key="project.key"
-          :title="$t(`projects.list.${project.key}.title`)"
-          :description="$t(`projects.list.${project.key}.description`)"
-          :company="$te(`projects.list.${project.key}.company`) ? $t(`projects.list.${project.key}.company`) : project.company"
-          :year="project.year"
-          :status="project.status"
-          :is-private="project.isPrivate"
-          :github="project.github"
-          :link="project.link"
-          :award="project.award"
-          :award-title="project.awardTitle"
-          :images="project.images || []"
-          :tech="project.tech"
-          :hero-position="project.heroPosition"
-          @open="selectedProject = project"
-        />
+      <div :class="['projects-body', { 'projects-body--split': isWideLayout }]">
+        <div v-reveal class="cards-grid">
+          <ProjectCard
+            v-for="project in filteredProjects"
+            :key="project.key"
+            :title="$t(`projects.list.${project.key}.title`)"
+            :description="$t(`projects.list.${project.key}.description`)"
+            :company="$te(`projects.list.${project.key}.company`) ? $t(`projects.list.${project.key}.company`) : project.company"
+            :year="project.year"
+            :status="project.status"
+            :is-private="project.isPrivate"
+            :github="project.github"
+            :link="project.link"
+            :award="project.award"
+            :award-title="project.awardTitle"
+            :images="project.images || []"
+            :tech="project.tech"
+            :hero-position="project.heroPosition"
+            :hero-fit="project.heroFit"
+            :hero-background="project.heroBackground"
+            :role="$t(`projects.list.${project.key}.role`)"
+            :selected="isWideLayout && activeInlineProject?.key === project.key"
+            @open="selectedProject = project"
+          />
+        </div>
+
+        <aside v-if="isWideLayout" class="project-detail">
+          <ProjectModal :project="activeInlineProject" inline />
+        </aside>
       </div>
     </div>
 
-    <ProjectModal :project="selectedProject" @close="selectedProject = null" />
+    <ProjectModal :project="isWideLayout ? null : selectedProject" @close="selectedProject = null" />
   </section>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
 import ProjectModal from '@/components/ui/ProjectModal.vue'
@@ -66,9 +76,12 @@ import tagbot2 from '@/assets/images/tagbot-receita-federal.jpg'
 import tagbot3 from '@/assets/images/tagbot-fazendeiro.jpg'
 import robosHub1 from '@/assets/images/robos-hub-home.png'
 import robosHub2 from '@/assets/images/robos-hub-grafo.png'
-import capybotLogo from '@/assets/images/capybot-r2d2-logo.svg'
 import asimavLogo from '@/assets/images/asimav-identity.png'
 import calourosPhoto from '@/assets/images/calouros-maratona-si.jpg'
+import fluxoTeam from '@/assets/images/fluxo-team.webp'
+import fluxoAward from '@/assets/images/fluxo-award.webp'
+import asimavTeam from '@/assets/images/asimav-team.webp'
+import r2d2Logo from '@/assets/images/r2d2-project-logo.png'
 
 const SI = 'https://cdn.simpleicons.org'
 
@@ -76,7 +89,7 @@ const allProjects = [
   {
     key: 'plataforma',
     company: 'ETHO SOLUÇÕES',
-    year: '2025–2026',
+    year: '2025-2026',
     status: 'wip',
     isPrivate: true,
     github: null,
@@ -97,7 +110,7 @@ const allProjects = [
     github: null,
     type: 'projects',
     isNarrative: true,
-    narrativeSections: ['resultado', 'img_group', 'contexto', 'construido', 'hardware'],
+    narrativeSections: ['resultado', 'contexto', 'construido', 'hardware'],
     images: [tagbot1, tagbot2, tagbot3],
     heroPosition: 'center',
     tech: [
@@ -118,8 +131,8 @@ const allProjects = [
     link: 'https://www.instagram.com/asimav.ufv/',
     type: 'projects',
     isNarrative: true,
-    narrativeSections: ['resultado', 'contexto', 'construido', 'hardware'],
-    images: [asimavLogo],
+    narrativeSections: ['resultado', 'contexto', 'construido', 'localizacao', 'hardware'],
+    images: [asimavTeam, asimavLogo],
     heroPosition: 'center',
     tech: [
       { name: 'ROS2', icon: `${SI}/ros`, color: '#5C8DFF' },
@@ -129,20 +142,22 @@ const allProjects = [
     ],
   },
   {
-    key: 'capybot',
-    company: 'PROJETO R2D2 · NERO UFV',
+    key: 'r2d2',
+    company: 'NERO UFV · EQUIPE DE 15 PESSOAS',
     year: '2026',
     status: 'wip',
     isPrivate: true,
     github: null,
     type: 'projects',
     isNarrative: true,
-    narrativeSections: ['resultado', 'contexto', 'construido', 'hardware'],
-    images: [capybotLogo],
+    narrativeSections: ['resultado', 'contexto', 'construido', 'interacao', 'navegacao', 'plataformas'],
+    images: [r2d2Logo],
+    heroFit: 'contain',
+    heroBackground: '#8c0f18',
     tech: [
-      { name: 'Ollama', icon: `${SI}/ollama`, color: '#FFFFFF' },
-      { name: 'RPI', icon: `${SI}/raspberrypi`, color: '#A22846' },
-      { name: 'SQLite', icon: `${SI}/sqlite`, color: '#003B57' },
+      { name: 'ROS 2', icon: `${SI}/ros`, color: '#5C8DFF' },
+      { name: 'Python', icon: `${SI}/python`, color: '#3776AB' },
+      { name: 'C++', icon: `${SI}/cplusplus`, color: '#00599C' },
       { name: 'OpenCV', icon: `${SI}/opencv`, color: '#5C3EE8' },
     ],
   },
@@ -156,9 +171,10 @@ const allProjects = [
     link: 'https://fluxo-hackathon.vercel.app',
     type: 'projects',
     award: 'projects.award_third_place',
-    awardTitle: '3º Lugar, Hackathon Abrasel · TecnoPARQ, 21–23 ago. 2026, Viçosa, MG.',
+    awardTitle: '3º Lugar, Hackathon Abrasel · TecnoPARQ, 21 a 23 ago. 2026, Viçosa, MG.',
     isNarrative: true,
     narrativeSections: ['resultado', 'contexto', 'construido', 'hardware'],
+    images: [fluxoAward, fluxoTeam],
     tech: [
       { name: 'Python', icon: `${SI}/python`, color: '#3776AB' },
       { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
@@ -174,6 +190,8 @@ const allProjects = [
     isPrivate: true,
     github: null,
     type: 'work',
+    isNarrative: true,
+    narrativeSections: ['resultado', 'contexto', 'construido'],
     tech: [
       { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
       { name: 'Vue.js', icon: `${SI}/vuedotjs`, color: '#42B883' },
@@ -189,7 +207,7 @@ const allProjects = [
     link: 'https://robos.eng.br',
     type: 'projects',
     isNarrative: true,
-    narrativeSections: ['resultado', 'img_group', 'contexto', 'construido'],
+    narrativeSections: ['resultado', 'contexto', 'construido'],
     images: [robosHub1, robosHub2],
     tech: [
       { name: 'Vue.js', icon: `${SI}/vuedotjs`, color: '#42B883' },
@@ -220,10 +238,10 @@ const allProjects = [
     type: 'projects',
     award: 'projects.award_first_place',
     awardTitle:
-      '1º Lugar, SmartCamp Cidades Inteligentes · UFV, 13–14 jun. 2026, TecnoParque UFV. Prêmio de R$ 2.000. Org.: Viçosa SMART, LabMAKER e VUEI/UFV.',
+      '1º Lugar, SmartCamp Cidades Inteligentes · UFV, 13 e 14 jun. 2026, TecnoParque UFV. Prêmio de R$ 2.000. Org.: Viçosa SMART, LabMAKER e VUEI/UFV.',
     images: [terrasafe1, terrasafe2, terrasafe3],
     isNarrative: true,
-    narrativeSections: ['resultado', 'img_group', 'contexto', 'construido', 'hardware', 'escala'],
+    narrativeSections: ['resultado', 'contexto', 'construido', 'hardware', 'escala'],
     tech: [
       { name: 'ESP32', icon: `${SI}/espressif`, color: '#E7352C' },
       { name: 'FastAPI', icon: `${SI}/fastapi`, color: '#009688' },
@@ -236,6 +254,24 @@ const allProjects = [
 
 const activeTab = ref('all')
 const selectedProject = ref(null)
+const isWideLayout = ref(false)
+const route = useRoute()
+const isProjectsPage = computed(() => route.path === '/projects')
+let viewportQuery
+
+function updateLayout() {
+  const wasWide = isWideLayout.value
+  isWideLayout.value = viewportQuery.matches
+  if (wasWide && !isWideLayout.value) selectedProject.value = null
+}
+
+onMounted(() => {
+  viewportQuery = window.matchMedia('(min-width: 1100px)')
+  updateLayout()
+  viewportQuery.addEventListener('change', updateLayout)
+})
+
+onUnmounted(() => viewportQuery?.removeEventListener('change', updateLayout))
 
 const tabs = computed(() => [
   { key: 'all', count: allProjects.length },
@@ -243,14 +279,37 @@ const tabs = computed(() => [
   { key: 'work', count: allProjects.filter((p) => p.type === 'work').length },
 ])
 
+const projectOrder = ['r2d2', 'fluxo', 'asimav', 'tagbot', 'neroSite', 'robosPlatform', 'plataforma', 'terrasafe', 'calouros']
 const filteredProjects = computed(() =>
-  activeTab.value === 'all' ? allProjects : allProjects.filter((p) => p.type === activeTab.value),
+  allProjects
+    .filter((project) => activeTab.value === 'all' || project.type === activeTab.value)
+    .sort((first, second) => projectOrder.indexOf(first.key) - projectOrder.indexOf(second.key)),
+)
+const activeInlineProject = computed(() =>
+  filteredProjects.value.find((project) => project.key === selectedProject.value?.key)
+    || filteredProjects.value[0],
 )
 </script>
 
 <style scoped>
 .projects-section {
   padding-block: var(--space-20);
+}
+
+.projects-section--page {
+  padding-block: var(--space-10) var(--space-16);
+}
+
+.projects-section--page .projects-header {
+  margin-bottom: var(--space-6);
+}
+
+.projects-section--page .projects-headline {
+  font-size: clamp(var(--text-3xl), 3.2vw, var(--text-4xl));
+}
+
+.projects-section--page .tabs {
+  margin-bottom: var(--space-5);
 }
 
 /* ── Header ── */
@@ -317,11 +376,48 @@ const filteredProjects = computed(() =>
   color: var(--color-primary);
 }
 
-/* ── Cards grid ── */
+/* ── Browsing layout ── */
+.projects-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4);
+}
+
+.project-detail {
+  position: sticky;
+  top: 80px;
+  min-width: 0;
+}
+
+.projects-body--split :deep(.card-media) {
+  height: 132px;
+}
+
+.projects-body--split :deep(.card-role) {
+  display: none;
+}
+
+@media (max-width: 1099px) {
+  .projects-body {
+    display: block;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* ── Mobile ── */

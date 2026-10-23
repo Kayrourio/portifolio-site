@@ -67,7 +67,7 @@
         ]
       },
       "oportunidade": {
-        "period": "2022 – 2023",
+        "period": "2022 a 2023",
         "title": "Primeira Oportunidade",
         "description": "Uma apresentação na escola, um site montado, e alguém de fora viu. Primeiro projeto pago ainda adolescente, seguido de mais de 10 entregas em automação e integração de APIs.",
         "highlights": [
@@ -78,7 +78,7 @@
         ]
       },
       "estagio": {
-        "period": "Jan 2024 – Jan 2025",
+        "period": "Jan 2024 a Jan 2025",
         "title": "Estágio na Etho Soluções IT",
         "description": "Entrei como estagiário e continuo até hoje. Automatizei processos internos, atuei em um projeto de análise de dados em escala nacional e dei os primeiros passos no portal interno da empresa.",
         "highlights": [
@@ -88,7 +88,7 @@
         ]
       },
       "developer": {
-        "period": "Jan 2025 – Hoje",
+        "period": "Jan 2025 até hoje",
         "title": "Desenvolvedor na Etho Soluções",
         "description": "Exatamente 1 ano depois de entrar como estagiário, virei desenvolvedor. Assumi o portal interno como projeto principal, uma plataforma full stack usada por todos os departamentos, e passei a apoiar administração e financeiro com soluções técnicas reais.",
         "highlights": [
@@ -99,7 +99,7 @@
         ]
       },
       "msd": {
-        "period": "Ago 2025 – Jan 2026",
+        "period": "Ago 2025 a Jan 2026",
         "title": "Analista de Dados na MSD Animal Health",
         "description": "Primeira experiência presencial, em outro estado, dentro de uma multinacional. 6 meses trabalhando num projeto de migração global, com contato diário com pessoas de mais de 7 países.",
         "highlights": [
@@ -108,13 +108,13 @@
         ]
       },
       "nero": {
-        "period": "Fev 2026 – Hoje",
+        "period": "Fev 2026 até hoje",
         "title": "NERo UFV, Engenharia de Robôs",
-        "description": "Entrei no laboratório de robótica ainda no primeiro mês e hoje toco várias frentes: capitaneio a equipe de drone AsiMAV, lidero o software do TagBot e do Capybot, e criei o Robótica // Hub, plataforma não-oficial do curso.",
+        "description": "No NERo, lidero uma equipe de 15 estudantes no desenvolvimento do R2D2, coordeno o software do TagBot e sou capitão da equipe de drones AsiMAV. Também criei, por iniciativa própria, o Robótica // Hub para estudantes do curso.",
         "highlights": [
           "Capitão da equipe de drone AsiMAV, rumo à Flying Robot League do CBR 2026",
           "Liderança técnica de software do TagBot, robô educacional do NERo",
-          "Idealizador do Projeto R2D2, projeto próprio aprovado no NERo, com o Capybot como primeiro robô da série",
+          "Liderança do R2D2, robô autônomo em desenvolvimento com uma equipe de 15 estudantes; Capybot e Sentinel-X exploram tecnologias para sua futura integração",
           "Criador e desenvolvedor do Robótica // Hub, hub não-oficial do curso de Engenharia de Robôs",
           "3º lugar na Maratona SI pelo time de calouros"
         ]
@@ -125,10 +125,10 @@
     "label": "03, Projetos",
     "subtitle": "Projetos • Trabalho",
     "headline": {
-      "p1": "Coisas que construí, ",
-      "h1": "software",
-      "p2": ", e alguns ",
-      "h2": "robôs",
+      "p1": "Projetos que ",
+      "h1": "resolvem problemas",
+      "p2": ", de ",
+      "h2": "software a robôs",
       "p3": "."
     },
     "tab_all": "Todos",
@@ -151,110 +151,160 @@
     "list": {
       "plataforma": {
         "title": "Plataforma Empresarial",
-        "description": "Plataforma interna full-stack usada diariamente por todos os departamentos, Financeiro, RH e Administrativo. Criada para substituir planilhas fragmentadas e processos manuais por um sistema unificado e com controle de acesso.",
+        "description": "Sistema interno que reúne rotinas de financeiro, RH e administração em um só lugar, substituindo planilhas e tarefas manuais.",
         "highlights": [
           "Dashboards com controle de acesso por perfil para Financeiro, RH e Administrativo",
           "Arquitetura de microsserviços implantada e escalada no Google Cloud Platform",
           "Integrações com IA interna para automatizar tarefas repetitivas do back-office",
           "Desenvolvimento completo: frontend em Vue.js, backend em Go, banco de dados MySQL",
           "Modelagem de dados para suportar consultas multi-tenant e multi-departamento"
-        ]
+        ],
+        "role": "Desenvolvimento full stack, da interface em Vue aos serviços em Go e à modelagem dos dados."
       },
       "tagbot": {
         "title": "TagBot",
-        "description": "Robô de robótica educacional com ESP32, controlado via app Flutter por BLE/WiFi, com câmera embarcada e 6 modos de operação. Apresentado em parceria com a Receita Federal, com aplicação futura em escolas.",
+        "description": "Robô educacional de baixo custo que transforma o celular em controle e ajuda estudantes a experimentar programação na prática.",
         "highlights": [],
-        "n_intro": "Robô de robótica educacional com ESP32, controlado via app Flutter por BLE/WiFi, com câmera embarcada e 6 modos de operação. Apresentado em parceria com a Receita Federal, com aplicação futura em escolas.",
+        "n_intro": "Uma porta de entrada para a robótica: o TagBot permite que estudantes controlem um robô real pelo celular e entendam, passo a passo, como o código vira movimento.",
         "n_resultado": "Resultado",
-        "n_resultado_body": "Protótipo funcional construído e testado, com app de controle Android publicado em Flutter e 6 modos de operação implementados: controle digital (D-pad + sequência), joystick, formas geométricas autônomas, controle por giroscópio (inclinação do celular), comandos por tempo (timer) e controle direto de velocidade dos motores (PWM). O projeto foi apresentado em parceria com a Receita Federal, marco institucional relevante para o NERo, além de demonstração pública na Semana do Fazendeiro (UFV). O uso em escolas está previsto como próxima fase do projeto.",
+        "n_resultado_body": "Construímos e testamos um protótipo funcional com aplicativo Android e seis formas de controle. O robô foi apresentado em uma ação do NERo com a Receita Federal e na Semana do Fazendeiro da UFV. O uso em escolas é uma próxima etapa, ainda não implantada.",
         "n_contexto": "Contexto",
-        "n_contexto_body": "O ensino de robótica na educação básica brasileira esbarra em barreiras de custo e falta de material didático adaptado. O NERo/UFV propôs o TagBot como plataforma de robótica educacional de baixo custo, pensada para, no futuro, ser levada a escolas como ferramenta de introdução prática à programação e robótica. Como etapa de validação e divulgação do projeto, o TagBot foi apresentado em parceria com a Receita Federal e na Semana do Fazendeiro (UFV).",
+        "n_contexto_body": "Robótica costuma chegar às escolas com kits caros ou difíceis de adaptar. O TagBot busca tornar a primeira experiência mais acessível, usando componentes conhecidos e uma interface que funciona no celular.",
         "n_construido": "O que foi construído",
-        "n_construido_body": "Firmware em C++ no ESP32 via PlatformIO, com arquitetura modular separando drivers de sensores/atuadores, camada de controle e camada de comunicação. O app Android em Flutter oferece os 6 modos de controle (Digital, Joystick, Geometry (percursos geométricos autônomos), Gyroscope (controle por inclinação via acelerômetro do celular), Timer (comandos temporizados) e PWM (controle direto de velocidade dos motores)), com indicador de status de conexão em tempo real (TAGBOT-01 · ONLINE) e leitura de telemetria. A comunicação é dupla: BLE nativo do ESP32 e WiFi via módulo de TV Box descaracterizado, dando redundância e mais alcance de conexão.",
+        "n_construido_body": "No aplicativo, o aluno pode dirigir com botões ou joystick, controlar pela inclinação do telefone e programar trajetos, tempos e velocidade dos motores. Isso permite começar com comandos simples e avançar para conceitos de controle.\n\nImplementei o firmware modular em C++ no ESP32 e o aplicativo em Flutter. A comunicação usa Bluetooth Low Energy e Wi-Fi; o app mostra o estado da conexão e a telemetria do robô.",
         "n_hardware": "Hardware",
-        "n_hardware_body": "Módulo de câmera USB (C3Tech Full HD 1080p) acoplado ao robô, possível base para expansão futura em visão computacional. Sensor ultrassônico (HC-SR04) para detecção de obstáculos, sensor de linha para seguimento de trajetória e encoders (E2-Q2) para odometria, todos integrados via firmware aos modos de operação do app."
+        "n_hardware_body": "O protótipo integra câmera USB, sensor ultrassônico para obstáculos, sensor de linha e encoders para medir o movimento das rodas. Esses componentes oferecem caminhos para atividades futuras de percepção e navegação.",
+        "role": "Liderança técnica do software, firmware do ESP32 e aplicativo de controle em Flutter.",
+        "image_captions": [
+          "Protótipo do TagBot",
+          "Apresentação em parceria com a Receita Federal",
+          "Demonstração na Semana do Fazendeiro"
+        ]
       },
       "asimav": {
         "title": "AsiMAV",
-        "description": "Sistema de drone autônomo do NERo/UFV para a Flying Robot League do CBR 2026. Capitão da equipe, à frente do software, desenvolvimento e testes do projeto.",
+        "description": "Drone autônomo para ambientes internos. Como capitão do AsiMAV, trabalho em controle de voo, localização e navegação para a Flying Robot League.",
         "highlights": [],
-        "n_intro": "Sistema de drone autônomo do NERo/UFV para a Flying Robot League do CBR 2026. Capitão da equipe, à frente do software, desenvolvimento e testes do projeto.",
-        "n_resultado": "Resultado",
-        "n_resultado_body": "Em aberto: a competição ocorre em novembro de 2026, em João Pessoa/PB, e a equipe ainda está na fase de preparação da Fase 1.",
+        "n_intro": "No NERo/UFV, estamos preparando um Parrot Bebop 2 para cumprir missões em ambientes internos sem GPS e sem piloto. Já levamos uma primeira sequência autônoma do simulador ao drone físico.",
+        "n_resultado": "Marco alcançado",
+        "n_resultado_body": "Demonstramos com o drone físico uma sequência inicial de missão que inclui decolagem, deslocamento em direção a uma plataforma de pouso e retorno. Foi um passo importante para testar a execução autônoma fora do simulador. Agora precisamos tornar o voo mais preciso e repetível para os desafios da CBR 2026.",
         "n_contexto": "Contexto",
-        "n_contexto_body": "A Flying Robot League do RoboCup Brasil desafia equipes a desenvolver VANTs autônomos (sem GPS, sem controle externo) capazes de reconhecer bases de pouso por visão, transportar carga, interagir com humanos via gestos e navegar em ambientes confinados. O AsiMAV é a resposta do NERo/UFV a esse desafio, montado por uma equipe majoritariamente sem experiência prévia em sistemas voadores.",
-        "n_construido": "O que foi construído",
-        "n_construido_body": "Projeto em estágio inicial, ainda na Fase 1 da competição. A arquitetura planejada usa ROS2 e Gazebo para simulação, pyparrot para controle do drone real (Bebop 2), e OpenCV para visão computacional. Como capitão, sou o principal responsável pelo software, desenvolvimento e testes do projeto.",
+        "n_contexto_body": "A Flying Robots League da Competição Brasileira de Robótica exige que o drone identifique plataformas de pouso, navegue entre alvos, pouse com precisão e responda a gestos humanos. Tudo isso acontece em ambiente interno, onde não há GPS para informar a posição.\n\nComo capitão, coordeno o desenvolvimento da equipe e trabalho diretamente na arquitetura de software, no controle de voo, na localização, na navegação e nos testes com o Bebop 2.",
+        "n_construido": "Desenvolvimento técnico",
+        "n_construido_body": "Integramos o drone físico ao ambiente de simulação no Gazebo. As interfaces de controle permitem desenvolver algoritmos em simulação e depois testá-los no Bebop 2.\n\nCriamos componentes de odometria que estimam a posição relativa a partir da velocidade e orientação medidas pelos sensores do drone. Um mapa virtual mostra o percurso realizado, trajetórias planejadas e locais de pouso. Módulos de visão computacional detectam as plataformas e apoiam a execução das missões.\n\nTambém desenvolvemos um controle experimental por gestos. Ele interpreta movimentos dos braços e os transforma em comandos direcionais para o drone.",
+        "n_localizacao": "Desafio de localização",
+        "n_localizacao_body": "Sem GPS, pequenos erros de posição se acumulam durante o voo. Nossas medições preliminares indicam um erro potencial de aproximadamente 5 cm por metro percorrido, o que dificulta a navegação em distâncias maiores.\n\nProjetamos usar as plataformas de pouso reconhecidas pela câmera como referências para corrigir a estimativa de posição. Também estudamos triangulação visual quando duas plataformas aparecem ao mesmo tempo. Neste momento, ajustamos os controladores de trajetória, a detecção visual e a resposta à inércia do drone, inclusive durante a interação por gestos.",
         "n_hardware": "Hardware",
-        "n_hardware_body": "Drone Parrot Bebop 2."
-      },
-      "capybot": {
-        "title": "Capybot",
-        "description": "Robô de recepção social estacionário com design inspirado em capivara, usando LLM local e STT/TTS para interação natural com visitantes.",
-        "highlights": [],
-        "n_intro": "Robô de recepção social estacionário com design inspirado em capivara, usando LLM local e STT/TTS para interação natural com visitantes.",
-        "n_resultado": "Resultado",
-        "n_resultado_body": "Arquitetura da MVP1 totalmente fechada e validada: pipeline de voz (VAD → STT → LLM → TTS), reconhecimento facial e RAG local definidos ponta a ponta. Seleção final do modelo LLM ainda pendente de benchmark de latência e uso de RAM na Raspberry Pi 5.",
-        "n_contexto": "Contexto",
-        "n_contexto_body": "Primeiro de três projetos progressivos do Projeto R2D2 (NERo/UFV), servindo como prova de conceito de interação humano-robô 100% local, sem dependência de cloud, antes de escalar para robótica móvel (Sentinel-X) e sistemas de resposta ativa (Aegis). O desafio central é rodar percepção multimodal (voz, visão, LLM) com restrição de hardware embarcado, mantendo baixa latência de resposta.",
-        "n_construido": "O que foi construído",
-        "n_construido_body": "Pipeline de voz com detecção de atividade (silero-vad) e transcrição (faster-whisper) alimentando um classificador de intenção (sentence-transformers) rodando em paralelo ao LLM via asyncio.gather, reduzindo a latência percebida. Reconhecimento facial via InsightFace (buffalo_sc). Contexto e memória via RAG com sqlite-vec, escolhido sobre ChromaDB por ter overhead menor em ambiente embarcado. Modelos de visão multimodal carregados e descarregados sequencialmente para conter o uso de RAM na RPi 5. Saída de voz via Piper TTS; estados visuais do LCD pré-renderizados estaticamente via pygame para evitar o custo de renderização em tempo real. Controle de servos via ESP32, comunicando com a RPi 5 por WebSocket. Liderança técnica das decisões de arquitetura junto com o Cauan, como organizadores do NERo.",
-        "n_hardware": "Hardware",
-        "n_hardware_body": "Raspberry Pi 5 (8GB), ESP32, servos e display LCD de 3,5 polegadas."
+        "n_hardware_body": "O Parrot Bebop 2 é a plataforma de testes físicos. O Gazebo reproduz o ambiente de voo para desenvolver e comparar o comportamento dos algoritmos antes de cada teste real.",
+        "role": "Capitão da equipe. Coordeno o desenvolvimento e atuo em software, controle, localização e testes de voo.",
+        "image_captions": [
+          "Identidade da equipe AsiMAV",
+          "Marca da equipe"
+        ]
       },
       "fluxo": {
         "title": "Fluxo",
-        "description": "Plataforma web de inteligência operacional para restaurantes em cidades com demanda de eventos: mede fila e serviço em tempo real e converte sobrecarga em R$ perdido antes que aconteça.",
+        "description": "Painel em tempo real para restaurantes enxergarem filas, atrasos e capacidade de atendimento antes que o problema chegue ao cliente.",
         "highlights": [],
-        "n_intro": "Plataforma web de inteligência operacional para restaurantes em cidades com demanda de eventos: mede fila e serviço em tempo real e converte sobrecarga em R$ perdido antes que aconteça.",
+        "n_intro": "O Fluxo transforma os acontecimentos do salão em decisões simples para a equipe: onde há espera, qual mesa precisa de atenção e quando a operação está perto do limite.",
         "n_resultado": "Resultado",
-        "n_resultado_body": "3º lugar no Hackathon Abrasel, organizado pelo TecnoPARQ, realizado de 21 a 23 de agosto de 2026 em Viçosa, MG.",
+        "n_resultado_body": "O protótipo funcional conquistou o 3º lugar no Hackathon Abrasel, organizado pelo TecnoPARQ em Viçosa, de 21 a 23 de agosto de 2026. A equipe demonstrou o ciclo de atendimento, o painel operacional e as recomendações em tempo real.",
         "n_contexto": "Contexto",
-        "n_contexto_body": "Viçosa é uma cidade universitária cujo comércio vive de picos de demanda ligados a eventos. Só a Semana do Fazendeiro atrai cerca de 134 mil visitantes em 9 dias (mais de 42 mil só no primeiro fim de semana), mas os restaurantes locais ainda dimensionam equipe e estoque no olho. O problema não é falta de previsão para a cidade, é que nenhum restaurante mede a própria operação em tempo real: 89% dos empresários do setor relatam dificuldade para contratar mão de obra qualificada (ABRASEL/Panrotas, 2024), 40% dos clientes desistem da fila após 15 minutos sem estimativa de espera (Sebrae/WiFire, 2025), e 62,7% dos estabelecimentos do setor fecham em até 5 anos (IBGE, 2024). Ferramentas enterprise como Toast ou Restaurant365 custam a partir de R$ 2.500/mês por unidade, fora do alcance de um restaurante pequeno ou médio.",
+        "n_contexto_body": "Em períodos de evento, a demanda dos restaurantes de Viçosa muda rapidamente. Sem medir o que acontece no salão, é difícil saber se a fila está crescendo, se o atendimento vai atrasar ou onde reforçar a equipe. Criamos o Fluxo para dar essa visão a negócios que já usam celulares e tablets comuns.",
         "n_construido": "O que foi construído",
-        "n_construido_body": "Fluxo é uma plataforma web em tempo real onde a equipe registra o ciclo completo do cliente (fila, mesa, pedido, entrega) em telas simples de 1-2 toques, sem hardware novo no bolso de ninguém. Um motor de decisão puro no backend transforma esses eventos em métricas reais de teoria de filas: λ/μ (taxas de chegada e atendimento via EWMA sobre eventos ao vivo, não modeladas nem estimadas), Wq (espera medida de verdade), projeção de sobrecarga via Erlang C, e conversão direta em R$ em risco. Toda decisão (cor, tempo estimado, recomendação normal/atenção/urgente) é calculada uma vez no backend e distribuída por WebSocket como snapshot completo para cada tela: dashboard, tablet do cliente e os dois celulares do painel operacional são apenas renderizadores finos dessa mesma verdade.",
+        "n_construido_body": "A equipe registra, em poucos toques, a chegada do cliente, a mesa, o pedido e a entrega. O sistema reúne esses eventos em um painel compartilhado, calcula tempos de espera e sinaliza situações que pedem atenção.\n\nNo backend em FastAPI, o motor calcula taxas de chegada e atendimento a partir dos eventos reais, suavizadas por EWMA, e usa teoria das filas, incluindo Erlang C, para projetar sobrecarga. Um snapshot com estimativas e recomendações segue por WebSocket para o dashboard, o tablet da mesa e os celulares da operação.",
         "n_hardware": "Hardware",
-        "n_hardware_body": "Um suporte de tablet foi cortado a laser para a view do cliente na mesa (prisma triangular, paleta marrom café + terracota, com botão fixo \"Chamar garçom\"). O painel operacional que cobre as 4 categorias de urgência para a equipe roda em dois celulares comuns via web, sem fabricação nenhuma."
+        "n_hardware_body": "A experiência do cliente ganhou um suporte de tablet cortado a laser, com botão para chamar o garçom. O painel da equipe roda no navegador de celulares comuns, sem equipamento dedicado.",
+        "role": "Desenvolvimento do produto e da lógica operacional durante o hackathon, junto à equipe.",
+        "image_captions": [
+          "Equipe do Fluxo recebendo o 3º lugar no Hackathon Abrasel",
+          "Equipe do Fluxo com o protótipo apresentado no hackathon"
+        ]
       },
       "neroSite": {
         "title": "Website do NERo",
-        "description": "Site institucional do NERo UFV, atualmente em desenvolvimento.",
-        "highlights": []
+        "description": "Site institucional em desenvolvimento para dar aos projetos, equipes e pesquisas do NERo uma apresentação clara e acessível.",
+        "highlights": [],
+        "role": "Desenvolvimento full stack da presença web do laboratório, com Vue e FastAPI.",
+        "n_intro": "O trabalho no laboratório também precisa ser compreensível fora dele. O site do NERo está sendo desenvolvido para apresentar quem faz robótica na UFV e o que cada equipe constrói.",
+        "n_resultado": "Estágio atual",
+        "n_resultado_body": "O site está em desenvolvimento. A proposta é reunir projetos, equipes e informações do laboratório em uma navegação que sirva tanto a futuros estudantes quanto a parceiros e visitantes.",
+        "n_contexto_body": "Projetos de robótica combinam software, eletrônica e pesquisa, mas essa variedade nem sempre é fácil de explicar em uma página. O site precisa dar contexto antes de entrar nos detalhes técnicos e manter as informações organizadas conforme o laboratório evolui.",
+        "n_construido_body": "Atuo na implementação da interface em Vue e da camada de serviços em FastAPI. O foco é criar uma estrutura de conteúdo fácil de atualizar, com páginas claras para o laboratório e seus projetos. As funcionalidades e a publicação seguem em desenvolvimento.",
+        "n_contexto": "Por que criar",
+        "n_construido": "O que estou desenvolvendo"
       },
       "robosPlatform": {
         "title": "Robótica // Hub",
-        "description": "Hub não-oficial do curso de Engenharia de Robôs (ERO) da UFV, reunindo em um só lugar o grafo interativo da grade curricular, um archive de materiais de estudo e o calendário de provas e eventos do semestre.",
+        "description": "O lugar onde estudantes de Engenharia de Robôs da UFV consultam a grade, encontram materiais e acompanham provas e prazos.",
         "highlights": [],
-        "n_intro": "Hub não-oficial do curso de Engenharia de Robôs (ERO) da UFV, reunindo em um só lugar o grafo interativo da grade curricular, um archive de materiais de estudo e o calendário de provas e eventos do semestre.",
+        "n_intro": "Criei o Robótica // Hub para transformar informações espalhadas do curso em um ponto de partida útil para a turma.",
         "n_resultado": "Resultado",
-        "n_resultado_body": "A plataforma está completa e no ar. O grafo curricular renderiza as 55 disciplinas do curso com todas as relações de pré-requisito e correquisito, navegável por zoom, pan, busca e minimapa. O Archive já reúne dezenas de materiais de estudo (provas, listas, resumos, slides e livros), organizados por período e por disciplina, sincronizados automaticamente a partir de uma pasta compartilhada no Google Drive. O fluxo de upload permite que qualquer aluno da turma envie múltiplos arquivos, de tipos diferentes, em um único lote, direto para o Drive, sem depender de um formulário manual. O calendário puxa provas, entregas e prazos de uma planilha do Google Sheets mantida pela turma, então fica sempre atualizado sem precisar mexer no código. A ideia é seguir evoluindo aos poucos, adicionando novas funcionalidades conforme a necessidade dos alunos aparecer ao longo dos semestres.",
+        "n_resultado_body": "A plataforma está no ar. O grafo mostra as 55 disciplinas e suas dependências; o acervo reúne materiais de estudo por período e disciplina; o calendário acompanha provas, entregas e eventos da turma.",
         "n_contexto": "Contexto",
-        "n_contexto_body": "O curso de Engenharia de Robôs da UFV não tinha, até então, um espaço central onde os alunos pudessem visualizar de forma clara a estrutura curricular (quais disciplinas dependem de quais, em que período cursar cada uma), nem um lugar único para reunir e compartilhar o material de estudo produzido pela própria turma ao longo dos períodos. As informações ficavam espalhadas entre grupos de WhatsApp, pastas soltas de Drive e a grade em PDF da universidade. Esse projeto nasceu como iniciativa pessoal, sem vínculo institucional com o NERo, para resolver esse problema de forma simples e visual.",
+        "n_contexto_body": "Antes, grade, materiais e datas viviam em PDFs, grupos de mensagens e pastas soltas. Era difícil descobrir o que cursar depois, achar uma lista antiga ou conferir um prazo. A iniciativa é pessoal e não representa oficialmente o NERo ou a UFV.",
         "n_construido": "O que foi construído",
-        "n_construido_body": "O Robótica // Hub é uma SPA construída em Vue 3, com um sistema de rotas próprio e minimalista (sem vue-router, por conflito de dependências com a versão beta do Vue usada no projeto), cobrindo cinco páginas principais. O Grafo é um canvas interativo que desenha as 55 disciplinas do curso como nós conectados por suas dependências de pré-requisito e correquisito, com zoom, pan, busca por disciplina e um minimapa para orientação em currículos grandes. O Archive é um repositório de materiais de estudo organizado por período e por tipo (provas, listas, resumos, slides, livros), com dados sincronizados automaticamente de uma pasta do Google Drive por um script que roda em CI, mantendo o site sempre atualizado sem intervenção manual. O Upload é um formulário protegido por senha de acesso compartilhada, validada inteiramente no servidor por uma função serverless da Vercel e nunca exposta no bundle do navegador, que autentica via OAuth com a conta Google dona da pasta e gera uma URL de resumable upload para o próprio navegador enviar o arquivo direto ao Google Drive, contornando o limite de payload das funções serverless, com suporte a múltiplos arquivos e tipos de material diferentes em um único envio. O Calendário carrega eventos do semestre (provas, entregas, prazos) dinamicamente de uma planilha do Google Sheets publicada como CSV, permitindo à turma manter o calendário atualizado sem depender de um deploy. E os Links reúnem recursos e serviços úteis da UFV para os alunos do curso. Fui responsável pelo projeto, do design e da arquitetura até o desenvolvimento e a publicação."
+        "n_construido_body": "Desenvolvi uma aplicação em Vue 3 com grafo curricular navegável por zoom, busca e minimapa. O acervo sincroniza arquivos de uma pasta compartilhada no Google Drive; o envio permite subir vários materiais direto para o Drive, com a autorização validada no servidor.\n\nO calendário lê uma planilha mantida pela turma, então novas datas aparecem sem alteração no código. Fui responsável pelo design, arquitetura, implementação e publicação.",
+        "role": "Iniciativa própria: design, arquitetura, desenvolvimento e publicação.",
+        "image_captions": [
+          "Página inicial do Robótica // Hub",
+          "Grafo interativo da grade curricular"
+        ]
       },
       "calouros": {
         "title": "Maratona SI UFV",
-        "description": "Disputamos a Maratona SI, competição de programação da Semana da Informática (UFV), e ficamos com o 3º melhor time entre os calouros.",
-        "highlights": []
+        "description": "Nossa equipe alcançou o 3º lugar entre os calouros na Maratona SI da Semana da Informática da UFV.",
+        "highlights": [],
+        "role": "Resolução de problemas de programação em equipe, sob tempo limitado.",
+        "image_captions": [
+          "Equipe na Maratona SI da UFV"
+        ]
       },
       "terrasafe": {
         "title": "TerraSafe",
-        "description": "Rede de sensores IoT de baixo custo para monitoramento de umidade do solo em encostas, desenvolvida durante o SmartCamp Cidades Inteligentes, bootcamp de 13–14 de junho de 2026 no TecnoParque UFV.",
+        "description": "Protótipo de sensores de baixo custo que acompanham condições do solo em encostas e enviam alertas para um mapa em tempo real.",
         "highlights": [],
-        "n_intro": "Rede de sensores IoT de baixo custo para monitoramento de umidade do solo em encostas, desenvolvida durante o SmartCamp Cidades Inteligentes, bootcamp de 13–14 de junho de 2026 no TecnoParque UFV.",
+        "n_intro": "A chuva é só parte da história: o TerraSafe foi criado para medir também como o solo de uma encosta está reagindo a ela.",
         "n_resultado": "Resultado",
-        "n_resultado_body": "1º lugar no SmartCamp Cidades Inteligentes, bootcamp organizado pelo projeto Viçosa SMART em parceria com o LabMAKER e a VUEI/UFV. Premiação de R$ 2.000.",
+        "n_resultado_body": "O protótipo conquistou o 1º lugar no SmartCamp Cidades Inteligentes, em junho de 2026. Na apresentação, de um a três sensores demonstraram o caminho completo da leitura até o alerta.",
         "n_contexto": "Contexto",
-        "n_contexto_body": "A Zona da Mata mineira registrou 72 mortes confirmadas em deslizamentos em fevereiro de 2026, com 5.500 pessoas deslocadas e 752 mm de chuva acumulada em um mês em Juiz de Fora, recorde do INMET. Sistemas de previsão como os do INMET indicam quando vai chover, mas não indicam quando o solo está saturado o suficiente para ceder. 50 mm de chuva em solo seco não tem o mesmo efeito que 50 mm em solo já saturado, e essa diferença não é capturada por um alerta de chuva.",
+        "n_contexto_body": "Uma previsão de chuva não mostra, sozinha, quanto de água uma encosta já absorveu. Medir as condições locais pode dar mais contexto a quem acompanha áreas de risco. O TerraSafe explora uma rede acessível de pontos de medição para esse fim; ainda é um protótipo, não um sistema de alerta implantado.",
         "n_construido": "O que foi construído",
-        "n_construido_body": "O TerraSafe monitora diretamente a condição do solo, em vez de só prever chuva. Cada sonda fica parcialmente enterrada na encosta (~80 cm) e mede umidade do solo, inclinação (via acelerômetro), temperatura e umidade do ar. As leituras saem da sonda por uma rede mesh ESP-NOW, sem depender de roteador Wi-Fi, chegam a um hub local e seguem via serial até um backend em FastAPI, que atualiza um mapa em tempo real e gera alertas quando a saturação ultrapassa o limiar configurado.",
+        "n_construido_body": "Cada unidade mede umidade do solo, inclinação, temperatura e umidade do ar. Os dados passam entre sensores por ESP-NOW, chegam a um concentrador local e seguem para um backend em FastAPI, que atualiza um mapa e destaca leituras acima dos limites definidos.\n\nA arquitetura evita exigir Wi-Fi individual em cada ponto de medição. No protótipo, usamos ESP32, sensor capacitivo de umidade, DHT11, MPU6050 e bateria 18650.",
         "n_hardware": "Hardware",
-        "n_hardware_body": "ESP32 como microcontrolador, sensor capacitivo de umidade do solo, DHT11 para temperatura/umidade do ar, MPU6050 para inclinação, e bateria Li-Ion 18650 para autonomia de campo. Custo por unidade: R$ 60–80.",
+        "n_hardware_body": "Uma unidade reúne ESP32, sensores ambientais e bateria recarregável em uma sonda para instalação parcial no solo. O custo estimado do protótipo ficou entre R$ 60 e R$ 80 por unidade.",
         "n_escala": "Protótipo e escala planejada",
-        "n_escala_body": "O protótipo apresentado no hackathon rodou com 1 a 3 sensores, cobrindo o fluxo completo do sensor ao alerta. A proposta de evolução prevê um piloto municipal com 50 a 200 sensores nos pontos mapeados pela Defesa Civil de Viçosa, escala regional com 1.000 a 5.000 sensores integrados ao SGB e ao CEMADEN, e eventualmente um modelo de SaaS para municípios."
+        "n_escala_body": "A ideia de um piloto municipal e de uma rede maior ainda depende de validação em campo, calibração dos sensores e parceria com os órgãos responsáveis. Por enquanto, os resultados comprovam o fluxo técnico em pequena escala.",
+        "role": "Desenvolvimento do protótipo de sensoriamento e da plataforma de visualização com a equipe.",
+        "image_captions": [
+          "Apresentação do TerraSafe no SmartCamp",
+          "Equipe do projeto no evento",
+          "Desenho da sonda de sensoriamento"
+        ]
+      },
+      "r2d2": {
+        "title": "R2D2: robô autônomo com IA",
+        "description": "Robô inspirado no R2-D2 que vai combinar conversa, visão computacional e navegação autônoma. Lidero uma equipe de 15 estudantes do conceito ao protótipo físico.",
+        "role": "Liderança de 15 estudantes: arquitetura de software, planejamento técnico, divisão de tarefas, mentoria e integração dos sistemas.",
+        "n_intro": "Estamos desenvolvendo um robô capaz de perceber o ambiente, reconhecer pessoas, conversar e se deslocar sem precisar de um piloto. O projeto vai do desenho mecânico à inteligência embarcada.",
+        "n_resultado": "Onde estamos",
+        "n_resultado_body": "O R2D2 está em desenvolvimento. A equipe trabalha no planejamento da arquitetura, na organização dos módulos e nas bases de software e hardware. A integração em um protótipo físico completo é o objetivo de longo prazo; as capacidades descritas abaixo ainda estão em desenvolvimento ou planejadas.",
+        "n_contexto": "A ideia",
+        "n_contexto_body": "O personagem de Star Wars inspira a aparência do R2D2. Estamos projetando um robô funcional que navegue e interaja de forma autônoma. O trabalho reúne projeto mecânico, eletrônica, percepção, inteligência artificial e navegação em uma mesma plataforma.\n\nCoordeno uma equipe multidisciplinar de 15 estudantes no NERo/UFV. Defino marcos técnicos, distribuo tarefas, reviso implementações e cuido para que peças desenvolvidas separadamente possam funcionar juntas.",
+        "n_construido": "Como estamos construindo",
+        "n_construido_body": "O corpo e os mecanismos serão modelados em CAD, incluindo motores, sensores e a disposição interna dos componentes. Antes de levar algoritmos ao robô físico, a equipe pretende representar o sistema em ROS 2, URDF, RViz e Gazebo para testar movimentos, sensores e comportamento em simulação.\n\nEssa divisão em módulos permite trabalhar em mecânica, controle, percepção e interação em paralelo, com interfaces claras entre as partes.",
+        "n_interacao": "Conversa e percepção",
+        "n_interacao_body": "Planejamos combinar reconhecimento de fala, síntese de voz e modelos de linguagem para que o robô entenda comandos e converse de modo contextual. Câmeras e outros sensores devem apoiar reconhecimento de pessoas e objetos.\n\nA seleção dos modelos e a forma de executá-los no hardware ainda precisam de testes. A meta é que essas capacidades ajudem o robô a interpretar o que acontece ao redor e escolher ações apropriadas.",
+        "n_navegacao": "Navegação autônoma",
+        "n_navegacao_body": "Para circular em ambientes internos, o robô deverá localizar-se, mapear o espaço e planejar rotas sem controle humano constante. A equipe estuda ROS 2, LiDAR, câmera de profundidade, SLAM, desvio de obstáculos e planejamento de trajetórias. Essas capacidades serão validadas em simulação antes da integração física.",
+        "n_plataformas": "Projetos que alimentam o R2D2",
+        "n_plataformas_body": "O Capybot explora interação humano-robô: reconhecimento facial, fala e conversa com IA. O Sentinel-X estuda robótica móvel: sensores, mapeamento e navegação. O aprendizado e os módulos desses dois projetos devem servir de base para a inteligência, a percepção e a mobilidade do R2D2.\n\nA arquitetura prevê tecnologias como Python, C++, OpenCV, Whisper, Piper TTS, Raspberry Pi e ESP32. As escolhas finais dependem dos testes e da integração entre as equipes.",
+        "image_captions": [
+          "Identidade visual do projeto R2D2"
+        ]
       }
-    }
+    },
+    "role_label": "Minha atuação:"
   },
   "contact": {
     "label": "04, Contato",

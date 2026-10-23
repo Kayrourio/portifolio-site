@@ -1,20 +1,21 @@
 <template>
   <article
-    class="project-card"
+    :class="['project-card', { 'project-card--selected': selected }]"
     tabindex="0"
     role="button"
+    :aria-pressed="selected"
     @click="$emit('open')"
     @keydown.enter="$emit('open')"
     @keydown.space.prevent="$emit('open')"
   >
     <!-- ── Image area ── -->
-    <div class="card-media">
+    <div class="card-media" :style="heroBackground ? { backgroundColor: heroBackground } : undefined">
       <img
         v-if="images[0]"
         :src="images[0]"
         alt=""
         class="card-media-img"
-        :style="{ objectPosition: heroPosition || 'center 15%' }"
+        :style="{ objectPosition: heroPosition || 'center 15%', objectFit: heroFit || 'cover' }"
       />
       <div v-else class="card-media-placeholder" aria-hidden="true">
         <span class="placeholder-letter">{{ title.charAt(0) }}</span>
@@ -43,17 +44,11 @@
       <p class="card-meta">{{ company }} · {{ year }}</p>
       <h3 class="card-title">{{ title }}</h3>
       <p class="card-desc">{{ description }}</p>
+      <p v-if="role" class="card-role"><strong>{{ $t('projects.role_label') }}</strong> {{ role }}</p>
 
-      <div class="card-tech">
-        <SkillBadge
-          v-for="t in tech"
-          :key="t.name"
-          :name="t.name"
-          :icon="t.icon"
-          :color="t.color"
-          :size="38"
-        />
-      </div>
+      <ul class="card-tech" :aria-label="$t('projects.modal_tech')">
+        <li v-for="item in tech" :key="item.name">{{ item.name }}</li>
+      </ul>
 
       <div class="card-footer">
         <span class="card-visibility">
@@ -95,7 +90,6 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import SkillBadge from '@/components/ui/SkillBadge.vue'
 
 const { t } = useI18n()
 
@@ -114,7 +108,11 @@ const props = defineProps({
   awardTitle:  { type: String,  default: null  },
   images:      { type: Array,   default: () => [] },
   tech:        { type: Array,   default: () => [] },
-  heroPosition: { type: String, default: null }
+  heroPosition: { type: String, default: null },
+  heroFit: { type: String, default: null },
+  heroBackground: { type: String, default: null },
+  role: { type: String, default: '' },
+  selected: { type: Boolean, default: false },
 })
 
 const statusLabel = computed(() =>
@@ -143,6 +141,11 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
   border-color: var(--color-primary-muted);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+}
+
+.project-card--selected {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary-muted);
 }
 
 .project-card:focus-visible {
@@ -319,17 +322,39 @@ const awardLabel = computed(() => (props.award ? t(props.award) : null))
   line-height: var(--leading-relaxed);
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.card-role {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  line-height: var(--leading-relaxed);
+}
+
+.card-role strong {
+  color: var(--color-primary-light);
+  font-weight: var(--font-semibold);
 }
 
 .card-tech {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
   gap: var(--space-2);
-  margin-top: var(--space-1);
+  padding: 0;
+  margin: var(--space-2) 0 0;
+  list-style: none;
+}
+
+.card-tech li {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
 }
 
 /* ── Footer ── */

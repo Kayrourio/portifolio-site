@@ -1,7 +1,8 @@
 <template>
   <div class="badge-wrap">
     <div class="badge">
-      <div class="icon" v-html="svgContent" aria-hidden="true" />
+      <div v-if="svgContent" class="icon" v-html="svgContent" aria-hidden="true" />
+      <span v-else class="icon-fallback" aria-hidden="true">{{ name.slice(0, 2) }}</span>
     </div>
     <span class="label">{{ name }}</span>
   </div>
@@ -24,6 +25,7 @@ const svgContent = ref('')
 onMounted(async () => {
   try {
     const res = await fetch(props.icon)
+    if (!res.ok) throw new Error(`Failed to load ${props.name} icon`)
     const text = await res.text()
     svgContent.value = text
       .replace('<svg ', '<svg fill="currentColor" ')
@@ -90,6 +92,13 @@ onMounted(async () => {
 .icon :deep(svg) {
   width: v-bind("iconSize + 'px'");
   height: v-bind("iconSize + 'px'");
+}
+
+.icon-fallback {
+  color: v-bind(color);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
 }
 
 .label {

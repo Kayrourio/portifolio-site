@@ -1,18 +1,19 @@
 <template>
-  <Teleport to="body">
+  <Teleport to="body" :disabled="inline">
     <Transition name="modal">
       <div
         v-if="project"
-        class="modal-backdrop"
-        role="dialog"
-        aria-modal="true"
+        :class="['modal-backdrop', { 'modal-backdrop--inline': inline }]"
+        :role="inline ? 'region' : 'dialog'"
+        :aria-modal="inline ? undefined : 'true'"
         :aria-labelledby="`modal-title-${project.key}`"
-        @click.self="$emit('close')"
+        @click.self="!inline && $emit('close')"
       >
-        <div class="modal-panel" ref="panelRef" tabindex="-1">
+        <div class="modal-panel" ref="panelRef" :tabindex="inline ? 0 : -1">
 
           <!-- Close -->
           <button
+            v-if="!inline"
             class="modal-close"
             @click="$emit('close')"
             :aria-label="$t('projects.modal_close')"
@@ -24,13 +25,13 @@
           </button>
 
           <!-- ── Media ── -->
-          <div class="modal-media" aria-hidden="true">
+          <div class="modal-media" :style="project.heroBackground ? { backgroundColor: project.heroBackground } : undefined">
             <template v-if="project.isNarrative && project.images && project.images[0]">
               <img
                 :src="project.images[0]"
-                alt=""
+                :alt="imageCaptions[0] || $t(`projects.list.${project.key}.title`)"
                 class="modal-hero-img"
-                :style="{ objectPosition: project.heroPosition || 'center 15%' }"
+                :style="{ objectPosition: project.heroPosition || 'center 15%', objectFit: project.heroFit || 'cover' }"
               />
             </template>
             <template v-else-if="!project.isNarrative && project.images && project.images.length">
@@ -39,7 +40,7 @@
                   v-for="(src, i) in project.images"
                   :key="i"
                   :src="src"
-                  alt=""
+                  :alt="imageCaptions[i] || $t(`projects.list.${project.key}.title`)"
                   class="modal-photo"
                 />
               </div>
@@ -100,24 +101,20 @@
                 </div>
               </div>
               <p class="narrative-subtitle">{{ $t(`projects.list.${project.key}.n_intro`) }}</p>
+              <p class="narrative-role"><strong>{{ $t('projects.role_label') }}</strong> {{ $t(`projects.list.${project.key}.role`) }}</p>
             </header>
 
-            <template v-for="sec in project.narrativeSections" :key="sec">
-              <!-- Full-width image break -->
-              <div v-if="sec === 'img_group'" class="narrative-img-break" aria-hidden="true">
-                <img :src="project.images[1]" alt="" class="narrative-break-img" />
-              </div>
+            <div v-if="project.images?.length > 1" class="narrative-gallery">
+              <figure v-for="(src, index) in project.images.slice(1)" :key="src" class="narrative-figure" :class="{ 'narrative-figure--logo': ['r2d2', 'asimav'].includes(project.key) }">
+                <img :src="src" :alt="imageCaptions[index + 1] || $t(`projects.list.${project.key}.title`)" loading="lazy" />
+                <figcaption v-if="imageCaptions[index + 1]">{{ imageCaptions[index + 1] }}</figcaption>
+              </figure>
+            </div>
 
-              <!-- Text section -->
-              <section v-else class="narrative-section">
+            <template v-for="sec in project.narrativeSections" :key="sec">
+              <section class="narrative-section" :class="{ 'narrative-section--result': sec === 'resultado' }">
                 <h3 class="narrative-h3">{{ $t(`projects.list.${project.key}.n_${sec}`) }}</h3>
-                <img
-                  v-if="sec === 'hardware' && project.images && project.images[2]"
-                  :src="project.images[2]"
-                  alt=""
-                  class="narrative-cad-img"
-                />
-                <p class="narrative-body">{{ $t(`projects.list.${project.key}.n_${sec}_body`) }}</p>
+                <p v-for="(paragraph, index) in getParagraphs(sec)" :key="index" class="narrative-body">{{ paragraph }}</p>
                 <div v-if="sec === 'resultado'" class="narrative-inline-links">
                   <a
                     v-if="!project.isPrivate && project.link"
@@ -286,7 +283,8 @@ import SkillBadge from '@/components/ui/SkillBadge.vue'
 const { t, tm } = useI18n()
 
 const props = defineProps({
-  project: { type: Object, default: null }
+  project: { type: Object, default: null },
+  inline: { type: Boolean, default: false },
 })
 
 const emit = defineEmits(['close'])
@@ -315,14 +313,31 @@ const highlights = computed(() => {
   return Array.isArray(raw) ? raw : []
 })
 
+const imageCaptions = computed(() => {
+  if (!props.project) return []
+  const captions = tm(`projects.list.${props.project.key}.image_captions`)
+  return Array.isArray(captions) ? captions : []
+})
+
+function getParagraphs(section) {
+  if (!props.project) return []
+  return t(`projects.list.${props.project.key}.n_${section}_body`)
+    .split(/\n\n+/)
+    .filter(Boolean)
+}
+
 function onKeyDown(e) {
   if (e.key === 'Escape') emit('close')
 }
 
 watch(
-  () => props.project,
-  (val) => {
-    if (val) {
+  [() => props.project, () => props.inline],
+  ([project, inline]) => {
+    if (inline) {
+      panelRef.value?.scrollTo({ top: 0 })
+      return
+    }
+    if (project) {
       document.body.style.overflow = 'hidden'
       document.addEventListener('keydown', onKeyDown)
       setTimeout(() => panelRef.value?.focus(), 50)
@@ -335,8 +350,10 @@ watch(
 )
 
 onUnmounted(() => {
-  document.body.style.overflow = ''
-  document.removeEventListener('keydown', onKeyDown)
+  if (!props.inline) {
+    document.body.style.overflow = ''
+    document.removeEventListener('keydown', onKeyDown)
+  }
 })
 </script>
 
@@ -354,6 +371,36 @@ onUnmounted(() => {
   padding: var(--space-4);
 }
 
+.modal-backdrop--inline {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  background: none;
+  backdrop-filter: none;
+}
+
+.modal-backdrop--inline .modal-panel {
+  max-height: calc(100vh - 96px);
+  max-width: none;
+  box-shadow: none;
+  overscroll-behavior: contain;
+}
+
+.modal-backdrop--inline .modal-panel:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.modal-backdrop--inline .modal-media {
+  height: 164px;
+}
+
+.modal-backdrop--inline .modal-content {
+  padding: var(--space-6);
+}
+
 /* ── Panel ── */
 .modal-panel {
   position: relative;
@@ -361,7 +408,7 @@ onUnmounted(() => {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
   width: 100%;
-  max-width: 720px;
+  max-width: 880px;
   max-height: 92vh;
   overflow-y: auto;
   outline: none;
@@ -401,7 +448,7 @@ onUnmounted(() => {
 /* ── Media ── */
 .modal-media {
   position: relative;
-  height: 220px;
+  height: clamp(220px, 34vh, 340px);
   background: var(--color-bg-deep);
   border-bottom: 1px solid var(--color-border-subtle);
   overflow: hidden;
@@ -457,7 +504,7 @@ onUnmounted(() => {
 
 /* ── Content ── */
 .modal-content {
-  padding: var(--space-6) var(--space-8) var(--space-8);
+  padding: var(--space-8) clamp(var(--space-5), 6vw, var(--space-16)) var(--space-10);
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
@@ -467,6 +514,8 @@ onUnmounted(() => {
 .modal-header {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   gap: var(--space-3);
 }
 
@@ -825,10 +874,55 @@ onUnmounted(() => {
 }
 
 .narrative-subtitle {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
   margin: 0;
+}
+
+.narrative-role {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.narrative-role strong {
+  color: var(--color-primary-light);
+  font-weight: var(--font-semibold);
+}
+
+.narrative-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--space-3);
+}
+
+.narrative-figure {
+  margin: 0;
+  background: var(--color-bg-deep);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.narrative-figure img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.narrative-figure--logo img {
+  object-fit: contain;
+  padding: var(--space-6);
+}
+
+.narrative-figure figcaption {
+  padding: var(--space-3);
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
 }
 
 .narrative-inline-links {
@@ -888,6 +982,13 @@ onUnmounted(() => {
   gap: var(--space-4);
 }
 
+.narrative-section--result {
+  padding: var(--space-6);
+  background: var(--color-primary-muted);
+  border: 1px solid rgba(176, 137, 255, 0.25);
+  border-radius: var(--radius-lg);
+}
+
 .narrative-h3 {
   font-family: var(--font-display);
   font-size: var(--text-lg);
@@ -900,8 +1001,9 @@ onUnmounted(() => {
 .narrative-body {
   font-size: var(--text-base);
   color: var(--color-text-secondary);
-  line-height: var(--leading-relaxed);
+  line-height: 1.75;
   margin: 0;
+  max-width: 68ch;
 }
 
 .narrative-award-img {
