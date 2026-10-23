@@ -279,7 +279,7 @@ const tabs = computed(() => [
   { key: 'work', count: allProjects.filter((p) => p.type === 'work').length },
 ])
 
-const projectOrder = ['r2d2', 'fluxo', 'asimav', 'tagbot', 'neroSite', 'robosPlatform', 'plataforma', 'terrasafe', 'calouros']
+const projectOrder = ['terrasafe', 'asimav', 'r2d2', 'fluxo', 'tagbot', 'neroSite', 'robosPlatform', 'plataforma', 'calouros']
 const filteredProjects = computed(() =>
   allProjects
     .filter((project) => activeTab.value === 'all' || project.type === activeTab.value)
